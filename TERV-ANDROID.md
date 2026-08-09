@@ -1,7 +1,7 @@
 # Terv — IT Részvény Monitor natív Android alkalmazás
 
 > Készült: 2026-08-09, Claude Fable 5 modellel. Előzmények: [TERV.md](TERV.md), [TERV-ETF.md](TERV-ETF.md), [TERV-AUTH.md](TERV-AUTH.md), [TERV-PORTFOLIO.md](TERV-PORTFOLIO.md), [TERV-RESZLETEK.md](TERV-RESZLETEK.md), [TERV-EU-ETF.md](TERV-EU-ETF.md), [README.md](README.md).
-> Állapot: **5. fázis kész** (2026-08-09; a 2. fázis minden ellenőrzése lezárva) — a fázisok a szokásos módon egyenként indulnak („Mehet a X. fázis").
+> Állapot: **6. fázis kész** (2026-08-09) — a fázisok a szokásos módon egyenként indulnak („Mehet a X. fázis").
 
 ## Kontextus és cél
 
@@ -327,8 +327,27 @@ aktuális preset-ablakra); identitás-fejléc chip-ekkel (IPO: `first_trade_date
 „Elavult lehet": 3+ napos utolsó adatnap); Frissítés-gomb; hibakártya „Újra" gombbal;
 deviza-választás DataStore-ba mentve; utolsó ticker megjegyzése.
 **Ellenőrzés:** kereszt-ellenőrzés a webbel: azonos ticker/preset/deviza mellett
-minden stat-kártya értéke számjegyre egyezik (NVDA USD-ben, IWDA.AS mindhárom
-devizában, AIAG.L GBp→HUF útvonalon).
+minden stat-kártya értéke számjegyre egyezik (NVDA USD-ben, ~~IWDA.AS~~ **SXR8.DE**
+mindhárom devizában, AIAG.L GBp→HUF útvonalon).
+*(Az IWDA.AS nem felvett ticker — az EUR-jegyzésű kereszt-próbát az SXR8.DE adja.)*
+*(Kész — 2026-08-09: SettingsRepository (DataStore: deviza + utolsó ticker),
+MonitorViewModel (az app.js állapotgépének portja: kiválasztás Job-cancellel,
+preset/felbontás/típus/deviza/volumen, Frissítés sync-prices + cache-kerülő
+újratöltéssel, hibakártya „Újra"-val), MonitorScreen (identitás badge-ekkel és
+IPO/elavult chippel, görgethető eszköztár, 2×3 stat-rács, státuszsor). A minta-
+képernyő törölve. A ticker `color`-ja az EGÉSZ felület akcentje, mint a weben
+a `--accent` CSS-változó.*
+*Az ellenőrzés GÉPI: a `tools/xcheck-web.mjs` a web-app EREDETI js/ moduljait
+futtatja Node-ban ugyanazokra a valós sorokra, a `WebCrossCheckTest` pedig a
+domain-porttal veti össze — 63 eset (3 ticker × 7 preset × 3 deviza) nyers
+számra (1e-12) és formázott szövegre karakterre, plusz az aggregált barok
+mindhárom felbontásban. **Ez fedett fel egy valódi eltérést:** a magyar CLDR
+`minimumGroupingDigits=2` szabálya szerint az ezres elválasztó csak ötjegyű
+egészrésztől jár (a böngésző így ír: `+1464,51%`, `8035,67 HUF`), a JDK
+NumberFormat viszont már négyjegyűnél csoportosít — a Format.kt ezt most
+kézzel kezeli. Emulátoron is igazolva: NVDA/6M/USD és AIAG.L/6M/USD+HUF minden
+kártyája egyezik; deviza-váltás hálózat nélkül; ticker+deviza túléli az
+újraindítást; Frissítés: „Frissítve: AIAG.L — 1 új sor (forrás: yahoo)".)*
 
 ### 7. fázis — Kereső és ticker-műveletek
 

@@ -205,8 +205,12 @@ fun StatCard(
                 StatTone.Neutral -> palette.text
             },
             fontSize = 18.5.sp,
+            lineHeight = 22.sp,
             fontWeight = FontWeight.Bold,
-            maxLines = 1,
+            // Weben egy sor fér ki hat kártyának; mobilon a kétoszlopos rácsban a
+            // hosszú érték („+117,35 HUF (+0,94%)") tördelése olvashatóbb, mint
+            // a levágás — a tartalom ugyanaz marad.
+            maxLines = 2,
             overflow = TextOverflow.Ellipsis,
         )
     }

@@ -15,12 +15,30 @@ class FormatTest {
     fun `formatPriceIn devizajelek - GBp NEM azonos GBP-vel`() {
         assertEquals("181,57 $", Format.formatPriceIn(181.57, "USD"))
         assertEquals("12,30 €", Format.formatPriceIn(12.3, "EUR"))
-        assertEquals("2${NBSP}967,00 p", Format.formatPriceIn(2967.0, "GBp"))
+        assertEquals("2967,00 p", Format.formatPriceIn(2967.0, "GBp"))
         assertEquals("29,67 £", Format.formatPriceIn(29.67, "GBP"))
         // Ismeretlen deviza: maga a kód az utótag (webes viselkedés).
         assertEquals("27${NBSP}763,00 HUF", Format.formatPriceIn(27763.0, "HUF"))
         assertEquals("—", Format.formatPriceIn(null, "USD"))
         assertEquals("—", Format.formatPriceIn(Double.NaN, "USD"))
+    }
+
+    /**
+     * A magyar CLDR minimumGroupingDigits=2: az ezres elválasztó CSAK ötjegyű
+     * egészrésztől jelenik meg. A böngésző ICU-ja így ír, a JDK NumberFormat
+     * viszont már négy jegynél csoportosítana — a webes kereszt-ellenőrzés
+     * (WebCrossCheckTest) ezt az eltérést fedte fel egy +1464,51%-os értéken.
+     */
+    @Test
+    fun `ezres elvalaszto csak otjegyu egeszresztol - mint a bongeszoben`() {
+        assertEquals("+1464,51%", Format.formatPct(1464.51))
+        assertEquals("9999,99 $", Format.formatPriceIn(9999.99, "USD"))
+        assertEquals("10${NBSP}000,00 $", Format.formatPriceIn(10000.0, "USD"))
+        assertEquals("12${NBSP}564,73 HUF", Format.formatPriceIn(12564.73, "HUF"))
+        // A kerekítés a döntés ELŐTT fut: 9999,995 → 10 000,00, tehát csoportosít.
+        assertEquals("10${NBSP}000,00 $", Format.formatPriceIn(9999.995, "USD"))
+        // Negatív oldalon ugyanez a küszöb.
+        assertEquals("-9999,99 $", Format.formatPriceIn(-9999.99, "USD").replace('−', '-'))
     }
 
     @Test

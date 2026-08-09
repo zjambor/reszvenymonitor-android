@@ -1,0 +1,3535 @@
+{
+  "note": "A web-app js/ moduljaival generált várt értékek — ne szerkeszd kézzel (tools/xcheck-web.mjs).",
+  "generatedAt": "2026-08-09T18:53:36.109Z",
+  "webDir": "E:\\CLAUDE\\CODE\\Projects\\IT Reszveny Monitor",
+  "cases": [
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "USD",
+      "preset": "1HET",
+      "rowCount": 902,
+      "from": "2026-07-31",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 223.96,
+        "dayChange": 4.969999999999999,
+        "dayChangePct": 2.269510023288734,
+        "periodChangePct": 11.561643835616442,
+        "periodHigh": 224.76,
+        "periodLow": 194.95,
+        "avgVolume": 130051800
+      },
+      "formatted": {
+        "lastClose": "223,96 $",
+        "dayChange": "+4,97 $ (+2,27%)",
+        "periodChangePct": "+11,56%",
+        "periodHigh": "224,76 $",
+        "periodLow": "194,95 $",
+        "avgVolume": "130,05 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 221.54,
+          "lastHigh": 224.76,
+          "lastLow": 220.66,
+          "lastClose": 223.96,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "USD",
+      "preset": "1M",
+      "rowCount": 902,
+      "from": "2026-07-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 223.96,
+        "dayChange": 4.969999999999999,
+        "dayChangePct": 2.269510023288734,
+        "periodChangePct": 13.72568933123445,
+        "periodHigh": 224.76,
+        "periodLow": 190.01,
+        "avgVolume": 128956145.83333333
+      },
+      "formatted": {
+        "lastClose": "223,96 $",
+        "dayChange": "+4,97 $ (+2,27%)",
+        "periodChangePct": "+13,73%",
+        "periodHigh": "224,76 $",
+        "periodLow": "190,01 $",
+        "avgVolume": "128,96 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 221.54,
+          "lastHigh": 224.76,
+          "lastLow": 220.66,
+          "lastClose": 223.96,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "USD",
+      "preset": "3M",
+      "rowCount": 902,
+      "from": "2026-05-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 223.96,
+        "dayChange": 4.969999999999999,
+        "dayChangePct": 2.269510023288734,
+        "periodChangePct": 5.891252955082746,
+        "periodHigh": 236.54,
+        "periodLow": 189.8,
+        "avgVolume": 151336332.8125
+      },
+      "formatted": {
+        "lastClose": "223,96 $",
+        "dayChange": "+4,97 $ (+2,27%)",
+        "periodChangePct": "+5,89%",
+        "periodHigh": "236,54 $",
+        "periodLow": "189,80 $",
+        "avgVolume": "151,34 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 221.54,
+          "lastHigh": 224.76,
+          "lastLow": 220.66,
+          "lastClose": 223.96,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "USD",
+      "preset": "6M",
+      "rowCount": 902,
+      "from": "2026-02-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 223.96,
+        "dayChange": 4.969999999999999,
+        "dayChangePct": 2.269510023288734,
+        "periodChangePct": 17.84887392127974,
+        "periodHigh": 236.54,
+        "periodLow": 164.27,
+        "avgVolume": 161031739.2
+      },
+      "formatted": {
+        "lastClose": "223,96 $",
+        "dayChange": "+4,97 $ (+2,27%)",
+        "periodChangePct": "+17,85%",
+        "periodHigh": "236,54 $",
+        "periodLow": "164,27 $",
+        "avgVolume": "161,03 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 221.54,
+          "lastHigh": 224.76,
+          "lastLow": 220.66,
+          "lastClose": 223.96,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "USD",
+      "preset": "YTD",
+      "rowCount": 902,
+      "from": "2026-01-01",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 223.96,
+        "dayChange": 4.969999999999999,
+        "dayChangePct": 2.269510023288734,
+        "periodChangePct": 18.591474715382585,
+        "periodHigh": 236.54,
+        "periodLow": 164.27,
+        "avgVolume": 162904552.66666666
+      },
+      "formatted": {
+        "lastClose": "223,96 $",
+        "dayChange": "+4,97 $ (+2,27%)",
+        "periodChangePct": "+18,59%",
+        "periodHigh": "236,54 $",
+        "periodLow": "164,27 $",
+        "avgVolume": "162,9 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 221.54,
+          "lastHigh": 224.76,
+          "lastLow": 220.66,
+          "lastClose": 223.96,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "USD",
+      "preset": "1EV",
+      "rowCount": 902,
+      "from": "2025-08-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 223.96,
+        "dayChange": 4.969999999999999,
+        "dayChangePct": 2.269510023288734,
+        "periodChangePct": 23.89223875643082,
+        "periodHigh": 236.54,
+        "periodLow": 164.07,
+        "avgVolume": 171069941.66666666
+      },
+      "formatted": {
+        "lastClose": "223,96 $",
+        "dayChange": "+4,97 $ (+2,27%)",
+        "periodChangePct": "+23,89%",
+        "periodHigh": "236,54 $",
+        "periodLow": "164,07 $",
+        "avgVolume": "171,07 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 221.54,
+          "lastHigh": 224.76,
+          "lastLow": 220.66,
+          "lastClose": 223.96,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "USD",
+      "preset": "MIND",
+      "rowCount": 902,
+      "from": "2023-01-03",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 223.96,
+        "dayChange": 4.969999999999999,
+        "dayChangePct": 2.269510023288734,
+        "periodChangePct": 1464.5127488648272,
+        "periodHigh": 236.54,
+        "periodLow": 14.034,
+        "avgVolume": 324905143.01552105
+      },
+      "formatted": {
+        "lastClose": "223,96 $",
+        "dayChange": "+4,97 $ (+2,27%)",
+        "periodChangePct": "+1464,51%",
+        "periodHigh": "236,54 $",
+        "periodLow": "14,03 $",
+        "avgVolume": "324,91 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 221.54,
+          "lastHigh": 224.76,
+          "lastLow": 220.66,
+          "lastClose": 223.96,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 197.69,
+          "lastHigh": 224.76,
+          "lastLow": 196.85,
+          "lastClose": 223.96,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "EUR",
+      "preset": "1HET",
+      "rowCount": 902,
+      "from": "2026-07-31",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 193.70300362337355,
+        "dayChange": 3.685375124232962,
+        "dayChangePct": 1.9394911689731096,
+        "periodChangePct": 11.190114237941886,
+        "periodHigh": 194.39492362202822,
+        "periodLow": 169.1756540676058,
+        "avgVolume": 130051800
+      },
+      "formatted": {
+        "lastClose": "193,70 €",
+        "dayChange": "+3,69 € (+1,94%)",
+        "periodChangePct": "+11,19%",
+        "periodHigh": "194,39 €",
+        "periodLow": "169,18 €",
+        "avgVolume": "130,05 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 191.60994562744318,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 190.84883362892305,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "EUR",
+      "preset": "1M",
+      "rowCount": 902,
+      "from": "2026-07-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 193.70300362337355,
+        "dayChange": 3.685375124232962,
+        "dayChangePct": 1.9394911689731096,
+        "periodChangePct": 12.169399147099998,
+        "periodHigh": 194.39492362202822,
+        "periodLow": 165.69821586835042,
+        "avgVolume": 128956145.83333333
+      },
+      "formatted": {
+        "lastClose": "193,70 €",
+        "dayChange": "+3,69 € (+1,94%)",
+        "periodChangePct": "+12,17%",
+        "periodHigh": "194,39 €",
+        "periodLow": "165,70 €",
+        "avgVolume": "128,96 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 191.60994562744318,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 190.84883362892305,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "EUR",
+      "preset": "3M",
+      "rowCount": 902,
+      "from": "2026-05-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 193.70300362337355,
+        "dayChange": 3.685375124232962,
+        "dayChangePct": 1.9394911689731096,
+        "periodChangePct": 7.444095045795105,
+        "periodHigh": 202.82830692170242,
+        "periodLow": 165.69821586835042,
+        "avgVolume": 151336332.8125
+      },
+      "formatted": {
+        "lastClose": "193,70 €",
+        "dayChange": "+3,69 € (+1,94%)",
+        "periodChangePct": "+7,44%",
+        "periodHigh": "202,83 €",
+        "periodLow": "165,70 €",
+        "avgVolume": "151,34 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 191.60994562744318,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 190.84883362892305,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "EUR",
+      "preset": "6M",
+      "rowCount": 902,
+      "from": "2026-02-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 193.70300362337355,
+        "dayChange": 3.685375124232962,
+        "dayChangePct": 1.9394911689731096,
+        "periodChangePct": 20.537229289155405,
+        "periodHigh": 202.82830692170242,
+        "periodLow": 143.34201114338842,
+        "avgVolume": 161031739.2
+      },
+      "formatted": {
+        "lastClose": "193,70 €",
+        "dayChange": "+3,69 € (+1,94%)",
+        "periodChangePct": "+20,54%",
+        "periodHigh": "202,83 €",
+        "periodLow": "143,34 €",
+        "avgVolume": "161,03 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 191.60994562744318,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 190.84883362892305,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "EUR",
+      "preset": "YTD",
+      "rowCount": 902,
+      "from": "2026-01-01",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 193.70300362337355,
+        "dayChange": 3.685375124232962,
+        "dayChangePct": 1.9394911689731096,
+        "periodChangePct": 20.524263584093358,
+        "periodHigh": 202.82830692170242,
+        "periodLow": 143.34201114338842,
+        "avgVolume": 162904552.66666666
+      },
+      "formatted": {
+        "lastClose": "193,70 €",
+        "dayChange": "+3,69 € (+1,94%)",
+        "periodChangePct": "+20,52%",
+        "periodHigh": "202,83 €",
+        "periodLow": "143,34 €",
+        "avgVolume": "162,9 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 191.60994562744318,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 190.84883362892305,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "EUR",
+      "preset": "1EV",
+      "rowCount": 902,
+      "from": "2025-08-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 193.70300362337355,
+        "dayChange": 3.685375124232962,
+        "dayChangePct": 1.9394911689731096,
+        "periodChangePct": 25.120439584162508,
+        "periodHigh": 202.82830692170242,
+        "periodLow": 140.74908969921444,
+        "avgVolume": 171069941.66666666
+      },
+      "formatted": {
+        "lastClose": "193,70 €",
+        "dayChange": "+3,69 € (+1,94%)",
+        "periodChangePct": "+25,12%",
+        "periodHigh": "202,83 €",
+        "periodLow": "140,75 €",
+        "avgVolume": "171,07 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 191.60994562744318,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 190.84883362892305,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "EUR",
+      "preset": "MIND",
+      "rowCount": 902,
+      "from": "2023-01-03",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 193.70300362337355,
+        "dayChange": 3.685375124232962,
+        "dayChangePct": 1.9394911689731096,
+        "periodChangePct": 1344.85179255326,
+        "periodHigh": 202.82830692170242,
+        "periodLow": 13.201327119825288,
+        "avgVolume": 324905143.01552105
+      },
+      "formatted": {
+        "lastClose": "193,70 €",
+        "dayChange": "+3,69 € (+1,94%)",
+        "periodChangePct": "+1344,85%",
+        "periodHigh": "202,83 €",
+        "periodLow": "13,20 €",
+        "avgVolume": "324,91 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 191.60994562744318,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 190.84883362892305,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 171.7945812171002,
+          "lastHigh": 194.39492362202822,
+          "lastLow": 171.06461284124725,
+          "lastClose": 193.70300362337355,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "HUF",
+      "preset": "1HET",
+      "rowCount": 902,
+      "from": "2026-07-31",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 70292.07997579011,
+        "dayChange": 937.2866772385751,
+        "dayChangePct": 1.351437489264567,
+        "periodChangePct": 11.417512683036463,
+        "periodHigh": 70824.29528907749,
+        "periodLow": 61266.15441101069,
+        "avgVolume": 130051800
+      },
+      "formatted": {
+        "lastClose": "70 292,08 HUF",
+        "dayChange": "+937,29 HUF (+1,35%)",
+        "periodChangePct": "+11,42%",
+        "periodHigh": "70 824,30 HUF",
+        "periodLow": "61 266,15 HUF",
+        "avgVolume": "130,05 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 69532.53883656251,
+          "lastHigh": 70543.16795570005,
+          "lastLow": 69256.34205866157,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "HUF",
+      "preset": "1M",
+      "rowCount": 902,
+      "from": "2026-07-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 70292.07997579011,
+        "dayChange": 937.2866772385751,
+        "dayChangePct": 1.351437489264567,
+        "periodChangePct": 15.027458104068003,
+        "periodHigh": 70824.29528907749,
+        "periodLow": 59312.27365939567,
+        "avgVolume": 128956145.83333333
+      },
+      "formatted": {
+        "lastClose": "70 292,08 HUF",
+        "dayChange": "+937,29 HUF (+1,35%)",
+        "periodChangePct": "+15,03%",
+        "periodHigh": "70 824,30 HUF",
+        "periodLow": "59 312,27 HUF",
+        "avgVolume": "128,96 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 69532.53883656251,
+          "lastHigh": 70543.16795570005,
+          "lastLow": 69256.34205866157,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "HUF",
+      "preset": "3M",
+      "rowCount": 902,
+      "from": "2026-05-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 70292.07997579011,
+        "dayChange": 937.2866772385751,
+        "dayChangePct": 1.351437489264567,
+        "periodChangePct": 9.717694555762035,
+        "periodHigh": 72407.2553331017,
+        "periodLow": 58750.69282791477,
+        "avgVolume": 151336332.8125
+      },
+      "formatted": {
+        "lastClose": "70 292,08 HUF",
+        "dayChange": "+937,29 HUF (+1,35%)",
+        "periodChangePct": "+9,72%",
+        "periodHigh": "72 407,26 HUF",
+        "periodLow": "58 750,69 HUF",
+        "avgVolume": "151,34 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 69532.53883656251,
+          "lastHigh": 70543.16795570005,
+          "lastLow": 69256.34205866157,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "HUF",
+      "preset": "6M",
+      "rowCount": 902,
+      "from": "2026-02-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 70292.07997579011,
+        "dayChange": 937.2866772385751,
+        "dayChangePct": 1.351437489264567,
+        "periodChangePct": 16.00344420679854,
+        "periodHigh": 72407.2553331017,
+        "periodLow": 55266.76625233033,
+        "avgVolume": 161031739.2
+      },
+      "formatted": {
+        "lastClose": "70 292,08 HUF",
+        "dayChange": "+937,29 HUF (+1,35%)",
+        "periodChangePct": "+16,00%",
+        "periodHigh": "72 407,26 HUF",
+        "periodLow": "55 266,77 HUF",
+        "avgVolume": "161,03 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 69532.53883656251,
+          "lastHigh": 70543.16795570005,
+          "lastLow": 69256.34205866157,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "HUF",
+      "preset": "YTD",
+      "rowCount": 902,
+      "from": "2026-01-01",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 70292.07997579011,
+        "dayChange": 937.2866772385751,
+        "dayChangePct": 1.351437489264567,
+        "periodChangePct": 13.906169803356924,
+        "periodHigh": 72407.2553331017,
+        "periodLow": 54982.89255022152,
+        "avgVolume": 162904552.66666666
+      },
+      "formatted": {
+        "lastClose": "70 292,08 HUF",
+        "dayChange": "+937,29 HUF (+1,35%)",
+        "periodChangePct": "+13,91%",
+        "periodHigh": "72 407,26 HUF",
+        "periodLow": "54 982,89 HUF",
+        "avgVolume": "162,9 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 69532.53883656251,
+          "lastHigh": 70543.16795570005,
+          "lastLow": 69256.34205866157,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "HUF",
+      "preset": "1EV",
+      "rowCount": 902,
+      "from": "2025-08-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 70292.07997579011,
+        "dayChange": 937.2866772385751,
+        "dayChangePct": 1.351437489264567,
+        "periodChangePct": 14.47518815423751,
+        "periodHigh": 72407.2553331017,
+        "periodLow": 54982.89255022152,
+        "avgVolume": 171069941.66666666
+      },
+      "formatted": {
+        "lastClose": "70 292,08 HUF",
+        "dayChange": "+937,29 HUF (+1,35%)",
+        "periodChangePct": "+14,48%",
+        "periodHigh": "72 407,26 HUF",
+        "periodLow": "54 982,89 HUF",
+        "avgVolume": "171,07 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 69532.53883656251,
+          "lastHigh": 70543.16795570005,
+          "lastLow": 69256.34205866157,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "nativeCurrency": "USD",
+      "displayCurrency": "HUF",
+      "preset": "MIND",
+      "rowCount": 902,
+      "from": "2023-01-03",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 70292.07997579011,
+        "dayChange": 937.2866772385751,
+        "dayChangePct": 1.351437489264567,
+        "periodChangePct": 1206.1255936783195,
+        "periodHigh": 72407.2553331017,
+        "periodLow": 5274.728224549521,
+        "avgVolume": 324905143.01552105
+      },
+      "formatted": {
+        "lastClose": "70 292,08 HUF",
+        "dayChange": "+937,29 HUF (+1,35%)",
+        "periodChangePct": "+1206,13%",
+        "periodHigh": "72 407,26 HUF",
+        "periodLow": "5274,73 HUF",
+        "avgVolume": "324,91 M",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 902,
+          "lastDate": "2026-08-07",
+          "lastOpen": 69532.53883656251,
+          "lastHigh": 70543.16795570005,
+          "lastLow": 69256.34205866157,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 105473700
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 62453.62930964082,
+          "lastHigh": 70824.29528907749,
+          "lastLow": 62188.25903992511,
+          "lastClose": 70292.07997579011,
+          "lastVolume": 640651100
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "USD",
+      "preset": "1HET",
+      "rowCount": 913,
+      "from": "2026-07-31",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 835.98103989576,
+        "dayChange": 5.048714052559944,
+        "dayChangePct": 0.6075962982228056,
+        "periodChangePct": 4.196248280458746,
+        "periodHigh": 840.2196165345,
+        "periodLow": 800.5162843696199,
+        "avgVolume": 30241.333333333332
+      },
+      "formatted": {
+        "lastClose": "835,98 $",
+        "dayChange": "+5,05 $ (+0,61%)",
+        "periodChangePct": "+4,20%",
+        "periodHigh": "840,22 $",
+        "periodLow": "800,52 $",
+        "avgVolume": "30,2 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 833.94612256032,
+          "lastHigh": 836.48976922962,
+          "lastLow": 832.1193217705501,
+          "lastClose": 835.98103989576,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "USD",
+      "preset": "1M",
+      "rowCount": 913,
+      "from": "2026-07-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 835.98103989576,
+        "dayChange": 5.048714052559944,
+        "dayChangePct": 0.6075962982228056,
+        "periodChangePct": 3.9169584607878254,
+        "periodHigh": 840.2196165345,
+        "periodLow": 794.54709804925,
+        "avgVolume": 28717.5
+      },
+      "formatted": {
+        "lastClose": "835,98 $",
+        "dayChange": "+5,05 $ (+0,61%)",
+        "periodChangePct": "+3,92%",
+        "periodHigh": "840,22 $",
+        "periodLow": "794,55 $",
+        "avgVolume": "28,7 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 833.94612256032,
+          "lastHigh": 836.48976922962,
+          "lastLow": 832.1193217705501,
+          "lastClose": 835.98103989576,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "USD",
+      "preset": "3M",
+      "rowCount": 913,
+      "from": "2026-05-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 835.98103989576,
+        "dayChange": 5.048714052559944,
+        "dayChangePct": 0.6075962982228056,
+        "periodChangePct": 5.77891250139761,
+        "periodHigh": 840.2196165345,
+        "periodLow": 781.45766437312,
+        "avgVolume": 31879.014925373136
+      },
+      "formatted": {
+        "lastClose": "835,98 $",
+        "dayChange": "+5,05 $ (+0,61%)",
+        "periodChangePct": "+5,78%",
+        "periodHigh": "840,22 $",
+        "periodLow": "781,46 $",
+        "avgVolume": "31,9 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 833.94612256032,
+          "lastHigh": 836.48976922962,
+          "lastLow": 832.1193217705501,
+          "lastClose": 835.98103989576,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "USD",
+      "preset": "6M",
+      "rowCount": 913,
+      "from": "2026-02-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 835.98103989576,
+        "dayChange": 5.048714052559944,
+        "dayChangePct": 0.6075962982228056,
+        "periodChangePct": 12.573087082356418,
+        "periodHigh": 840.2196165345,
+        "periodLow": 682.55782948468,
+        "avgVolume": 35719.055555555555
+      },
+      "formatted": {
+        "lastClose": "835,98 $",
+        "dayChange": "+5,05 $ (+0,61%)",
+        "periodChangePct": "+12,57%",
+        "periodHigh": "840,22 $",
+        "periodLow": "682,56 $",
+        "avgVolume": "35,7 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 833.94612256032,
+          "lastHigh": 836.48976922962,
+          "lastLow": 832.1193217705501,
+          "lastClose": 835.98103989576,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "USD",
+      "preset": "YTD",
+      "rowCount": 913,
+      "from": "2026-01-01",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 835.98103989576,
+        "dayChange": 5.048714052559944,
+        "dayChangePct": 0.6075962982228056,
+        "periodChangePct": 13.878567075401127,
+        "periodHigh": 840.2196165345,
+        "periodLow": 682.55782948468,
+        "avgVolume": 38085.59210526316
+      },
+      "formatted": {
+        "lastClose": "835,98 $",
+        "dayChange": "+5,05 $ (+0,61%)",
+        "periodChangePct": "+13,88%",
+        "periodHigh": "840,22 $",
+        "periodLow": "682,56 $",
+        "avgVolume": "38,1 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 833.94612256032,
+          "lastHigh": 836.48976922962,
+          "lastLow": 832.1193217705501,
+          "lastClose": 835.98103989576,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "USD",
+      "preset": "1EV",
+      "rowCount": 913,
+      "from": "2025-08-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 835.98103989576,
+        "dayChange": 5.048714052559944,
+        "dayChangePct": 0.6075962982228056,
+        "periodChangePct": 23.175027857162476,
+        "periodHigh": 840.2196165345,
+        "periodLow": 676.5007208297,
+        "avgVolume": 38085.583333333336
+      },
+      "formatted": {
+        "lastClose": "835,98 $",
+        "dayChange": "+5,05 $ (+0,61%)",
+        "periodChangePct": "+23,18%",
+        "periodHigh": "840,22 $",
+        "periodLow": "676,50 $",
+        "avgVolume": "38,1 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 833.94612256032,
+          "lastHigh": 836.48976922962,
+          "lastLow": 832.1193217705501,
+          "lastClose": 835.98103989576,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "USD",
+      "preset": "MIND",
+      "rowCount": 913,
+      "from": "2023-01-02",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 835.98103989576,
+        "dayChange": 5.048714052559944,
+        "dayChangePct": 0.6075962982228056,
+        "periodChangePct": 105.76249069824155,
+        "periodHigh": 840.2196165345,
+        "periodLow": 393.387134723466,
+        "avgVolume": 37814.03395399781
+      },
+      "formatted": {
+        "lastClose": "835,98 $",
+        "dayChange": "+5,05 $ (+0,61%)",
+        "periodChangePct": "+105,76%",
+        "periodHigh": "840,22 $",
+        "periodLow": "393,39 $",
+        "avgVolume": "37,8 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 833.94612256032,
+          "lastHigh": 836.48976922962,
+          "lastLow": 832.1193217705501,
+          "lastClose": 835.98103989576,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 809.7720662341401,
+          "lastHigh": 840.2196165345,
+          "lastLow": 808.115008147772,
+          "lastClose": 835.98103989576,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "EUR",
+      "preset": "1HET",
+      "rowCount": 913,
+      "from": "2026-07-31",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 723.04,
+        "dayChange": 2.0399999999999636,
+        "dayChangePct": 0.28294036061025846,
+        "periodChangePct": 3.849247385958858,
+        "periodHigh": 727,
+        "periodLow": 694.68,
+        "avgVolume": 30241.333333333332
+      },
+      "formatted": {
+        "lastClose": "723,04 €",
+        "dayChange": "+2,04 € (+0,28%)",
+        "periodChangePct": "+3,85%",
+        "periodHigh": "727,00 €",
+        "periodLow": "694,68 €",
+        "avgVolume": "30,2 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 721.28,
+          "lastHigh": 723.48,
+          "lastLow": 719.7,
+          "lastClose": 723.04,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "EUR",
+      "preset": "1M",
+      "rowCount": 913,
+      "from": "2026-07-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 723.04,
+        "dayChange": 2.0399999999999636,
+        "dayChangePct": 0.28294036061025846,
+        "periodChangePct": 2.494896801995904,
+        "periodHigh": 727,
+        "periodLow": 689.5,
+        "avgVolume": 28717.5
+      },
+      "formatted": {
+        "lastClose": "723,04 €",
+        "dayChange": "+2,04 € (+0,28%)",
+        "periodChangePct": "+2,49%",
+        "periodHigh": "727,00 €",
+        "periodLow": "689,50 €",
+        "avgVolume": "28,7 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 721.28,
+          "lastHigh": 723.48,
+          "lastLow": 719.7,
+          "lastClose": 723.04,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "EUR",
+      "preset": "3M",
+      "rowCount": 913,
+      "from": "2026-05-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 723.04,
+        "dayChange": 2.0399999999999636,
+        "dayChangePct": 0.28294036061025846,
+        "periodChangePct": 7.330107175726627,
+        "periodHigh": 727,
+        "periodLow": 672,
+        "avgVolume": 31879.014925373136
+      },
+      "formatted": {
+        "lastClose": "723,04 €",
+        "dayChange": "+2,04 € (+0,28%)",
+        "periodChangePct": "+7,33%",
+        "periodHigh": "727,00 €",
+        "periodLow": "672,00 €",
+        "avgVolume": "31,9 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 721.28,
+          "lastHigh": 723.48,
+          "lastLow": 719.7,
+          "lastClose": 723.04,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "EUR",
+      "preset": "6M",
+      "rowCount": 913,
+      "from": "2026-02-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 723.04,
+        "dayChange": 2.0399999999999636,
+        "dayChangePct": 0.28294036061025846,
+        "periodChangePct": 15.141091789285928,
+        "periodHigh": 727,
+        "periodLow": 595.6,
+        "avgVolume": 35719.055555555555
+      },
+      "formatted": {
+        "lastClose": "723,04 €",
+        "dayChange": "+2,04 € (+0,28%)",
+        "periodChangePct": "+15,14%",
+        "periodHigh": "727,00 €",
+        "periodLow": "595,60 €",
+        "avgVolume": "35,7 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 721.28,
+          "lastHigh": 723.48,
+          "lastLow": 719.7,
+          "lastClose": 723.04,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "EUR",
+      "preset": "YTD",
+      "rowCount": 913,
+      "from": "2026-01-01",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 723.04,
+        "dayChange": 2.0399999999999636,
+        "dayChangePct": 0.28294036061025846,
+        "periodChangePct": 15.734545570957511,
+        "periodHigh": 727,
+        "periodLow": 595.6,
+        "avgVolume": 38085.59210526316
+      },
+      "formatted": {
+        "lastClose": "723,04 €",
+        "dayChange": "+2,04 € (+0,28%)",
+        "periodChangePct": "+15,73%",
+        "periodHigh": "727,00 €",
+        "periodLow": "595,60 €",
+        "avgVolume": "38,1 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 721.28,
+          "lastHigh": 723.48,
+          "lastLow": 719.7,
+          "lastClose": 723.04,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "EUR",
+      "preset": "1EV",
+      "rowCount": 913,
+      "from": "2025-08-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 723.04,
+        "dayChange": 2.0399999999999636,
+        "dayChangePct": 0.28294036061025846,
+        "periodChangePct": 24.396118642901374,
+        "periodHigh": 727,
+        "periodLow": 580.6,
+        "avgVolume": 38085.583333333336
+      },
+      "formatted": {
+        "lastClose": "723,04 €",
+        "dayChange": "+2,04 € (+0,28%)",
+        "periodChangePct": "+24,40%",
+        "periodHigh": "727,00 €",
+        "periodLow": "580,60 €",
+        "avgVolume": "38,1 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 721.28,
+          "lastHigh": 723.48,
+          "lastLow": 719.7,
+          "lastClose": 723.04,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "EUR",
+      "preset": "MIND",
+      "rowCount": 913,
+      "from": "2023-01-02",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 723.04,
+        "dayChange": 2.0399999999999636,
+        "dayChangePct": 0.28294036061025846,
+        "periodChangePct": 90.59468578658793,
+        "periodHigh": 727,
+        "periodLow": 369.23,
+        "avgVolume": 37814.03395399781
+      },
+      "formatted": {
+        "lastClose": "723,04 €",
+        "dayChange": "+2,04 € (+0,28%)",
+        "periodChangePct": "+90,59%",
+        "periodHigh": "727,00 €",
+        "periodLow": "369,23 €",
+        "avgVolume": "37,8 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 721.28,
+          "lastHigh": 723.48,
+          "lastLow": 719.7,
+          "lastClose": 723.04,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 703.7,
+          "lastHigh": 727,
+          "lastLow": 702.26,
+          "lastClose": 723.04,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "HUF",
+      "preset": "1HET",
+      "rowCount": 913,
+      "from": "2026-07-31",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 262380.9881880556,
+        "dayChange": -777.7848332686699,
+        "dayChangePct": -0.29555725022537804,
+        "periodChangePct": 4.061632790377726,
+        "periodHigh": 263910.6552299566,
+        "periodLow": 251575.04122450724,
+        "avgVolume": 30241.333333333332
+      },
+      "formatted": {
+        "lastClose": "262 380,99 HUF",
+        "dayChange": "-777,78 HUF (-0,30%)",
+        "periodChangePct": "+4,06%",
+        "periodHigh": "263 910,66 HUF",
+        "periodLow": "251 575,04 HUF",
+        "avgVolume": "30,2 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 261742.30908425638,
+          "lastHigh": 262540.6579640054,
+          "lastLow": 261168.94943425487,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "HUF",
+      "preset": "1M",
+      "rowCount": 913,
+      "from": "2026-07-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 262380.9881880556,
+        "dayChange": -777.7848332686699,
+        "dayChangePct": -0.29555725022537804,
+        "periodChangePct": 5.106450934191007,
+        "periodHigh": 263910.6552299566,
+        "periodLow": 249329.24468890054,
+        "avgVolume": 28717.5
+      },
+      "formatted": {
+        "lastClose": "262 380,99 HUF",
+        "dayChange": "-777,78 HUF (-0,30%)",
+        "periodChangePct": "+5,11%",
+        "periodHigh": "263 910,66 HUF",
+        "periodLow": "249 329,24 HUF",
+        "avgVolume": "28,7 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 261742.30908425638,
+          "lastHigh": 262540.6579640054,
+          "lastLow": 261168.94943425487,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "HUF",
+      "preset": "3M",
+      "rowCount": 913,
+      "from": "2026-05-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 262380.9881880556,
+        "dayChange": -777.7848332686699,
+        "dayChangePct": -0.29555725022537804,
+        "periodChangePct": 9.601294614881992,
+        "periodHigh": 263910.6552299566,
+        "periodLow": 238805.97644286268,
+        "avgVolume": 31879.014925373136
+      },
+      "formatted": {
+        "lastClose": "262 380,99 HUF",
+        "dayChange": "-777,78 HUF (-0,30%)",
+        "periodChangePct": "+9,60%",
+        "periodHigh": "263 910,66 HUF",
+        "periodLow": "238 805,98 HUF",
+        "avgVolume": "31,9 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 261742.30908425638,
+          "lastHigh": 262540.6579640054,
+          "lastLow": 261168.94943425487,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "HUF",
+      "preset": "6M",
+      "rowCount": 913,
+      "from": "2026-02-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 262380.9881880556,
+        "dayChange": -777.7848332686699,
+        "dayChangePct": -0.29555725022537804,
+        "periodChangePct": 10.810272444929904,
+        "periodHigh": 263910.6552299566,
+        "periodLow": 225409.13893174016,
+        "avgVolume": 35719.055555555555
+      },
+      "formatted": {
+        "lastClose": "262 380,99 HUF",
+        "dayChange": "-777,78 HUF (-0,30%)",
+        "periodChangePct": "+10,81%",
+        "periodHigh": "263 910,66 HUF",
+        "periodLow": "225 409,14 HUF",
+        "avgVolume": "35,7 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 261742.30908425638,
+          "lastHigh": 262540.6579640054,
+          "lastLow": 261168.94943425487,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "HUF",
+      "preset": "YTD",
+      "rowCount": 913,
+      "from": "2026-01-01",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 262380.9881880556,
+        "dayChange": -777.7848332686699,
+        "dayChangePct": -0.29555725022537804,
+        "periodChangePct": 9.37945943740818,
+        "periodHigh": 263910.6552299566,
+        "periodLow": 225409.13893174016,
+        "avgVolume": 38085.59210526316
+      },
+      "formatted": {
+        "lastClose": "262 380,99 HUF",
+        "dayChange": "-777,78 HUF (-0,30%)",
+        "periodChangePct": "+9,38%",
+        "periodHigh": "263 910,66 HUF",
+        "periodLow": "225 409,14 HUF",
+        "avgVolume": "38,1 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 261742.30908425638,
+          "lastHigh": 262540.6579640054,
+          "lastLow": 261168.94943425487,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "HUF",
+      "preset": "1EV",
+      "rowCount": 913,
+      "from": "2025-08-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 262380.9881880556,
+        "dayChange": -777.7848332686699,
+        "dayChangePct": -0.29555725022537804,
+        "periodChangePct": 13.812492464304677,
+        "periodHigh": 263910.6552299566,
+        "periodLow": 225409.13893174016,
+        "avgVolume": 38085.583333333336
+      },
+      "formatted": {
+        "lastClose": "262 380,99 HUF",
+        "dayChange": "-777,78 HUF (-0,30%)",
+        "periodChangePct": "+13,81%",
+        "periodHigh": "263 910,66 HUF",
+        "periodLow": "225 409,14 HUF",
+        "avgVolume": "38,1 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 261742.30908425638,
+          "lastHigh": 262540.6579640054,
+          "lastLow": 261168.94943425487,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "SXR8.DE",
+      "nativeCurrency": "EUR",
+      "displayCurrency": "HUF",
+      "preset": "MIND",
+      "rowCount": 913,
+      "from": "2023-01-02",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 262380.9881880556,
+        "dayChange": -777.7848332686699,
+        "dayChangePct": -0.29555725022537804,
+        "periodChangePct": 74.03888047076154,
+        "periodHigh": 263910.6552299566,
+        "periodLow": 140988.33182045707,
+        "avgVolume": 37814.03395399781
+      },
+      "formatted": {
+        "lastClose": "262 380,99 HUF",
+        "dayChange": "-777,78 HUF (-0,30%)",
+        "periodChangePct": "+74,04%",
+        "periodHigh": "263 910,66 HUF",
+        "periodLow": "140 988,33 HUF",
+        "avgVolume": "37,8 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 913,
+          "lastDate": "2026-08-07",
+          "lastOpen": 261742.30908425638,
+          "lastHigh": 262540.6579640054,
+          "lastLow": 261168.94943425487,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 23646
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 255820.75193428548,
+          "lastHigh": 263910.6552299566,
+          "lastLow": 255297.25913510204,
+          "lastClose": 262380.9881880556,
+          "lastVolume": 153111
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "USD",
+      "preset": "1HET",
+      "rowCount": 907,
+      "from": "2026-07-31",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 40.03292183976,
+        "dayChange": 0.7299094849310066,
+        "dayChangePct": 1.8571336933193767,
+        "periodChangePct": 8.540359698980794,
+        "periodHigh": 40.449346868931,
+        "periodLow": 36.61251547428,
+        "avgVolume": 51165
+      },
+      "formatted": {
+        "lastClose": "40,03 $",
+        "dayChange": "+0,73 $ (+1,86%)",
+        "periodChangePct": "+8,54%",
+        "periodHigh": "40,45 $",
+        "periodLow": "36,61 $",
+        "avgVolume": "51,2 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 39.60790093044,
+          "lastHigh": 40.12737093072,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "USD",
+      "preset": "1M",
+      "rowCount": 907,
+      "from": "2026-07-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 40.03292183976,
+        "dayChange": 0.7299094849310066,
+        "dayChangePct": 1.8571336933193767,
+        "periodChangePct": 4.185034506961189,
+        "periodHigh": 40.449346868931,
+        "periodLow": 29.614073515399998,
+        "avgVolume": 59517.260869565216
+      },
+      "formatted": {
+        "lastClose": "40,03 $",
+        "dayChange": "+0,73 $ (+1,86%)",
+        "periodChangePct": "+4,19%",
+        "periodHigh": "40,45 $",
+        "periodLow": "29,61 $",
+        "avgVolume": "59,5 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 39.60790093044,
+          "lastHigh": 40.12737093072,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "USD",
+      "preset": "3M",
+      "rowCount": 907,
+      "from": "2026-05-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 40.03292183976,
+        "dayChange": 0.7299094849310066,
+        "dayChangePct": 1.8571336933193767,
+        "periodChangePct": 14.91162025410886,
+        "periodHigh": 41.0400665193285,
+        "periodLow": 29.614073515399998,
+        "avgVolume": 84069.0923076923
+      },
+      "formatted": {
+        "lastClose": "40,03 $",
+        "dayChange": "+0,73 $ (+1,86%)",
+        "periodChangePct": "+14,91%",
+        "periodHigh": "41,04 $",
+        "periodLow": "29,61 $",
+        "avgVolume": "84,1 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 39.60790093044,
+          "lastHigh": 40.12737093072,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "USD",
+      "preset": "6M",
+      "rowCount": 907,
+      "from": "2026-02-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 40.03292183976,
+        "dayChange": 0.7299094849310066,
+        "dayChangePct": 1.8571336933193767,
+        "periodChangePct": 43.42560597930626,
+        "periodHigh": 41.0400665193285,
+        "periodLow": 23.7110409738,
+        "avgVolume": 76763.12903225806
+      },
+      "formatted": {
+        "lastClose": "40,03 $",
+        "dayChange": "+0,73 $ (+1,86%)",
+        "periodChangePct": "+43,43%",
+        "periodHigh": "41,04 $",
+        "periodLow": "23,71 $",
+        "avgVolume": "76,8 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 39.60790093044,
+          "lastHigh": 40.12737093072,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "USD",
+      "preset": "YTD",
+      "rowCount": 907,
+      "from": "2026-01-01",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 40.03292183976,
+        "dayChange": 0.7299094849310066,
+        "dayChangePct": 1.8571336933193767,
+        "periodChangePct": 41.28404863626775,
+        "periodHigh": 41.0400665193285,
+        "periodLow": 23.7110409738,
+        "avgVolume": 75302.07333333333
+      },
+      "formatted": {
+        "lastClose": "40,03 $",
+        "dayChange": "+0,73 $ (+1,86%)",
+        "periodChangePct": "+41,28%",
+        "periodHigh": "41,04 $",
+        "periodLow": "23,71 $",
+        "avgVolume": "75,3 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 39.60790093044,
+          "lastHigh": 40.12737093072,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "USD",
+      "preset": "1EV",
+      "rowCount": 907,
+      "from": "2025-08-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 40.03292183976,
+        "dayChange": 0.7299094849310066,
+        "dayChangePct": 1.8571336933193767,
+        "periodChangePct": 60.88698543819467,
+        "periodHigh": 41.0400665193285,
+        "periodLow": 23.706704417121,
+        "avgVolume": 76551.73705179284
+      },
+      "formatted": {
+        "lastClose": "40,03 $",
+        "dayChange": "+0,73 $ (+1,86%)",
+        "periodChangePct": "+60,89%",
+        "periodHigh": "41,04 $",
+        "periodLow": "23,71 $",
+        "avgVolume": "76,6 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 39.60790093044,
+          "lastHigh": 40.12737093072,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "USD",
+      "preset": "MIND",
+      "rowCount": 907,
+      "from": "2023-01-03",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 40.03292183976,
+        "dayChange": 0.7299094849310066,
+        "dayChangePct": 1.8571336933193767,
+        "periodChangePct": 244.63775390315226,
+        "periodHigh": 41.0400665193285,
+        "periodLow": 11.287502783760223,
+        "avgVolume": 44474.699007717754
+      },
+      "formatted": {
+        "lastClose": "40,03 $",
+        "dayChange": "+0,73 $ (+1,86%)",
+        "periodChangePct": "+244,64%",
+        "periodHigh": "41,04 $",
+        "periodLow": "11,29 $",
+        "avgVolume": "44,5 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 39.60790093044,
+          "lastHigh": 40.12737093072,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 37.810432129536,
+          "lastHigh": 40.449346868931,
+          "lastLow": 36.61251547428,
+          "lastClose": 40.03292183976,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "EUR",
+      "preset": "1HET",
+      "rowCount": 907,
+      "from": "2026-07-31",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 34.62447403188633,
+        "dayChange": 0.5212492246484288,
+        "dayChangePct": 1.5284455578459004,
+        "periodChangePct": 8.178891771618316,
+        "periodHigh": 34.998796261150346,
+        "periodLow": 31.666164572134665,
+        "avgVolume": 51165
+      },
+      "formatted": {
+        "lastClose": "34,62 €",
+        "dayChange": "+0,52 € (+1,53%)",
+        "periodChangePct": "+8,18%",
+        "periodHigh": "35,00 €",
+        "periodLow": "31,67 €",
+        "avgVolume": "51,2 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 34.25687344813021,
+          "lastHigh": 34.7061630504988,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "EUR",
+      "preset": "1M",
+      "rowCount": 907,
+      "from": "2026-07-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 34.62447403188633,
+        "dayChange": 0.5212492246484288,
+        "dayChangePct": 1.5284455578459004,
+        "periodChangePct": 2.7593043356131735,
+        "periodHigh": 35.036828477560114,
+        "periodLow": 25.69879587880973,
+        "avgVolume": 59517.260869565216
+      },
+      "formatted": {
+        "lastClose": "34,62 €",
+        "dayChange": "+0,52 € (+1,53%)",
+        "periodChangePct": "+2,76%",
+        "periodHigh": "35,04 €",
+        "periodLow": "25,70 €",
+        "avgVolume": "59,5 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 34.25687344813021,
+          "lastHigh": 34.7061630504988,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "EUR",
+      "preset": "3M",
+      "rowCount": 907,
+      "from": "2026-05-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 34.62447403188633,
+        "dayChange": 0.5212492246484288,
+        "dayChangePct": 1.5284455578459004,
+        "periodChangePct": 16.5967415050419,
+        "periodHigh": 35.80684667075979,
+        "periodLow": 25.69879587880973,
+        "avgVolume": 84069.0923076923
+      },
+      "formatted": {
+        "lastClose": "34,62 €",
+        "dayChange": "+0,52 € (+1,53%)",
+        "periodChangePct": "+16,60%",
+        "periodHigh": "35,81 €",
+        "periodLow": "25,70 €",
+        "avgVolume": "84,1 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 34.25687344813021,
+          "lastHigh": 34.7061630504988,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "EUR",
+      "preset": "6M",
+      "rowCount": 907,
+      "from": "2026-02-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 34.62447403188633,
+        "dayChange": 0.5212492246484288,
+        "dayChangePct": 1.5284455578459004,
+        "periodChangePct": 46.69741490624475,
+        "periodHigh": 35.80684667075979,
+        "periodLow": 20.69025567351177,
+        "avgVolume": 76763.12903225806
+      },
+      "formatted": {
+        "lastClose": "34,62 €",
+        "dayChange": "+0,52 € (+1,53%)",
+        "periodChangePct": "+46,70%",
+        "periodHigh": "35,81 €",
+        "periodLow": "20,69 €",
+        "avgVolume": "76,8 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 34.25687344813021,
+          "lastHigh": 34.7061630504988,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "EUR",
+      "preset": "YTD",
+      "rowCount": 907,
+      "from": "2026-01-01",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 34.62447403188633,
+        "dayChange": 0.5212492246484288,
+        "dayChangePct": 1.5284455578459004,
+        "periodChangePct": 43.586678207119625,
+        "periodHigh": 35.80684667075979,
+        "periodLow": 20.69025567351177,
+        "avgVolume": 75302.07333333333
+      },
+      "formatted": {
+        "lastClose": "34,62 €",
+        "dayChange": "+0,52 € (+1,53%)",
+        "periodChangePct": "+43,59%",
+        "periodHigh": "35,81 €",
+        "periodLow": "20,69 €",
+        "avgVolume": "75,3 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 34.25687344813021,
+          "lastHigh": 34.7061630504988,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "EUR",
+      "preset": "1EV",
+      "rowCount": 907,
+      "from": "2025-08-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 34.62447403188633,
+        "dayChange": 0.5212492246484288,
+        "dayChangePct": 1.5284455578459004,
+        "periodChangePct": 62.48193222961497,
+        "periodHigh": 35.80684667075979,
+        "periodLow": 20.413843153635913,
+        "avgVolume": 76551.73705179284
+      },
+      "formatted": {
+        "lastClose": "34,62 €",
+        "dayChange": "+0,52 € (+1,53%)",
+        "periodChangePct": "+62,48%",
+        "periodHigh": "35,81 €",
+        "periodLow": "20,41 €",
+        "avgVolume": "76,6 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 34.25687344813021,
+          "lastHigh": 34.7061630504988,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "EUR",
+      "preset": "MIND",
+      "rowCount": 907,
+      "from": "2023-01-03",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 34.62447403188633,
+        "dayChange": 0.5212492246484288,
+        "dayChangePct": 1.5284455578459004,
+        "periodChangePct": 218.2783118065351,
+        "periodHigh": 35.80684667075979,
+        "periodLow": 10.72730393047368,
+        "avgVolume": 44474.699007717754
+      },
+      "formatted": {
+        "lastClose": "34,62 €",
+        "dayChange": "+0,52 € (+1,53%)",
+        "periodChangePct": "+218,28%",
+        "periodHigh": "35,81 €",
+        "periodLow": "10,73 €",
+        "avgVolume": "44,5 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 34.25687344813021,
+          "lastHigh": 34.7061630504988,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 32.85764253796968,
+          "lastHigh": 34.998796261150346,
+          "lastLow": 31.666164572134665,
+          "lastClose": 34.62447403188633,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "HUF",
+      "preset": "1HET",
+      "rowCount": 907,
+      "from": "2026-07-31",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 12564.73184329775,
+        "dayChange": 117.34932409786961,
+        "dayChangePct": 0.9427630581518665,
+        "periodChangePct": 8.400131869710803,
+        "periodHigh": 12646.933276745132,
+        "periodLow": 11491.203187323372,
+        "avgVolume": 51165
+      },
+      "formatted": {
+        "lastClose": "12 564,73 HUF",
+        "dayChange": "+117,35 HUF (+0,94%)",
+        "periodChangePct": "+8,40%",
+        "periodHigh": "12 646,93 HUF",
+        "periodLow": "11 491,20 HUF",
+        "avgVolume": "51,2 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 12431.334791371939,
+          "lastHigh": 12594.375632614596,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "HUF",
+      "preset": "1M",
+      "rowCount": 907,
+      "from": "2026-07-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 12564.73184329775,
+        "dayChange": 117.34932409786961,
+        "dayChangePct": 0.9427630581518665,
+        "periodChangePct": 5.37759553090653,
+        "periodHigh": 12646.933276745132,
+        "periodLow": 9306.696079679501,
+        "avgVolume": 59517.260869565216
+      },
+      "formatted": {
+        "lastClose": "12 564,73 HUF",
+        "dayChange": "+117,35 HUF (+0,94%)",
+        "periodChangePct": "+5,38%",
+        "periodHigh": "12 646,93 HUF",
+        "periodLow": "9306,70 HUF",
+        "avgVolume": "59,5 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 12431.334791371939,
+          "lastHigh": 12594.375632614596,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "HUF",
+      "preset": "3M",
+      "rowCount": 907,
+      "from": "2026-05-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 12564.73184329775,
+        "dayChange": 117.34932409786961,
+        "dayChangePct": 0.9427630581518665,
+        "periodChangePct": 19.064018038355435,
+        "periodHigh": 12707.64295046856,
+        "periodLow": 9306.696079679501,
+        "avgVolume": 84069.0923076923
+      },
+      "formatted": {
+        "lastClose": "12 564,73 HUF",
+        "dayChange": "+117,35 HUF (+0,94%)",
+        "periodChangePct": "+19,06%",
+        "periodHigh": "12 707,64 HUF",
+        "periodLow": "9306,70 HUF",
+        "avgVolume": "84,1 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 12431.334791371939,
+          "lastHigh": 12594.375632614596,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "HUF",
+      "preset": "6M",
+      "rowCount": 907,
+      "from": "2026-02-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 12564.73184329775,
+        "dayChange": 117.34932409786961,
+        "dayChangePct": 0.9427630581518665,
+        "periodChangePct": 41.1796627955938,
+        "periodHigh": 12707.64295046856,
+        "periodLow": 8035.671315210838,
+        "avgVolume": 76763.12903225806
+      },
+      "formatted": {
+        "lastClose": "12 564,73 HUF",
+        "dayChange": "+117,35 HUF (+0,94%)",
+        "periodChangePct": "+41,18%",
+        "periodHigh": "12 707,64 HUF",
+        "periodLow": "8035,67 HUF",
+        "avgVolume": "76,8 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 12431.334791371939,
+          "lastHigh": 12594.375632614596,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "HUF",
+      "preset": "YTD",
+      "rowCount": 907,
+      "from": "2026-01-01",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 12564.73184329775,
+        "dayChange": 117.34932409786961,
+        "dayChangePct": 0.9427630581518665,
+        "periodChangePct": 35.70220686682294,
+        "periodHigh": 12707.64295046856,
+        "periodLow": 7983.399474198563,
+        "avgVolume": 75302.07333333333
+      },
+      "formatted": {
+        "lastClose": "12 564,73 HUF",
+        "dayChange": "+117,35 HUF (+0,94%)",
+        "periodChangePct": "+35,70%",
+        "periodHigh": "12 707,64 HUF",
+        "periodLow": "7983,40 HUF",
+        "avgVolume": "75,3 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 12431.334791371939,
+          "lastHigh": 12594.375632614596,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "HUF",
+      "preset": "1EV",
+      "rowCount": 907,
+      "from": "2025-08-07",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 12564.73184329775,
+        "dayChange": 117.34932409786961,
+        "dayChangePct": 0.9427630581518665,
+        "periodChangePct": 48.657963682566916,
+        "periodHigh": 12707.64295046856,
+        "periodLow": 7972.618494732927,
+        "avgVolume": 76551.73705179284
+      },
+      "formatted": {
+        "lastClose": "12 564,73 HUF",
+        "dayChange": "+117,35 HUF (+0,94%)",
+        "periodChangePct": "+48,66%",
+        "periodHigh": "12 707,64 HUF",
+        "periodLow": "7972,62 HUF",
+        "avgVolume": "76,6 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 12431.334791371939,
+          "lastHigh": 12594.375632614596,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        }
+      }
+    },
+    {
+      "ticker": "AIAG.L",
+      "nativeCurrency": "GBp",
+      "displayCurrency": "HUF",
+      "preset": "MIND",
+      "rowCount": 907,
+      "from": "2023-01-03",
+      "to": "2026-08-07",
+      "stats": {
+        "lastClose": 12564.73184329775,
+        "dayChange": 117.34932409786961,
+        "dayChangePct": 0.9427630581518665,
+        "periodChangePct": 187.719094169944,
+        "periodHigh": 12707.64295046856,
+        "periodLow": 4248.277433076887,
+        "avgVolume": 44474.699007717754
+      },
+      "formatted": {
+        "lastClose": "12 564,73 HUF",
+        "dayChange": "+117,35 HUF (+0,94%)",
+        "periodChangePct": "+187,72%",
+        "periodHigh": "12 707,64 HUF",
+        "periodLow": "4248,28 HUF",
+        "avgVolume": "44,5 E",
+        "lastDate": "2026. aug. 7."
+      },
+      "bars": {
+        "daily": {
+          "count": 907,
+          "lastDate": "2026-08-07",
+          "lastOpen": 12431.334791371939,
+          "lastHigh": 12594.375632614596,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 36419
+        },
+        "weekly": {
+          "count": 188,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        },
+        "monthly": {
+          "count": 44,
+          "lastDate": "2026-08-03",
+          "lastOpen": 11944.957824145755,
+          "lastHigh": 12646.933276745132,
+          "lastLow": 11491.203187323372,
+          "lastClose": 12564.73184329775,
+          "lastVolume": 208502
+        }
+      }
+    }
+  ]
+}

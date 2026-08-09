@@ -1,5 +1,6 @@
 package hu.jamborz.reszvenymonitor.domain
 
+import java.math.BigDecimal
 import java.math.RoundingMode
 import java.text.NumberFormat
 import java.time.LocalDate
@@ -27,25 +28,42 @@ object Format {
         return CURRENCY_SUFFIX[currency] ?: " $currency"
     }
 
+    /**
+     * A magyar CLDR `minimumGroupingDigits` értéke 2: az ezres elválasztó csak
+     * akkor jelenik meg, ha az egészrész LEGALÁBB ÖT jegyű (1464,51 — de
+     * 12 564,73). A böngésző és a Node ICU-ja így viselkedik, a JDK
+     * NumberFormat viszont már négy jegynél csoportosít, ezért kézzel
+     * kapcsoljuk. Mérve (webes kereszt-ellenőrzés): enélkül az „Időszaki
+     * változás" +1464,51% helyett +1 464,51%-ként jelenne meg.
+     */
+    private const val GROUPING_FROM = 10_000.0
+
+    private fun useGrouping(v: Double, maxFrac: Int): Boolean {
+        // A döntés a KEREKÍTETT értéken dől el (9999,995 → 10 000,00 már csoportosít).
+        val rounded = BigDecimal(v).setScale(maxFrac, RoundingMode.HALF_UP).abs()
+        return rounded >= BigDecimal(GROUPING_FROM)
+    }
+
     /** hu-HU számformázó; a webes Intl halfExpand kerekítését a HALF_UP tükrözi. */
-    private fun huNumber(minFrac: Int, maxFrac: Int): NumberFormat =
+    private fun huNumber(minFrac: Int, maxFrac: Int, value: Double): NumberFormat =
         NumberFormat.getNumberInstance(HU).apply {
             minimumFractionDigits = minFrac
             maximumFractionDigits = maxFrac
             roundingMode = RoundingMode.HALF_UP
+            isGroupingUsed = useGrouping(value, maxFrac)
         }
 
     /** Ár tetszőleges devizában, 2 tizedessel, hu-HU számformátummal. */
     fun formatPriceIn(v: Double?, currency: String?): String {
         if (v == null || !v.isFinite()) return "—"
-        return huNumber(2, 2).format(v) + currencySuffix(currency)
+        return huNumber(2, 2, v).format(v) + currencySuffix(currency)
     }
 
     /** Előjeles árkülönbség tetszőleges devizában (pl. "+12,34 $"). */
     fun formatSignedIn(v: Double?, currency: String?): String {
         if (v == null || !v.isFinite()) return "—"
         val sign = if (v > 0) "+" else ""
-        return sign + huNumber(2, 2).format(v) + currencySuffix(currency)
+        return sign + huNumber(2, 2, v).format(v) + currencySuffix(currency)
     }
 
     /** Ár USD-ben (kompatibilitási wrapper). */
@@ -58,7 +76,7 @@ object Format {
     fun formatPct(v: Double?): String {
         if (v == null || !v.isFinite()) return "—"
         val sign = if (v > 0) "+" else ""
-        return sign + huNumber(2, 2).format(v) + "%"
+        return sign + huNumber(2, 2, v).format(v) + "%"
     }
 
     /** Volumen rövidítve: E (ezer), M (millió), Mrd (milliárd). */
@@ -66,10 +84,13 @@ object Format {
         if (v == null || !v.isFinite()) return "—"
         val abs = kotlin.math.abs(v)
         return when {
-            abs >= 1e9 -> huNumber(0, 2).format(v / 1e9) + " Mrd"
-            abs >= 1e6 -> huNumber(0, 2).format(v / 1e6) + " M"
-            abs >= 1e3 -> huNumber(0, 1).format(v / 1e3) + " E"
-            else -> huNumber(0, 0).format(Math.round(v))
+            abs >= 1e9 -> huNumber(0, 2, v / 1e9).format(v / 1e9) + " Mrd"
+            abs >= 1e6 -> huNumber(0, 2, v / 1e6).format(v / 1e6) + " M"
+            abs >= 1e3 -> huNumber(0, 1, v / 1e3).format(v / 1e3) + " E"
+            else -> {
+                val rounded = Math.round(v)
+                huNumber(0, 0, rounded.toDouble()).format(rounded)
+            }
         }
     }
 
