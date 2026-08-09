@@ -1,0 +1,13 @@
+# Sorvég-normalizálás: a repóban LF, kivéve ahol a platform mást kíván.
+* text=auto
+
+# A gradlew shell-script — Unixon CSAK LF-fel fut.
+android/gradlew text eol=lf
+
+# Windows batch — CRLF.
+*.bat text eol=crlf
+
+# Binárisok
+*.jar binary
+*.png binary
+*.webp binary

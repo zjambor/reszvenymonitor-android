@@ -1,0 +1,15 @@
+# Build-kimenetek és gépspecifikus fájlok
+.gradle/
+build/
+local.properties
+.kotlin/
+
+# Titkok — a sablon: secrets.properties.example
+secrets.properties
+
+# IDE
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/

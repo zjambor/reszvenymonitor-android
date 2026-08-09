@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A fejléc gyertya-emblémája — a webes .brand-mark belső SVG-jének pontos mása. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="26dp"
+    android:height="26dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+    <path
+        android:fillColor="#7C8CFF"
+        android:pathData="M8.6,8 h0.8 v18 h-0.8 Z" />
+    <path
+        android:fillColor="#7C8CFF"
+        android:pathData="M8,12 L10,12 A1,1 0 0 1 11,13 L11,22 A1,1 0 0 1 10,23 L8,23 A1,1 0 0 1 7,22 L7,13 A1,1 0 0 1 8,12 Z" />
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M15.6,4 h0.8 v19 h-0.8 Z" />
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M15,7 L17,7 A1,1 0 0 1 18,8 L18,18 A1,1 0 0 1 17,19 L15,19 A1,1 0 0 1 14,18 L14,8 A1,1 0 0 1 15,7 Z" />
+    <path
+        android:fillColor="#FB7185"
+        android:pathData="M22.6,10 h0.8 v17 h-0.8 Z" />
+    <path
+        android:fillColor="#FB7185"
+        android:pathData="M22,14 L24,14 A1,1 0 0 1 25,15 L25,22 A1,1 0 0 1 24,23 L22,23 A1,1 0 0 1 21,22 L21,15 A1,1 0 0 1 22,14 Z" />
+</vector>

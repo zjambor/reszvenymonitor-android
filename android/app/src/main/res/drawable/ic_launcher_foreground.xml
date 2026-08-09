@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A web-favicon három gyertyája, az adaptív ikon 66dp-s biztonsági zónájába
+     skálázva (32-es favicon-rács × 1.8, középre igazítva a 108-as viewportban). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- indigó gyertya: kanóc + test -->
+    <path
+        android:fillColor="#7C8CFF"
+        android:pathData="M40.68,40.5 h1.44 v32.4 h-1.44 Z" />
+    <path
+        android:fillColor="#7C8CFF"
+        android:pathData="M39.6,47.7 L43.2,47.7 A1.8,1.8 0 0 1 45,49.5 L45,65.7 A1.8,1.8 0 0 1 43.2,67.5 L39.6,67.5 A1.8,1.8 0 0 1 37.8,65.7 L37.8,49.5 A1.8,1.8 0 0 1 39.6,47.7 Z" />
+    <!-- zöld gyertya -->
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M53.28,33.3 h1.44 v34.2 h-1.44 Z" />
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M52.2,38.7 L55.8,38.7 A1.8,1.8 0 0 1 57.6,40.5 L57.6,58.5 A1.8,1.8 0 0 1 55.8,60.3 L52.2,60.3 A1.8,1.8 0 0 1 50.4,58.5 L50.4,40.5 A1.8,1.8 0 0 1 52.2,38.7 Z" />
+    <!-- korall gyertya -->
+    <path
+        android:fillColor="#FB7185"
+        android:pathData="M65.88,44.1 h1.44 v30.6 h-1.44 Z" />
+    <path
+        android:fillColor="#FB7185"
+        android:pathData="M64.8,51.3 L68.4,51.3 A1.8,1.8 0 0 1 70.2,53.1 L70.2,65.7 A1.8,1.8 0 0 1 68.4,67.5 L64.8,67.5 A1.8,1.8 0 0 1 63,65.7 L63,53.1 A1.8,1.8 0 0 1 64.8,51.3 Z" />
+</vector>

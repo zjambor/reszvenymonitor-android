@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Alap-lokalizáció: magyar (az app egynyelvű, mint a web-app). -->
+<resources>
+    <string name="app_name">IT Részvény Monitor</string>
+    <string name="brand_sub">NYSE · NASDAQ — IT részvények · AI ETF-ek, 2023-tól</string>
+
+    <!-- Bejelentkezés — a webes login-overlay szövegei, betűre egyezően -->
+    <string name="login_title">Bejelentkezés</string>
+    <string name="login_sub">IT Részvény Monitor — belépés csak jogosult felhasználónak.</string>
+    <string name="login_user_label">Felhasználónév</string>
+    <string name="login_pass_label">Jelszó</string>
+    <string name="login_button">Belépés</string>
+    <string name="login_error_invalid">Hibás felhasználónév vagy jelszó!</string>
+    <string name="login_error_network">Nem sikerült kapcsolódni a szerverhez — próbáld újra.</string>
+    <string name="login_session_expired">Lejárt a munkamenet — jelentkezz be újra.</string>
+    <string name="logout">Kijelentkezés</string>
+</resources>

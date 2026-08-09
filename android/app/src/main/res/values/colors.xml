@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- A "bg" design-token: az ablak háttere, hogy indulásnál ne villanjon fehér. -->
+    <color name="bg">#0B0E1A</color>
+    <!-- A favicon lapkájának háttere — az adaptív ikon alaprétege. -->
+    <color name="ic_launcher_background">#1B2145</color>
+</resources>
