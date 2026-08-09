@@ -61,6 +61,7 @@ import hu.jamborz.reszvenymonitor.ui.theme.auroraBackground
 fun SampleScreen(
     userName: String = "",
     onLogout: () -> Unit = {},
+    container: hu.jamborz.reszvenymonitor.AppContainer? = null,
 ) {
     val palette = LocalMonitorColors.current
     Box(
@@ -77,6 +78,7 @@ fun SampleScreen(
             verticalArrangement = Arrangement.spacedBy(14.dp),
         ) {
             BrandHeader(userName = userName, onLogout = onLogout)
+            if (container != null) ChartDemoCard(container)
             IdentitySample()
             ToolbarSample()
             StatGridSample()

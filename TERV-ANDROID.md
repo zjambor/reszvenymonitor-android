@@ -1,7 +1,7 @@
 # Terv — IT Részvény Monitor natív Android alkalmazás
 
 > Készült: 2026-08-09, Claude Fable 5 modellel. Előzmények: [TERV.md](TERV.md), [TERV-ETF.md](TERV-ETF.md), [TERV-AUTH.md](TERV-AUTH.md), [TERV-PORTFOLIO.md](TERV-PORTFOLIO.md), [TERV-RESZLETEK.md](TERV-RESZLETEK.md), [TERV-EU-ETF.md](TERV-EU-ETF.md), [README.md](README.md).
-> Állapot: **4. fázis kész** (2026-08-09; a 2. fázis valós belépés-próbája a felhasználóra vár) — a fázisok a szokásos módon egyenként indulnak („Mehet a X. fázis").
+> Állapot: **5. fázis kész** (2026-08-09; a 2. fázis minden ellenőrzése lezárva) — a fázisok a szokásos módon egyenként indulnak („Mehet a X. fázis").
 
 ## Kontextus és cél
 
@@ -254,8 +254,9 @@ kijelentkezés után adatkérés nem indul; szándékosan rossz jelszóval magya
 sessionLost-jelzés, 401-kezelő `onAuthLoss`), LoginScreen a webes overlay
 stílusában (rázás-animációval), gyökér auth-kapu: belépésig adatképernyő be sem
 komponálódik. Emulátoron igazolva: rossz jelszóra „Hibás felhasználónév vagy
-jelszó!". A valós jelszavas belépés + újraindítás-perzisztencia + kijelentkezés
-próbája a felhasználóra vár — jelszót az app és a repó nem tárol.)*
+jelszó!". Az 5. fázis során emulátoron a teljes kör lezárva: valós belépés OK;
+a session app-újratelepítést is túlél (nincs újra-belépés); Kijelentkezés →
+login-képernyő, adatkérés nem indul; visszalépés valós jelszóval OK.)*
 
 
 ### 3. fázis — Domain-port unit-tesztekkel
@@ -307,6 +308,16 @@ változás, hu-HU formázással); gyertyaszínek `--up`/`--down`, vonal-mód a t
 akcent-színével; „Teljes nézet" (fit); üres- és skeleton-állapot.
 **Ellenőrzés:** ugyanarra a tickerre/presetre a web és az Android chart vizuálisan
 egyező alakot ad; pinch-zoom és pan működik; a volumen-kapcsoló a panelt elrejti.
+*(Kész — 2026-08-09: ChartPanel a vékony ChartController-absztrakcióval
+(MPAndroidChart cserélhető marad): gyertya/area-vonal CombinedChartban +
+volumen-BarChart szinkronizált X-viewporttal (fix tengelyszélesség tartja
+fedésben); legend-sor a kiemelt/utolsó bar Ny/Max/Min/Z/Vol + változás
+értékeivel hu-HU formázással; watermark; skeleton- és üres-állapot; preset-ablak
+(a teljes sor betöltve marad, pan-nel elérhető — webes viselkedés); Teljes
+nézet. Emulátoron valós NVDA-adattal igazolva: gyertya+volumen, vonal-mód
+akcent-területtel, crosshair→legend, volumen-kapcsoló, pan + auto-Y-skála,
+fit ~900 baron. A pinch-zoom kézi próbája a felhasználóra vár — adb-vel csak
+egyujjas gesztus adható.)*
 
 ### 6. fázis — Fő nézet összekötése
 

@@ -52,6 +52,7 @@ private fun Root(container: AppContainer) {
         is SessionStatus.Authenticated -> SampleScreen(
             userName = auth.displayName(),
             onLogout = { authViewModel.signOut() },
+            container = container,
         )
         is SessionStatus.Initializing -> InitializingScreen()
         // NotAuthenticated és RefreshFailure egyaránt: login-képernyő
