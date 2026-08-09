@@ -1,7 +1,7 @@
 # Terv — IT Részvény Monitor natív Android alkalmazás
 
 > Készült: 2026-08-09, Claude Fable 5 modellel. Előzmények: [TERV.md](TERV.md), [TERV-ETF.md](TERV-ETF.md), [TERV-AUTH.md](TERV-AUTH.md), [TERV-PORTFOLIO.md](TERV-PORTFOLIO.md), [TERV-RESZLETEK.md](TERV-RESZLETEK.md), [TERV-EU-ETF.md](TERV-EU-ETF.md), [README.md](README.md).
-> Állapot: **6. fázis kész** (2026-08-09) — a fázisok a szokásos módon egyenként indulnak („Mehet a X. fázis").
+> Állapot: **7. fázis kész** (2026-08-09) — a fázisok a szokásos módon egyenként indulnak („Mehet a X. fázis").
 
 ## Kontextus és cél
 
@@ -358,6 +358,24 @@ törlés (`delete`, megerősítő dialógussal, `in-portfolio` blokk kezelése);
 **Ellenőrzés:** `IE00B5BMR087` ISIN-re a jegyzés-lista deviza-badge-ekkel jön;
 `SKR8` beírásra a javaslat `SXR8.DE`-t ajánl; ismert szimbólum felvétele és törlése
 végigmegy, a webes felületen visszaellenőrizve.
+*(Kész — 2026-08-09: TickerRepository `search`/`add`/`delete` (az üzleti hibakódok
+NEM kivételek), SearchViewModel + teljes képernyős SearchScreen a webes
+renderOptions sorrendjével (helyi csoportok → javaslat → felvétel-opció →
+tőzsdei keresés), fejléc-keresőmező (az ideiglenes chipsor leváltva), törlés
+megerősítő dialógussal. Emulátoron mind a négy ellenőrzés kész: `SKR8` →
+„Talán erre gondoltál" SXR8.DE-vel; `IE00B5BMR087` → 9 jegyzés
+deviza-badge-ekkel (MILAN/EUR, SWISS/USD, XETRA/EUR, LSE/USD, LSE/GBp…) és
+„már felvéve" jelzéssel; CSP1.L felvétele → automatikus kiválasztás, majd
+törlése → visszaesés az alap tickerre; az adatbázisban visszaellenőrizve
+(a `stock_prices` sorok is cascade-elve). Az `in-portfolio` blokk élesben:
+„A(z) NVDA szerepel 3 portfólió-tételben (P1, P2 részvény, Lightyear TBSZ
+2026)…".*
+*Két hiba derült ki és javítva: (1) a `search` válasz `isin` mezője **boolean**,
+nem string — ez éles futásnál összeomlást okozott; azóta a DTO helyes, az
+ApiGuard a séma-hibát is kezelhető hibává alakítja, és a
+`ResponseParsingTest` valós szerver-válaszokon őrzi a szerződést. (2) A törlés
+hibaüzenete a kereső állapotába került, így a fő nézeten láthatatlan maradt —
+a törlés átkerült a MonitorViewModelbe, a hibakártya mellé.)*
 
 ### 8. fázis — Portfóliók
 

@@ -17,9 +17,15 @@ import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -63,7 +69,6 @@ import hu.jamborz.reszvenymonitor.ui.theme.auroraBackground
 fun MonitorScreen(
     state: MonitorViewModel.UiState,
     userName: String,
-    onSelectTicker: (TickerDto) -> Unit,
     onPreset: (Transform.Preset) -> Unit,
     onResolution: (Transform.Resolution) -> Unit,
     onChartType: (ChartType) -> Unit,
@@ -73,6 +78,8 @@ fun MonitorScreen(
     onRefresh: () -> Unit,
     onRetry: () -> Unit,
     onLogout: () -> Unit,
+    onOpenSearch: () -> Unit,
+    onDeleteTicker: (TickerDto) -> Unit,
 ) {
     // A kiválasztott ticker `color` mezője az EGÉSZ felület akcentje — ugyanaz,
     // amit a weben a JS a `--accent` CSS-változó átírásával ér el.
@@ -80,7 +87,6 @@ fun MonitorScreen(
         MonitorContent(
             state = state,
             userName = userName,
-            onSelectTicker = onSelectTicker,
             onPreset = onPreset,
             onResolution = onResolution,
             onChartType = onChartType,
@@ -90,6 +96,8 @@ fun MonitorScreen(
             onRefresh = onRefresh,
             onRetry = onRetry,
             onLogout = onLogout,
+            onOpenSearch = onOpenSearch,
+            onDeleteTicker = onDeleteTicker,
         )
     }
 }
@@ -98,7 +106,6 @@ fun MonitorScreen(
 private fun MonitorContent(
     state: MonitorViewModel.UiState,
     userName: String,
-    onSelectTicker: (TickerDto) -> Unit,
     onPreset: (Transform.Preset) -> Unit,
     onResolution: (Transform.Resolution) -> Unit,
     onChartType: (ChartType) -> Unit,
@@ -108,8 +115,11 @@ private fun MonitorContent(
     onRefresh: () -> Unit,
     onRetry: () -> Unit,
     onLogout: () -> Unit,
+    onOpenSearch: () -> Unit,
+    onDeleteTicker: (TickerDto) -> Unit,
 ) {
     val palette = LocalMonitorColors.current
+    var confirmDelete by remember { mutableStateOf<TickerDto?>(null) }
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -124,9 +134,9 @@ private fun MonitorContent(
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             BrandHeader(userName = userName, onLogout = onLogout)
-            TickerChips(state.tickers, state.selected, onSelectTicker)
+            SearchBar(onOpenSearch)
             state.error?.let { ErrorCard(it, onRetry) }
-            IdentityHeader(state)
+            IdentityHeader(state, onDelete = { confirmDelete = it })
             Toolbar(state, onPreset, onResolution, onChartType, onToggleVolume, onCurrency, onFit, onRefresh)
 
             MonitorCard(contentPadding = androidx.compose.foundation.layout.PaddingValues(12.dp)) {
@@ -157,6 +167,59 @@ private fun MonitorContent(
                 )
             }
         }
+
+        // Kétlépcsős törlés-megerősítés (a webes „SYM törlése — biztos?" natív párja).
+        confirmDelete?.let { target ->
+            AlertDialog(
+                onDismissRequest = { confirmDelete = null },
+                containerColor = palette.bgDeep,
+                titleContentColor = palette.text,
+                textContentColor = palette.textDim,
+                title = { Text("${target.symbol} törlése") },
+                text = {
+                    Text(
+                        "Biztosan törlöd a(z) ${target.symbol} tickert a teljes " +
+                            "árfolyam-adatsorával együtt? A művelet nem vonható vissza."
+                    )
+                },
+                confirmButton = {
+                    TextButton(onClick = {
+                        confirmDelete = null
+                        onDeleteTicker(target)
+                    }) { Text("Törlés", color = palette.down, fontWeight = FontWeight.SemiBold) }
+                },
+                dismissButton = {
+                    TextButton(onClick = { confirmDelete = null }) {
+                        Text("Mégse", color = palette.textDim)
+                    }
+                },
+            )
+        }
+    }
+}
+
+/** A fejléc keresőmezője — a kereső-képernyőre visz (webes combobox helyett). */
+@Composable
+private fun SearchBar(onClick: () -> Unit) {
+    val palette = LocalMonitorColors.current
+    val shape = RoundedCornerShape(12.dp)
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(shape)
+            .background(Color(0xB80A0D1A))
+            .border(1.dp, palette.border, shape)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 14.dp, vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(9.dp),
+    ) {
+        Text(text = "🔍", fontSize = 13.sp)
+        Text(
+            text = "Ticker, cégnév vagy ISIN keresése…",
+            fontSize = 14.sp,
+            color = palette.textFaint,
+        )
     }
 }
 
@@ -215,40 +278,6 @@ private fun BrandHeader(userName: String, onLogout: () -> Unit) {
     }
 }
 
-/** IDEIGLENES ticker-választó (7. fázis: keresőmező → kereső-képernyő). */
-@Composable
-private fun TickerChips(
-    tickers: List<TickerDto>,
-    selected: TickerDto?,
-    onSelect: (TickerDto) -> Unit,
-) {
-    if (tickers.isEmpty()) return
-    val palette = LocalMonitorColors.current
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .horizontalScroll(rememberScrollState()),
-        horizontalArrangement = Arrangement.spacedBy(6.dp),
-    ) {
-        tickers.forEach { t ->
-            val active = t.symbol == selected?.symbol
-            Text(
-                text = t.symbol,
-                fontSize = 12.5.sp,
-                fontWeight = FontWeight.SemiBold,
-                color = if (active) palette.text else palette.textDim,
-                maxLines = 1,
-                modifier = Modifier
-                    .clip(PillShape)
-                    .background(if (active) palette.accentSoft else palette.surface)
-                    .border(1.dp, if (active) palette.accentRing else palette.border, PillShape)
-                    .clickable { onSelect(t) }
-                    .padding(horizontal = 12.dp, vertical = 7.dp),
-            )
-        }
-    }
-}
-
 /** A webes .error-bar megfelelője, „Újra" gombbal. */
 @Composable
 private fun ErrorCard(message: String, onRetry: () -> Unit) {
@@ -283,9 +312,9 @@ private fun ErrorCard(message: String, onRetry: () -> Unit) {
     }
 }
 
-/** Identitás-sáv: szimbólum, név, badge-ek, utolsó adatnap, IPO/elavult chip. */
+/** Identitás-sáv: szimbólum, név, badge-ek, utolsó adatnap, IPO/elavult chip, Törlés. */
 @Composable
-private fun IdentityHeader(state: MonitorViewModel.UiState) {
+private fun IdentityHeader(state: MonitorViewModel.UiState, onDelete: (TickerDto) -> Unit) {
     val palette = LocalMonitorColors.current
     val ticker = state.selected ?: return
     MonitorCard(contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 16.dp, vertical = 14.dp)) {
@@ -332,8 +361,21 @@ private fun IdentityHeader(state: MonitorViewModel.UiState) {
                 text = "Utolsó adatnap: ${state.lastDate?.let { Format.formatDateHu(it) } ?: "—"}",
                 style = MaterialTheme.typography.bodySmall,
                 color = palette.textFaint,
+                modifier = Modifier.weight(1f),
             )
             if (state.stale) WarnChip("Elavult lehet")
+            // .btn-ghost — a törlés visszafogott, de elérhető (megerősítés követi).
+            Text(
+                text = "Törlés",
+                fontSize = 13.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = Color(0xFFFFD3DA),
+                modifier = Modifier
+                    .clip(RoundedCornerShape(10.dp))
+                    .border(1.dp, palette.down.copy(alpha = 0.45f), RoundedCornerShape(10.dp))
+                    .clickable { onDelete(ticker) }
+                    .padding(horizontal = 12.dp, vertical = 7.dp),
+            )
         }
     }
 }

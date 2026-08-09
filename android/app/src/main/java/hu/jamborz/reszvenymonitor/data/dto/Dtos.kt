@@ -58,3 +58,80 @@ data class SyncResultDto(
 data class SyncResponseDto(
     val results: List<SyncResultDto> = emptyList(),
 )
+
+/**
+ * Tőzsdei kereső-találat (sync-prices `search`). A `currency` a legfontosabb
+ * megkülönböztető: ugyanaz az alap tőzsdénként MÁS devizában fut
+ * (IWDA.AS EUR vs SWDA.L GBp) — rossz jegyzés csendben rossz adatsort hozna.
+ */
+@Serializable
+data class SearchHitDto(
+    val symbol: String,
+    val name: String? = null,
+    val exchange: String? = null,
+    val quoteType: String? = null,
+    val currency: String? = null,
+) {
+    val isEtf: Boolean get() = quoteType?.uppercase() == "ETF"
+}
+
+/** A sync-prices `search` válasza. */
+@Serializable
+data class SearchResponseDto(
+    val ok: Boolean = false,
+    val query: String? = null,
+    /** A szerver JELZÉSE, hogy a kérés ISIN-ként lett feldolgozva (nem maga az ISIN). */
+    val isin: Boolean = false,
+    val results: List<SearchHitDto> = emptyList(),
+    val code: String? = null,
+    val message: String? = null,
+)
+
+/** Az `add` akció sikeres ágának adatai. */
+@Serializable
+data class AddedTickerDto(
+    val symbol: String,
+    val name: String? = null,
+    val exchange: String? = null,
+    val color: String? = null,
+    val rows: Int? = null,
+    val from: String? = null,
+    val to: String? = null,
+    val firstTradeDate: String? = null,
+)
+
+/**
+ * A sync-prices `add` válasza. Az ÜZLETI hiba HTTP 200 + `ok:false` formában jön
+ * (`invalid-symbol` | `unknown-symbol` | `already-exists`) — ezt a hívó kezeli,
+ * kivétel csak valódi hálózati/szerverhibára dobódik.
+ */
+@Serializable
+data class AddResponseDto(
+    val ok: Boolean = false,
+    val added: AddedTickerDto? = null,
+    /** already-exists ágon a szerver ide teszi a meglévő szimbólumot. */
+    val symbol: String? = null,
+    val code: String? = null,
+    val message: String? = null,
+)
+
+/** A `delete` akció sikeres ágának adatai. */
+@Serializable
+data class DeletedTickerDto(
+    val symbol: String? = null,
+    val name: String? = null,
+    val priceRows: Int? = null,
+)
+
+/**
+ * A sync-prices `delete` válasza. Üzleti hibakódok: `invalid-symbol` |
+ * `unknown-symbol` | **`in-portfolio`** (utóbbinál a szerver üzenete felsorolja
+ * az érintett portfóliókat).
+ */
+@Serializable
+data class DeleteResponseDto(
+    val ok: Boolean = false,
+    val deleted: DeletedTickerDto? = null,
+    val code: String? = null,
+    val message: String? = null,
+)

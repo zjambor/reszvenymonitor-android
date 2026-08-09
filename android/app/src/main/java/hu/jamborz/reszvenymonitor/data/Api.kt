@@ -5,6 +5,7 @@ import io.github.jan.supabase.exceptions.RestException
 import io.github.jan.supabase.exceptions.UnauthorizedRestException
 import io.ktor.client.plugins.HttpRequestTimeoutException
 import kotlinx.coroutines.CancellationException
+import kotlinx.serialization.SerializationException
 
 /**
  * A webes ApiError megfelelője: magyar üzenet + opcionális HTTP-státusz.
@@ -43,5 +44,9 @@ class ApiGuard(private val auth: AuthRepository) {
         throw ApiException("Hálózati hiba: az adatbázis nem érhető el. Ellenőrizd az internetkapcsolatot.")
     } catch (e: java.io.IOException) {
         throw ApiException("Hálózati hiba: az adatbázis nem érhető el. Ellenőrizd az internetkapcsolatot.")
+    } catch (e: SerializationException) {
+        // Váratlan válasz-séma (mérve: a sync-prices `search` az `isin` mezőt
+        // booleanként küldi) NEM omlaszthatja az appot — kezelhető hibává válik.
+        throw ApiException("A szolgáltatás válasza váratlan formátumú volt. ${e.message}")
     }
 }

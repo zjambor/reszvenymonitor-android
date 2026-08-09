@@ -2,14 +2,18 @@ package hu.jamborz.reszvenymonitor
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -18,6 +22,8 @@ import hu.jamborz.reszvenymonitor.ui.login.AuthViewModel
 import hu.jamborz.reszvenymonitor.ui.login.LoginScreen
 import hu.jamborz.reszvenymonitor.ui.monitor.MonitorScreen
 import hu.jamborz.reszvenymonitor.ui.monitor.MonitorViewModel
+import hu.jamborz.reszvenymonitor.ui.search.SearchScreen
+import hu.jamborz.reszvenymonitor.ui.search.SearchViewModel
 import hu.jamborz.reszvenymonitor.ui.theme.LocalMonitorColors
 import hu.jamborz.reszvenymonitor.ui.theme.MonitorTheme
 import hu.jamborz.reszvenymonitor.ui.theme.auroraBackground
@@ -67,8 +73,9 @@ private fun Root(container: AppContainer) {
 }
 
 /**
- * A fő nézet a saját ViewModeljével. A `key` a bejelentkezéshez köti: új
- * belépéskor friss ViewModel épül (nem marad benne az előző munkamenet állapota).
+ * A fő nézet a saját ViewModeljével, és a kereső-képernyő. A `key` a
+ * bejelentkezéshez köti: új belépéskor friss ViewModel épül (nem marad benne az
+ * előző munkamenet állapota).
  */
 @Composable
 private fun Monitor(container: AppContainer, userName: String, onLogout: () -> Unit) {
@@ -80,12 +87,45 @@ private fun Monitor(container: AppContainer, userName: String, onLogout: () -> U
             settings = container.settingsRepository,
         )
     }
+    val searchViewModel: SearchViewModel = viewModel(key = "search-$userName") {
+        SearchViewModel(tickerRepo = container.tickerRepository)
+    }
     val state by viewModel.uiState.collectAsStateWithLifecycle()
+    val searchState by searchViewModel.uiState.collectAsStateWithLifecycle()
+    var showSearch by rememberSaveable { mutableStateOf(false) }
+
+    // A kereső mindig a friss tickerlistából dolgozik (felvétel/törlés után is).
+    LaunchedEffect(state.tickers) { searchViewModel.setTickers(state.tickers) }
+
+    // Felvétel vagy „már felvéve" után: lista újratöltése, majd az érintett
+    // ticker kiválasztása és visszalépés a fő nézetre (webes viselkedés).
+    LaunchedEffect(searchState.completedSymbol) {
+        val symbol = searchState.completedSymbol ?: return@LaunchedEffect
+        viewModel.reloadTickersAndSelect(symbol)
+        searchViewModel.consumeCompletion()
+        showSearch = false
+    }
+
+    if (showSearch) {
+        SearchScreen(
+            state = searchState,
+            onQueryChange = searchViewModel::onQueryChange,
+            onPickTicker = { ticker ->
+                viewModel.select(ticker)
+                showSearch = false
+            },
+            onPickHit = { hit -> searchViewModel.addTicker(hit.symbol) },
+            onAdd = searchViewModel::addTicker,
+            onSearchExchanges = searchViewModel::searchExchanges,
+            onBack = { showSearch = false },
+        )
+        BackHandler { showSearch = false }
+        return
+    }
 
     MonitorScreen(
         state = state,
         userName = userName,
-        onSelectTicker = viewModel::select,
         onPreset = viewModel::setPreset,
         onResolution = viewModel::setResolution,
         onChartType = viewModel::setChartType,
@@ -95,6 +135,11 @@ private fun Monitor(container: AppContainer, userName: String, onLogout: () -> U
         onRefresh = viewModel::refresh,
         onRetry = viewModel::retry,
         onLogout = onLogout,
+        onOpenSearch = {
+            searchViewModel.onQueryChange("")
+            showSearch = true
+        },
+        onDeleteTicker = viewModel::deleteTicker,
     )
 }
 

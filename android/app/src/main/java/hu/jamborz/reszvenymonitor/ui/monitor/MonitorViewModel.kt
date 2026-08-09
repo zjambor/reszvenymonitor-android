@@ -298,12 +298,97 @@ class MonitorViewModel(
         }
     }
 
-    /** A hibakártya „Újra" gombja. */
+    /**
+     * A kiválasztott ticker törlése a teljes adatsorával (sync-prices `delete`).
+     * A törlés a FŐ nézetről indul, ezért az eredménye is itt jelenik meg: az
+     * üzleti elutasítás (jellemzően `in-portfolio`, a szerver felsorolja az
+     * érintett portfóliókat) a hibakártyára kerül, nem vész el.
+     */
+    fun deleteTicker(ticker: TickerDto) {
+        if (_uiState.value.refreshing) return
+        _uiState.value = _uiState.value.copy(
+            refreshing = true,
+            error = null,
+            status = StatusMessage("Ticker törlése: ${ticker.symbol}…"),
+        )
+        viewModelScope.launch {
+            try {
+                val response = tickerRepo.deleteTicker(ticker.symbol)
+                if (!response.ok) {
+                    lastFailedAction = null // üzleti tiltás — az „Újra" nem segítene
+                    _uiState.value = _uiState.value.copy(
+                        refreshing = false,
+                        status = null,
+                        error = response.message ?: "Nem sikerült törölni: ${ticker.symbol}.",
+                    )
+                    return@launch
+                }
+                // A cache-t is ejteni kell, különben a régi adat feléledne.
+                priceRepo.evictCache(ticker.symbol)
+                val deleted = response.deleted
+                _uiState.value = _uiState.value.copy(refreshing = false)
+                reloadTickersAndSelect(null)
+                _uiState.value = _uiState.value.copy(
+                    status = StatusMessage(
+                        "Törölve: ${ticker.symbol}" +
+                            (deleted?.name?.let { " — $it" }.orEmpty()) +
+                            " (${deleted?.priceRows ?: 0} napi sor).",
+                        StatusMessage.Tone.SUCCESS,
+                    ),
+                )
+            } catch (e: ApiException) {
+                lastFailedAction = { deleteTicker(ticker) }
+                _uiState.value = _uiState.value.copy(
+                    refreshing = false,
+                    status = null,
+                    error = "Nem sikerült törölni a(z) ${ticker.symbol} tickert. ${e.message}",
+                )
+            }
+        }
+    }
+
+    /**
+     * A tickerlista újratöltése, majd a megadott szimbólum kiválasztása
+     * (felvétel után), vagy visszaesés az alapértelmezettre (törlés után).
+     * Ha egyetlen ticker sem maradt, üres nézet marad.
+     */
+    fun reloadTickersAndSelect(symbol: String?) {
+        viewModelScope.launch {
+            try {
+                val tickers = tickerRepo.fetchTickers()
+                _uiState.value = _uiState.value.copy(tickers = tickers)
+                if (tickers.isEmpty()) {
+                    nativeDaily = emptyList()
+                    _uiState.value = _uiState.value.copy(
+                        selected = null,
+                        daily = emptyList(),
+                        stats = null,
+                        lastDate = null,
+                        stale = false,
+                        status = StatusMessage("Nincs elérhető ticker az adatbázisban.", StatusMessage.Tone.ERROR),
+                    )
+                    return@launch
+                }
+                val target = tickers.firstOrNull { it.symbol == symbol }
+                    ?: tickers.firstOrNull { it.symbol == BuildConfig.DEFAULT_TICKER }
+                    ?: tickers.first()
+                select(target)
+            } catch (e: ApiException) {
+                _uiState.value = _uiState.value.copy(error = "Nem sikerült frissíteni a tickerlistát. ${e.message}")
+            }
+        }
+    }
+
+    /**
+     * A hibakártya „Újra" gombja. Ha nincs megismételhető művelet (üzleti
+     * tiltás, pl. `in-portfolio`), a gomb csak elrejti a kártyát — az
+     * újrapróbálkozás ott úgysem segítene.
+     */
     fun retry() {
-        val action = lastFailedAction ?: return
+        val action = lastFailedAction
         lastFailedAction = null
         _uiState.value = _uiState.value.copy(error = null)
-        action()
+        action?.invoke()
     }
 
     fun dismissStatus() {

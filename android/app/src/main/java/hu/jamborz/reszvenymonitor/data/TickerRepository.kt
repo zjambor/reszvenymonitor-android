@@ -1,5 +1,8 @@
 package hu.jamborz.reszvenymonitor.data
 
+import hu.jamborz.reszvenymonitor.data.dto.AddResponseDto
+import hu.jamborz.reszvenymonitor.data.dto.DeleteResponseDto
+import hu.jamborz.reszvenymonitor.data.dto.SearchResponseDto
 import hu.jamborz.reszvenymonitor.data.dto.SyncResponseDto
 import hu.jamborz.reszvenymonitor.data.dto.SyncResultDto
 import hu.jamborz.reszvenymonitor.data.dto.TickerDto
@@ -12,6 +15,7 @@ import io.ktor.client.statement.bodyAsText
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.add
 import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.put
 import kotlinx.serialization.json.putJsonArray
 
 /**
@@ -51,5 +55,46 @@ class TickerRepository(
         }
         val response = client.functions.invoke(function = "sync-prices", body = body)
         json.decodeFromString<SyncResponseDto>(response.bodyAsText()).results
+    }
+
+    /**
+     * Szimbólum-keresés a tőzsdéken (sync-prices `search`). ISIN-t és szabad
+     * szöveget is elfogad; a rangsorolás és a vágás a SZERVEREN történik.
+     * A találatok már szűrve vannak arra, ami ténylegesen felvehető.
+     */
+    suspend fun searchSymbols(query: String): SearchResponseDto = guard.run {
+        val body = buildJsonObject {
+            put("action", "search")
+            put("query", query)
+        }
+        val response = client.functions.invoke(function = "sync-prices", body = body)
+        json.decodeFromString<SearchResponseDto>(response.bodyAsText())
+    }
+
+    /**
+     * Új ticker felvétele (Yahoo-validálás + teljes adatsor-letöltés a szerveren).
+     * Az üzleti hibák (`ok:false` + kód) NEM kivételek — a hívó dolgozza fel.
+     */
+    suspend fun addTicker(symbol: String): AddResponseDto = guard.run {
+        val body = buildJsonObject {
+            put("action", "add")
+            put("symbol", symbol)
+        }
+        val response = client.functions.invoke(function = "sync-prices", body = body)
+        json.decodeFromString<AddResponseDto>(response.bodyAsText())
+    }
+
+    /**
+     * Ticker törlése a teljes adatsorával (service role a szerveren; a
+     * stock_prices/asset_profiles sorokat az FK ON DELETE CASCADE viszi).
+     * Portfólió-tagság esetén `in-portfolio` kóddal utasít vissza.
+     */
+    suspend fun deleteTicker(symbol: String): DeleteResponseDto = guard.run {
+        val body = buildJsonObject {
+            put("action", "delete")
+            put("symbol", symbol)
+        }
+        val response = client.functions.invoke(function = "sync-prices", body = body)
+        json.decodeFromString<DeleteResponseDto>(response.bodyAsText())
     }
 }
