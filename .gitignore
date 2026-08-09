@@ -1,2 +1,6 @@
 # Claude Code helyi (felhasználói) beállítások — a megosztott settings.json mehet a repóba.
 .claude/settings.local.json
+
+# IDE-metaadat (Android Studio / IntelliJ a gyökérben)
+.idea/
+*.iml
