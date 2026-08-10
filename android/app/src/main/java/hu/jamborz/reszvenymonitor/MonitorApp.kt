@@ -3,6 +3,7 @@ package hu.jamborz.reszvenymonitor
 import android.app.Application
 import hu.jamborz.reszvenymonitor.data.ApiGuard
 import hu.jamborz.reszvenymonitor.data.AuthRepository
+import hu.jamborz.reszvenymonitor.data.DetailsRepository
 import hu.jamborz.reszvenymonitor.data.FxRepository
 import hu.jamborz.reszvenymonitor.data.PortfolioRepository
 import hu.jamborz.reszvenymonitor.data.PriceRepository
@@ -29,4 +30,5 @@ class AppContainer(context: android.content.Context) {
     val portfolioRepository: PortfolioRepository by lazy { PortfolioRepository(supabase, guard) }
     val priceRepository: PriceRepository by lazy { PriceRepository(supabase, guard) }
     val fxRepository: FxRepository by lazy { FxRepository(supabase, guard) }
+    val detailsRepository: DetailsRepository by lazy { DetailsRepository(supabase, guard) }
 }

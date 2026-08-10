@@ -1,7 +1,7 @@
 # Terv — IT Részvény Monitor natív Android alkalmazás
 
 > Készült: 2026-08-09, Claude Fable 5 modellel. Előzmények: [TERV.md](TERV.md), [TERV-ETF.md](TERV-ETF.md), [TERV-AUTH.md](TERV-AUTH.md), [TERV-PORTFOLIO.md](TERV-PORTFOLIO.md), [TERV-RESZLETEK.md](TERV-RESZLETEK.md), [TERV-EU-ETF.md](TERV-EU-ETF.md), [README.md](README.md).
-> Állapot: **8. fázis kész** (2026-08-10) — a fázisok a szokásos módon egyenként indulnak („Mehet a X. fázis").
+> Állapot: **9. fázis kész** (2026-08-10) — a fázisok a szokásos módon egyenként indulnak („Mehet a X. fázis").
 
 ## Kontextus és cél
 
@@ -412,6 +412,30 @@ szektormegoszlás; `null` mezők elegáns kihagyása — „jobb nem mutatni vag
 rosszat"); portfóliónál helyi összetétel-számítás; forrás-lábléc.
 **Ellenőrzés:** VWCE.DE-re az AUM a webes értékkel egyezik; IWDA.AS-nél az AUM-sor
 kimarad; portfólió-összetétel offline (repülő módban, cache-elt árakból) is számolódik.
+*(Kész — 2026-08-10: DetailsRepository (asset-details Edge Function hívás,
+user-JWT owner-ellenőrzéssel), DTO-k a NORMALIZÁLT válaszalakra, DetailsPresenter
+(a megjelenítéstől független blokk-modell: chipek, profil-rács, honlap, leírás,
+alap-adatok, top holdingok, szektormegoszlás, forrás-lábléc), DetailsSheet
+(alulról felúszó lap, a ticker akcentszínével), DetailsViewModel. Portfóliónál
+NINCS hívás: az összetétel a MonitorViewModel már betöltött natív sorainak
+megjelenítési devizára váltott alakjából számolódik. A `null`/üres mezők
+kimaradnak — nincs „—" helykitöltő sor.*
+*Az ellenőrzés GÉPI: a `tools/xcheck-details.mjs` a web-app EREDETI js/ui.js
+modal-építőit (`buildAssetDetails`, `buildPortfolioComposition` + pctPlain,
+compactNum, formatStampHu, defRow, barRow) futtatja Node-ban egy minimális
+DOM-csonkkal — a forrásszöveg a js/ui.js-ből olvasódik ki, nincs újragépelt
+másolat. A `DetailsCrossCheckTest` ugyanazokra a bemenetekre a portot futtatja:
+4 valós asset-details válasz + 3 szintetikus éleset + 18 összetétel-eset
+(6 portfólió × 3 deviza), a szöveg KARAKTERRE, a sávszélesség 1e-9-cel.
+Ez fogta meg, hogy a hu-HU compact-formátum elválasztója NEM TÖRŐ SZÓKÖZ
+(„5,31 B"), és hogy a kerekítés előléptet (999 999 → „1 M").*
+*Emulátoron: VWCE.DE „Nettó eszközérték: 75.68B" — a webes értékkel azonos;
+SXR8.DE-nél (az IWDA.AS helyett, ami nincs felvéve az adatbázisba) az AUM-sor
+és a piaci kapitalizáció is kimarad, de az alap-adatok szekció megmarad
+(TER 0,07%); a portfólió-összetétel REPÜLŐ MÓDBAN is kiszámolódik (a Frissítés
+ugyanekkor hálózati hibát adott — tehát tényleg nem volt kapcsolat).*
+*Menet közben javítva egy korábbi elrendezési hiba: hosszú cégnévnél az
+identitás-sávból kiszorult a szimbólum (SXR8.DE helyett puszta „…").*
 
 ### 10. fázis — Csiszolás és kiadás
 

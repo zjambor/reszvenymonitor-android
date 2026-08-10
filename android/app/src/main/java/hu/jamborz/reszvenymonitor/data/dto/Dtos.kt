@@ -160,3 +160,103 @@ data class DeleteResponseDto(
     val code: String? = null,
     val message: String? = null,
 )
+
+// ---------------------------------------------------------------------------
+// asset-details (Részletek) — a függvény már NORMALIZÁLT alakot ad vissza,
+// ezért a DTO-k az FMP/Yahoo/Alpaca eltéréseitől függetlenek.
+//
+// SZÁNDÉKOSAN SZŰK: csak azok a mezők szerepelnek, amiket a felület használ.
+// A `profile` blokk ad vissza olyan mezőket is (image, price, isEtf), amiket a
+// megjelenítés nem használ — ezeket nem vesszük fel, mert minden felvett mező
+// egy újabb típus-feltevés a szerver felé (a `search` válasz boolean `isin`
+// mezője már omlasztotta egyszer az appot).
+// ---------------------------------------------------------------------------
+
+/** Alpaca-metaadat (csak US-listás papírnál van; egyébként null). */
+@Serializable
+data class AlpacaAssetDto(
+    val assetClass: String? = null,
+    val exchange: String? = null,
+    val name: String? = null,
+    val tradable: Boolean? = null,
+)
+
+/** Cég-/alapprofil. A `marketCap` ETF-nél az alap vagyona (AUM). */
+@Serializable
+data class AssetProfileDto(
+    val name: String? = null,
+    val sector: String? = null,
+    val industry: String? = null,
+    val country: String? = null,
+    val description: String? = null,
+    val website: String? = null,
+    val ceo: String? = null,
+    val employees: Double? = null,
+    val marketCap: Double? = null,
+    val beta: Double? = null,
+    val currency: String? = null,
+    val ipoDate: String? = null,
+    val alpaca: AlpacaAssetDto? = null,
+)
+
+/**
+ * ETF-alapadatok. A `netAssets` SZÁNDÉKOSAN string: a Yahoo már formázva adja
+ * (pl. „75.68B"), és a szerver csak akkor tölti ki, ha megbízható forrásból van
+ * (lásd az asset-details megjegyzését: inkább semmi, mint rossz vagyonadat).
+ */
+@Serializable
+data class EtfInfoDto(
+    val expenseRatio: Double? = null,
+    val category: String? = null,
+    val family: String? = null,
+    val netAssets: String? = null,
+    val turnover: Double? = null,
+)
+
+/** Egy ETF-pozíció. A súly SZÁZALÉK (a szerver már ×100-zal adja). */
+@Serializable
+data class HoldingDto(
+    val symbol: String? = null,
+    val name: String? = null,
+    val weight: Double? = null,
+)
+
+/** Egy szektor súlya SZÁZALÉKBAN. */
+@Serializable
+data class SectorWeightDto(
+    val sector: String? = null,
+    val weight: Double? = null,
+)
+
+/** Az asset-details `details` blokkja. */
+@Serializable
+data class AssetDetailsDto(
+    val symbol: String,
+    /** Csak akkor van kitöltve, ha a szerver TÉNYLEGESEN US-társat használt. */
+    val profileSymbol: String? = null,
+    val assetType: String? = null,
+    val currency: String? = null,
+    val profile: AssetProfileDto? = null,
+    val etf: EtfInfoDto? = null,
+    val holdings: List<HoldingDto>? = null,
+    val sectorWeights: List<SectorWeightDto>? = null,
+    /** Forrás-lánc, pl. „fmp+yahoo+alpaca" — a lábléc ebből épül. */
+    val source: String? = null,
+    val fetchedAt: String? = null,
+) {
+    val isEtf: Boolean get() = assetType == "etf"
+}
+
+/**
+ * Az asset-details válasza. Üzleti hiba HTTP 200 + `ok:false` (`unknown-symbol`
+ * | `no-profile-data`) — ezt a hívó kezeli; 401-nél ApiException dobódik.
+ */
+@Serializable
+data class AssetDetailsResponseDto(
+    val ok: Boolean = false,
+    /** A szerveroldali 7 napos gyorsítótárból jött-e (a lábléc jelzi). */
+    val cached: Boolean = false,
+    val details: AssetDetailsDto? = null,
+    val code: String? = null,
+    val message: String? = null,
+)

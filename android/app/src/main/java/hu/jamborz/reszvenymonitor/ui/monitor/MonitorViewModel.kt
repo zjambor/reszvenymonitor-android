@@ -701,6 +701,29 @@ class MonitorViewModel(
     private fun effectivePortfolioCurrency(portfolio: PortfolioDto): String =
         if (fxRepo.hasRates()) _uiState.value.displayCurrency else (portfolio.currency ?: "USD")
 
+    /**
+     * A nézett portfólió összetétele a Részletek-panelhez — a MÁR BETÖLTÖTT
+     * natív sorokból, HÁLÓZATI KÉRÉS NÉLKÜL (így repülő módban is működik).
+     *
+     * Itt NINCS közös tengely és előre-töltés: az összetétel az egyes tagok
+     * saját utolsó zárójából számol (a webes openPortfolioDetails is így),
+     * de az átváltás a megjelenítési devizára KELL — különben egy vegyes
+     * devizájú portfólióban a súlyok almát adnának a körtéhez.
+     */
+    fun portfolioComposition(): PortfolioCalc.Composition? {
+        val state = _uiState.value
+        val portfolio = state.selected?.asPortfolio ?: return null
+        if (pfItems.isEmpty()) return null
+        val effective = effectivePortfolioCurrency(portfolio)
+        val convertedMap = pfItems.associate { item ->
+            val native = pfNative[item.ticker].orEmpty()
+            val from = pfCurrency[item.ticker] ?: "USD"
+            item.ticker to fxRepo.converter.convertRows(native, from, effective)
+        }
+        val calcItems = pfItems.map { PortfolioCalc.Item(it.ticker, it.quantity, it.purchasePrice) }
+        return PortfolioCalc.computeComposition(calcItems, convertedMap)
+    }
+
     /** Csak a preset változott: a sorok maradnak, a statisztika újraszámol. */
     private fun recomputeStatsOnly() {
         val state = _uiState.value

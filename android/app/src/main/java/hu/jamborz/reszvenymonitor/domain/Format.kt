@@ -4,7 +4,10 @@ import java.math.BigDecimal
 import java.math.RoundingMode
 import java.text.NumberFormat
 import java.time.LocalDate
+import java.time.OffsetDateTime
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeParseException
 import java.time.format.FormatStyle
 import java.util.Locale
 
@@ -105,4 +108,83 @@ object Format {
             iso
         }
     }
+
+    // -----------------------------------------------------------------------
+    // Részletek-panel formázói (a webes js/ui.js pctPlain / compactNum /
+    // formatStampHu párjai). Mindegyik a Node-ban MÉRT ICU-kimenethez igazodik
+    // — lásd tools/xcheck-details.mjs és DetailsCrossCheckTest.
+    // -----------------------------------------------------------------------
+
+    /** Előjel NÉLKÜLI százalék (súlyok, TER) — pl. "5,23%". */
+    fun formatPctPlain(v: Double?, digits: Int = 2): String {
+        if (v == null || !v.isFinite()) return "—"
+        return huNumber(digits, digits, v).format(v) + "%"
+    }
+
+    /**
+     * Szám a JS `toLocaleString(hu-HU)` alapbeállításaival: 0–3 tizedes,
+     * csoportosítás a magyar szabály szerint (9500 → "9500", 12345 → "12 345").
+     */
+    fun formatNumberHu(v: Double?, maxFrac: Int = 3): String {
+        if (v == null || !v.isFinite()) return "—"
+        return huNumber(0, maxFrac, v).format(v)
+    }
+
+    /**
+     * Tömör nagyságrend (piaci kapitalizáció / AUM): "5,31 B", "657 M".
+     *
+     * A magyar CLDR compact-rövidítései: E (ezer), M (millió), Mrd (milliárd),
+     * B (billió); az elválasztó NEM TÖRŐ SZÓKÖZ (a `formatVolume` sima szóközétől
+     * eltérően — az másik formázó, a webes format.js-ben is más az alakja).
+     * A kerekítés utáni ELŐLÉPTETÉS is az ICU-t követi: 999 999 → "1 M".
+     */
+    fun formatCompact(v: Double?): String {
+        if (v == null || !v.isFinite()) return "—"
+        var index = COMPACT_UNITS.indexOfLast { kotlin.math.abs(v) >= it.first }
+        if (index < 0) index = 0
+        // A mantissza kerekítés UTÁN léphet a következő nagyságrendbe.
+        while (index < COMPACT_UNITS.size - 1 &&
+            kotlin.math.abs(roundTo(v / COMPACT_UNITS[index].first, 2)) >= 1000.0
+        ) {
+            index++
+        }
+        val (divisor, suffix) = COMPACT_UNITS[index]
+        val mantissa = v / divisor
+        return huNumber(0, 2, mantissa).format(mantissa) + suffix
+    }
+
+    /**
+     * ISO időbélyeg → magyar dátum+idő (pl. "2026. aug. 6. 13:03"), a megadott
+     * időzónában. Az ÓRA MINDIG KÉTJEGYŰ: a JS `hour: '2-digit'` kérése így
+     * viselkedik, a JVM lokalizált SHORT időformátuma viszont "9:03"-at adna.
+     */
+    fun formatStampHu(iso: String?, zone: ZoneId = ZoneId.systemDefault()): String {
+        if (iso.isNullOrEmpty()) return "—"
+        return try {
+            OffsetDateTime.parse(iso).atZoneSameInstant(zone).format(STAMP_FORMAT)
+        } catch (e: DateTimeParseException) {
+            iso
+        }
+    }
+
+    /**
+     * Nagyságrend-osztók a magyar compact-rövidítésekkel (növekvő sorrendben).
+     * Az elválasztó NEM TÖRŐ SZÓKÖZ (U+00A0) — mérve a Node ICU-kimenetén; a
+     * `formatVolume` ezzel szemben sima szóközt használ (az másik formázó, a
+     * webes format.js-ben is így van).
+     */
+    private const val NBSP = "\u00A0"
+
+    private val COMPACT_UNITS = listOf(
+        1.0 to "",
+        1e3 to "${NBSP}E",
+        1e6 to "${NBSP}M",
+        1e9 to "${NBSP}Mrd",
+        1e12 to "${NBSP}B",
+    )
+
+    private val STAMP_FORMAT: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy. MMM d. HH:mm", HU)
+
+    private fun roundTo(v: Double, digits: Int): Double =
+        BigDecimal(v).setScale(digits, RoundingMode.HALF_UP).toDouble()
 }

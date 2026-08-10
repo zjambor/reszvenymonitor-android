@@ -18,6 +18,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import hu.jamborz.reszvenymonitor.ui.details.DetailsSheet
+import hu.jamborz.reszvenymonitor.ui.details.DetailsViewModel
 import hu.jamborz.reszvenymonitor.ui.login.AuthViewModel
 import hu.jamborz.reszvenymonitor.ui.login.LoginScreen
 import hu.jamborz.reszvenymonitor.ui.monitor.Instrument
@@ -97,9 +99,13 @@ private fun Monitor(container: AppContainer, userName: String, onLogout: () -> U
     val portfolioViewModel: PortfolioViewModel = viewModel(key = "portfolio-$userName") {
         PortfolioViewModel(repo = container.portfolioRepository)
     }
+    val detailsViewModel: DetailsViewModel = viewModel(key = "details-$userName") {
+        DetailsViewModel(repo = container.detailsRepository)
+    }
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val searchState by searchViewModel.uiState.collectAsStateWithLifecycle()
     val portfolioState by portfolioViewModel.uiState.collectAsStateWithLifecycle()
+    val detailsState by detailsViewModel.uiState.collectAsStateWithLifecycle()
     var showSearch by rememberSaveable { mutableStateOf(false) }
     var showPortfolios by rememberSaveable { mutableStateOf(false) }
 
@@ -186,7 +192,24 @@ private fun Monitor(container: AppContainer, userName: String, onLogout: () -> U
             portfolioViewModel.openEditor(null)
             showPortfolios = true
         },
+        // A Részletek két ága: tickernél szerverhívás, portfóliónál a HELYBEN
+        // (a betöltött árakból) számolt összetétel — utóbbi hálózat nélkül is.
+        onOpenDetails = {
+            when (val selected = state.selected) {
+                is Instrument.Stock -> detailsViewModel.openAsset(selected.ticker)
+                is Instrument.Portfolio -> detailsViewModel.openPortfolio(
+                    name = selected.portfolio.name,
+                    composition = viewModel.portfolioComposition(),
+                    names = state.tickers.associate { it.symbol to it.name },
+                    currency = state.effectiveCurrency,
+                )
+                null -> Unit
+            }
+        },
         onDeleteTicker = viewModel::deleteTicker,
+        detailsSheet = {
+            DetailsSheet(state = detailsState, onDismiss = detailsViewModel::close)
+        },
     )
 }
 

@@ -1,0 +1,480 @@
+{
+  "note": "A web-app js/ui.js modal-építőivel generált várt szövegek — ne szerkeszd kézzel (tools/xcheck-details.mjs).",
+  "generatedAt": "2026-08-10T08:05:58.275Z",
+  "timeZone": "UTC",
+  "assetCases": [
+    {
+      "fixture": "details_nvda.json",
+      "symbol": "NVDA",
+      "cached": true,
+      "lines": [
+        "CHIPS: Részvény | NASDAQ | us_equity",
+        "DEF: Szektor = Technology",
+        "DEF: Iparág = Semiconductors",
+        "DEF: Ország = US",
+        "DEF: Piaci kapitalizáció = 5,31 B USD",
+        "DEF: Béta = 2,21",
+        "DEF: Alkalmazottak = 42 000",
+        "DEF: Vezérigazgató = Jen-Hsun Huang",
+        "DEF: Bevezetés = 1999. jan. 22.",
+        "WEB: www.nvidia.com -> https://www.nvidia.com",
+        "SECTION: Leírás",
+        "DESC: NVIDIA Corporation stands as a prominent provider of advanced graphics, computational, and networking solutions, operating across the United States, Taiwan, China, and numerous international markets. Its Graphics division encompasses GeForce GPUs, central to PC gaming and personal computing experiences, along with the GeForce NOW cloud gaming service and its supporting infrastructure, as well as dedicated solutions for various gaming platforms. For professional visualization, it provides Quadro and NVIDIA RTX GPUs for enterprise workstations, further offering vGPU software designed for cloud-centric visual and virtual computing, automotive platforms for in-vehicle infotainment, and the Omniverse software suite, facilitating 3D design and virtual world creation. The Compute & Networking segment is a cornerstone for AI, high-performance computing (HPC), and accelerated data center platforms. It integrates Mellanox networking and interconnect solutions, delivers automotive AI Cockpit technologies, fosters autonomous driving development through strategic agreements, and offers comprehensive autonomous vehicle solutions. This segment also manufactures cryptocurrency mining processors, supplies Jetson platforms for robotics and other embedded applications, and offers enterprise AI software, including NVIDIA AI Enterprise. These diverse offerings find widespread application across the gaming, professional visualization, data center, and automotive sectors. NVIDIA distributes its portfolio through a broad ecosystem, engaging original equipment and device manufacturers, system integrators, add-in board makers, retail channels, software vendors, internet and cloud service providers, automotive companies (both manufacturers and tier-1 suppliers), mapping firms, nascent technology ventures, and other industry stakeholders. A notable strategic partnership exists with Kroger Co. Founded in 1993, NVIDIA Corporation maintains its corporate headquarters in Santa Clara, California."
+      ],
+      "footer": "Forrás: FMP + Alpaca · frissítve: 2026. aug. 6. 13:07 · gyorsítótárból"
+    },
+    {
+      "fixture": "details_vwce_de.json",
+      "symbol": "VWCE.DE",
+      "cached": true,
+      "lines": [
+        "CHIPS: ETF",
+        "DEF: Piaci kapitalizáció = 75,68 Mrd EUR",
+        "DEF: Bevezetés = 2012. máj. 22.",
+        "SECTION: Alap-adatok",
+        "DEF: Költséghányad (TER) = 0,00%",
+        "DEF: Alapkezelő = Vanguard Group (Ireland) Limited",
+        "DEF: Nettó eszközérték = 75.68B",
+        "DEF: Fordulási ráta = 7,00%",
+        "SECTION: Legnagyobb pozíciók (top 10)",
+        "BAR: NVIDIA Corp (NVDA) = 4,47% [100%]",
+        "BAR: Apple Inc (AAPL) = 4,00% [89.4864389074177%]",
+        "BAR: Microsoft Corp (MSFT) = 2,65% [59.318288070041234%]",
+        "BAR: Amazon.com Inc (AMZN) = 2,21% [49.40263862512331%]",
+        "BAR: Alphabet Inc Class A (GOOGL) = 2,00% [44.76021527745157%]",
+        "BAR: Taiwan Semiconductor Manufacturing Co Ltd (2330.TW) = 1,76% [39.354122907677194%]",
+        "BAR: Broadcom Inc (AVGO) = 1,68% [37.55253874837547%]",
+        "BAR: Alphabet Inc Class C (GOOG) = 1,60% [35.89031452787266%]",
+        "BAR: Micron Technology Inc (MU) = 1,24% [27.844028981033485%]",
+        "BAR: Meta Platforms Inc Class A (META) = 1,18% [26.460515690603533%]",
+        "SECTION: Szektormegoszlás",
+        "BAR: Technology = 32,51% [100%]",
+        "BAR: Financial Services = 15,85% [48.754233966862564%]",
+        "BAR: Industrials = 10,82% [33.282070127536464%]",
+        "BAR: Consumer Cyclical = 8,82% [27.13011477669469%]",
+        "BAR: Healthcare = 8,13% [25.00769224924874%]",
+        "BAR: Communication Services = 7,94% [24.42325663702768%]",
+        "BAR: Consumer Defensive = 4,65% [14.303292614883972%]",
+        "BAR: Energy = 3,52% [10.827438710621843%]",
+        "BAR: Basic Materials = 3,50% [10.765919172493312%]",
+        "BAR: Utilities = 2,48% [7.6284227279381165%]",
+        "BAR: Realestate = 1,77% [5.444479124375189%]"
+      ],
+      "footer": "Forrás: Yahoo + yahoo-profile · frissítve: 2026. aug. 6. 13:03 · gyorsítótárból"
+    },
+    {
+      "fixture": "details_sxr8_de.json",
+      "symbol": "SXR8.DE",
+      "cached": true,
+      "lines": [
+        "CHIPS: ETF",
+        "DEF: Bevezetés = 2019. dec. 11.",
+        "SECTION: Alap-adatok",
+        "DEF: Költséghányad (TER) = 0,07%",
+        "DEF: Alapkezelő = BlackRock Asset Management Ireland - ETF",
+        "DEF: Fordulási ráta = 10,48%",
+        "SECTION: Legnagyobb pozíciók (top 10)",
+        "BAR: NVIDIA Corp (NVDA) = 7,51% [100%]",
+        "BAR: Apple Inc (AAPL) = 6,59% [87.69461119307984%]",
+        "BAR: Microsoft Corp (MSFT) = 4,29% [57.17690861346216%]",
+        "BAR: Amazon.com Inc (AMZN) = 3,62% [48.142121326721394%]",
+        "BAR: Alphabet Inc Class A (GOOGL) = 3,25% [43.23935634730826%]",
+        "BAR: Broadcom Inc (AVGO) = 2,77% [36.904964818553225%]",
+        "BAR: Alphabet Inc Class C (GOOG) = 2,59% [34.459041978044226%]",
+        "BAR: Micron Technology Inc (MU) = 2,02% [26.860407422992317%]",
+        "BAR: Meta Platforms Inc Class A (META) = 1,92% [25.525591106897274%]",
+        "BAR: Tesla Inc (TSLA) = 1,83% [24.434992889139824%]",
+        "SECTION: Szektormegoszlás",
+        "BAR: Technology = 38,56% [100%]",
+        "BAR: Financial Services = 11,54% [29.92738589211618%]",
+        "BAR: Communication Services = 9,90% [25.67427385892116%]",
+        "BAR: Consumer Cyclical = 9,49% [24.610995850622405%]",
+        "BAR: Healthcare = 8,89% [23.054979253112034%]",
+        "BAR: Industrials = 8,45% [21.91390041493776%]",
+        "BAR: Consumer Defensive = 4,52% [11.721991701244812%]",
+        "BAR: Energy = 2,98% [7.728215767634854%]",
+        "BAR: Utilities = 2,20% [5.705394190871369%]",
+        "BAR: Realestate = 1,83% [4.745850622406639%]",
+        "BAR: Basic Materials = 1,65% [4.279045643153527%]"
+      ],
+      "footer": "Forrás: Yahoo + yahoo-profile · frissítve: 2026. aug. 6. 13:07 · gyorsítótárból"
+    },
+    {
+      "fixture": "details_wti2_de.json",
+      "symbol": "WTI2.DE",
+      "cached": true,
+      "lines": [
+        "CHIPS: ETF | BATS | us_equity | profil: WTAI",
+        "DEF: Szektor = Financial Services",
+        "DEF: Iparág = Asset Management",
+        "DEF: Ország = US",
+        "DEF: Piaci kapitalizáció = 657 M USD",
+        "DEF: Béta = 2,04",
+        "DEF: Bevezetés = 2021. dec. 9.",
+        "WEB: www.wisdomtree.com/investments/etfs/megatrends/wtai -> https://www.wisdomtree.com/investments/etfs/megatrends/wtai",
+        "SECTION: Leírás",
+        "DESC: This fund aims to provide investors with exposure to publicly traded companies globally, spanning both developed and emerging markets, which are predominantly involved in the burgeoning sectors of Artificial Intelligence and groundbreaking innovation. The fund's industry concentration directly mirrors that of its benchmark index; consequently, if the index focuses heavily on particular industries, the fund will do the same. As a key characteristic, it operates as a non-diversified fund.",
+        "SECTION: Alap-adatok",
+        "DEF: Költséghányad (TER) = 0,00%",
+        "DEF: Alapkezelő = WisdomTree Management Limited",
+        "DEF: Nettó eszközérték = 1.55B",
+        "DEF: Fordulási ráta = 0,00%",
+        "SECTION: Legnagyobb pozíciók (top 10)",
+        "BAR: Marvell Technology Inc (MRVL) = 5,30% [100%]",
+        "BAR: Advanced Micro Devices Inc (AMD) = 5,27% [99.45389238816888%]",
+        "BAR: Astera Labs Inc (ALAB) = 4,42% [83.47934492995128%]",
+        "BAR: Micron Technology Inc (MU) = 4,07% [76.77805762072255%]",
+        "BAR: SK Hynix Inc (000660.KS) = 3,37% [63.56167708141801%]",
+        "BAR: Nebius Group NV Shs Class-A- (NBIS) = 3,30% [62.22319091821572%]",
+        "BAR: Credo Technology Group Holding Ltd (CRDO) = 2,63% [49.75857369443629%]",
+        "BAR: STMicroelectronics NV (STMPA.PA) = 2,39% [45.18133594327327%]",
+        "BAR: KLA Corp (KLAC) = 2,15% [40.619956791265686%]",
+        "BAR: Applied Materials Inc (AMAT) = 2,11% [39.88556466574188%]",
+        "SECTION: Szektormegoszlás",
+        "BAR: Technology = 80,93% [100%]",
+        "BAR: Communication Services = 8,09% [9.996293092796241%]",
+        "BAR: Consumer Cyclical = 4,47% [5.523291362906215%]",
+        "BAR: Healthcare = 2,74% [3.3856419127641173%]",
+        "BAR: Industrials = 2,10% [2.5948350426294327%]",
+        "BAR: Financial Services = 1,05% [2%]",
+        "BAR: Consumer Defensive = 0,61% [2%]"
+      ],
+      "footer": "Forrás: FMP + Yahoo + Alpaca · frissítve: 2026. aug. 6. 13:07 · gyorsítótárból"
+    },
+    {
+      "fixture": "szintetikus:reszveny-szamhatarok",
+      "symbol": "TEST",
+      "cached": false,
+      "input": {
+        "symbol": "TEST",
+        "profileSymbol": "TEST",
+        "assetType": "stock",
+        "currency": "USD",
+        "source": "fmp",
+        "fetchedAt": "2026-01-05T08:07:00.000+00:00",
+        "profile": {
+          "sector": "Technology",
+          "industry": null,
+          "country": null,
+          "marketCap": 999999,
+          "currency": null,
+          "beta": 1.7,
+          "employees": 9500,
+          "ceo": "",
+          "ipoDate": null,
+          "website": null,
+          "description": null,
+          "alpaca": {
+            "exchange": "NASDAQ",
+            "assetClass": null,
+            "tradable": false
+          }
+        },
+        "etf": null,
+        "holdings": null,
+        "sectorWeights": null
+      },
+      "lines": [
+        "CHIPS: Részvény | NASDAQ | nem kereskedhető",
+        "DEF: Szektor = Technology",
+        "DEF: Piaci kapitalizáció = 1 M USD",
+        "DEF: Béta = 1,7",
+        "DEF: Alkalmazottak = 9500"
+      ],
+      "footer": "Forrás: FMP · frissítve: 2026. jan. 5. 08:07"
+    },
+    {
+      "fixture": "szintetikus:reszveny-csoportositas",
+      "symbol": "TEST2",
+      "cached": false,
+      "input": {
+        "symbol": "TEST2",
+        "profileSymbol": null,
+        "assetType": "stock",
+        "currency": "USD",
+        "source": "",
+        "fetchedAt": null,
+        "profile": {
+          "marketCap": 1500000,
+          "beta": 0.5,
+          "employees": 12345,
+          "alpaca": null
+        },
+        "etf": null,
+        "holdings": null,
+        "sectorWeights": null
+      },
+      "lines": [
+        "CHIPS: Részvény",
+        "DEF: Piaci kapitalizáció = 1,5 M USD",
+        "DEF: Béta = 0,5",
+        "DEF: Alkalmazottak = 12 345"
+      ],
+      "footer": null
+    },
+    {
+      "fixture": "szintetikus:etf-ures-mezokkel",
+      "symbol": "TESTETF",
+      "cached": true,
+      "input": {
+        "symbol": "TESTETF",
+        "profileSymbol": null,
+        "assetType": "etf",
+        "currency": "EUR",
+        "source": "yahoo",
+        "fetchedAt": "2026-12-31T23:59:00.000+00:00",
+        "profile": {
+          "sector": null,
+          "marketCap": null,
+          "alpaca": null
+        },
+        "etf": {
+          "expenseRatio": null,
+          "category": null,
+          "family": null,
+          "netAssets": null,
+          "turnover": null
+        },
+        "holdings": [],
+        "sectorWeights": []
+      },
+      "lines": [
+        "CHIPS: ETF"
+      ],
+      "footer": "Forrás: Yahoo · frissítve: 2026. dec. 31. 23:59 · gyorsítótárból"
+    }
+  ],
+  "stampCases": [
+    {
+      "iso": "2026-08-06T13:03:35.037+00:00",
+      "text": "2026. aug. 6. 13:03"
+    },
+    {
+      "iso": "2026-01-05T08:07:00.000+00:00",
+      "text": "2026. jan. 5. 08:07"
+    },
+    {
+      "iso": "2026-12-31T23:59:59.000+00:00",
+      "text": "2026. dec. 31. 23:59"
+    },
+    {
+      "iso": "2026-03-09T00:00:00.000+00:00",
+      "text": "2026. márc. 9. 00:00"
+    }
+  ],
+  "compositionCases": [
+    {
+      "portfolioId": "a421092c-712b-45b9-a155-f95fb74887ec",
+      "portfolioName": "P1",
+      "displayCurrency": "USD",
+      "lines": [
+        "BAR: NVDA = 81,69 $ · 100,00% [100%]",
+        "FOOT: Összérték: 81,69 $ · 1 elem"
+      ]
+    },
+    {
+      "portfolioId": "a421092c-712b-45b9-a155-f95fb74887ec",
+      "portfolioName": "P1",
+      "displayCurrency": "EUR",
+      "lines": [
+        "BAR: NVDA = 70,66 € · 100,00% [100%]",
+        "FOOT: Összérték: 70,66 € · 1 elem"
+      ]
+    },
+    {
+      "portfolioId": "a421092c-712b-45b9-a155-f95fb74887ec",
+      "portfolioName": "P1",
+      "displayCurrency": "HUF",
+      "lines": [
+        "BAR: NVDA = 25 640,13 HUF · 100,00% [100%]",
+        "FOOT: Összérték: 25 640,13 HUF · 1 elem"
+      ]
+    },
+    {
+      "portfolioId": "833c0e60-5194-414a-87f9-1a335f4887a8",
+      "portfolioName": "P2 részvény",
+      "displayCurrency": "USD",
+      "lines": [
+        "BAR: MSFT = 1598,05 $ · 13,56% [100%]",
+        "BAR: ORCL = 1495,80 $ · 12,70% [93.60143576670546%]",
+        "BAR: AMZN = 1372,94 $ · 11,65% [85.91318942334702%]",
+        "BAR: NVDA = 1357,85 $ · 11,53% [84.96888980724518%]",
+        "BAR: TSM = 1296,44 $ · 11,00% [81.1263137946333%]",
+        "BAR: GOOGL = 1240,15 $ · 10,53% [77.60407624752057%]",
+        "BAR: ASML = 1236,61 $ · 10,50% [77.3821785869779%]",
+        "BAR: MU = 1122,40 $ · 9,53% [70.23547751069388%]",
+        "BAR: SKHY = 1060,87 $ · 9,00% [66.3851013435795%]",
+        "FOOT: Összérték: 11 781,11 $ · 9 elem"
+      ]
+    },
+    {
+      "portfolioId": "833c0e60-5194-414a-87f9-1a335f4887a8",
+      "portfolioName": "P2 részvény",
+      "displayCurrency": "EUR",
+      "lines": [
+        "BAR: MSFT = 1382,16 € · 13,56% [100%]",
+        "BAR: ORCL = 1293,72 € · 12,70% [93.60143576670546%]",
+        "BAR: AMZN = 1187,45 € · 11,65% [85.91318942334702%]",
+        "BAR: NVDA = 1174,40 € · 11,53% [84.96888980724518%]",
+        "BAR: TSM = 1121,29 € · 11,00% [81.1263137946333%]",
+        "BAR: GOOGL = 1072,61 € · 10,53% [77.60407624752058%]",
+        "BAR: ASML = 1069,54 € · 10,50% [77.38217858697791%]",
+        "BAR: MU = 970,76 € · 9,53% [70.23547751069388%]",
+        "BAR: SKHY = 917,55 € · 9,00% [66.38510134357952%]",
+        "FOOT: Összérték: 10 189,48 € · 9 elem"
+      ]
+    },
+    {
+      "portfolioId": "833c0e60-5194-414a-87f9-1a335f4887a8",
+      "portfolioName": "P2 részvény",
+      "displayCurrency": "HUF",
+      "lines": [
+        "BAR: MSFT = 501 564,84 HUF · 13,56% [100%]",
+        "BAR: ORCL = 469 471,89 HUF · 12,70% [93.60143576670546%]",
+        "BAR: AMZN = 430 910,35 HUF · 11,65% [85.91318942334702%]",
+        "BAR: NVDA = 426 174,07 HUF · 11,53% [84.96888980724518%]",
+        "BAR: TSM = 406 901,06 HUF · 11,00% [81.1263137946333%]",
+        "BAR: GOOGL = 389 234,76 HUF · 10,53% [77.60407624752058%]",
+        "BAR: ASML = 388 121,80 HUF · 10,50% [77.38217858697791%]",
+        "BAR: MU = 352 276,46 HUF · 9,53% [70.23547751069388%]",
+        "BAR: SKHY = 332 964,32 HUF · 9,00% [66.3851013435795%]",
+        "FOOT: Összérték: 3 697 619,54 HUF · 9 elem"
+      ]
+    },
+    {
+      "portfolioId": "079f3885-d93e-4244-a415-6c48c1f4f2c1",
+      "portfolioName": "P3 ETF euro",
+      "displayCurrency": "USD",
+      "lines": [
+        "BAR: XAIX.DE = 844,72 $ · 58,22% [100%]",
+        "BAR: WTI2.DE = 606,17 $ · 41,78% [71.76014798785383%]",
+        "FOOT: Összérték: 1450,90 $ · 2 elem"
+      ]
+    },
+    {
+      "portfolioId": "079f3885-d93e-4244-a415-6c48c1f4f2c1",
+      "portfolioName": "P3 ETF euro",
+      "displayCurrency": "EUR",
+      "lines": [
+        "BAR: XAIX.DE = 730,60 € · 58,22% [100%]",
+        "BAR: WTI2.DE = 524,28 € · 41,78% [71.76014798785381%]",
+        "FOOT: Összérték: 1254,88 € · 2 elem"
+      ]
+    },
+    {
+      "portfolioId": "079f3885-d93e-4244-a415-6c48c1f4f2c1",
+      "portfolioName": "P3 ETF euro",
+      "displayCurrency": "HUF",
+      "lines": [
+        "BAR: XAIX.DE = 265 124,59 HUF · 58,22% [100%]",
+        "BAR: WTI2.DE = 190 253,80 HUF · 41,78% [71.76014798785381%]",
+        "FOOT: Összérték: 455 378,38 HUF · 2 elem"
+      ]
+    },
+    {
+      "portfolioId": "0527f1c8-4f83-49cc-b915-f61e9bc8b080",
+      "portfolioName": "P4 ETF $",
+      "displayCurrency": "USD",
+      "lines": [
+        "BAR: IQQ = 1320,84 $ · 25,35% [100%]",
+        "BAR: URTH = 1312,55 $ · 25,19% [99.37236078870029%]",
+        "BAR: IVV = 1309,94 $ · 25,14% [99.17457057388724%]",
+        "BAR: IYH = 1267,33 $ · 24,32% [95.94875012113503%]",
+        "FOOT: Összérték: 5210,66 $ · 4 elem"
+      ]
+    },
+    {
+      "portfolioId": "0527f1c8-4f83-49cc-b915-f61e9bc8b080",
+      "portfolioName": "P4 ETF $",
+      "displayCurrency": "EUR",
+      "lines": [
+        "BAR: IQQ = 1142,39 € · 25,35% [100%]",
+        "BAR: URTH = 1135,22 € · 25,19% [99.37236078870029%]",
+        "BAR: IVV = 1132,96 € · 25,14% [99.17457057388724%]",
+        "BAR: IYH = 1096,11 € · 24,32% [95.94875012113503%]",
+        "FOOT: Összérték: 4506,70 € · 4 elem"
+      ]
+    },
+    {
+      "portfolioId": "0527f1c8-4f83-49cc-b915-f61e9bc8b080",
+      "portfolioName": "P4 ETF $",
+      "displayCurrency": "HUF",
+      "lines": [
+        "BAR: IQQ = 414 558,81 HUF · 25,35% [100%]",
+        "BAR: URTH = 411 956,88 HUF · 25,19% [99.37236078870029%]",
+        "BAR: IVV = 411 136,92 HUF · 25,14% [99.17457057388727%]",
+        "BAR: IYH = 397 764,00 HUF · 24,32% [95.94875012113503%]",
+        "FOOT: Összérték: 1 635 416,60 HUF · 4 elem"
+      ]
+    },
+    {
+      "portfolioId": "d425f3a7-43a3-4893-a64e-23651a9466fd",
+      "portfolioName": "P5 European ETF $",
+      "displayCurrency": "USD",
+      "lines": [
+        "BAR: IUIT.L = 336,55 $ · 25,15% [100%]",
+        "BAR: CNDX.L = 335,30 $ · 25,06% [99.62868637910101%]",
+        "BAR: IWDA.L = 333,19 $ · 24,90% [99.00132173807499%]",
+        "BAR: CSPX.L = 332,93 $ · 24,88% [98.9253768809607%]",
+        "FOOT: Összérték: 1337,97 $ · 4 elem"
+      ]
+    },
+    {
+      "portfolioId": "d425f3a7-43a3-4893-a64e-23651a9466fd",
+      "portfolioName": "P5 European ETF $",
+      "displayCurrency": "EUR",
+      "lines": [
+        "BAR: IUIT.L = 291,08 € · 25,15% [100%]",
+        "BAR: CNDX.L = 290,00 € · 25,06% [99.62868637910104%]",
+        "BAR: IWDA.L = 288,17 € · 24,90% [99.00132173807498%]",
+        "BAR: CSPX.L = 287,95 € · 24,88% [98.9253768809607%]",
+        "FOOT: Összérték: 1157,21 € · 4 elem"
+      ]
+    },
+    {
+      "portfolioId": "d425f3a7-43a3-4893-a64e-23651a9466fd",
+      "portfolioName": "P5 European ETF $",
+      "displayCurrency": "HUF",
+      "lines": [
+        "BAR: IUIT.L = 105 629,21 HUF · 25,15% [100%]",
+        "BAR: CNDX.L = 105 236,99 HUF · 25,06% [99.62868637910105%]",
+        "BAR: IWDA.L = 104 574,31 HUF · 24,90% [99.00132173807499%]",
+        "BAR: CSPX.L = 104 494,09 HUF · 24,88% [98.9253768809607%]",
+        "FOOT: Összérték: 419 934,61 HUF · 4 elem"
+      ]
+    },
+    {
+      "portfolioId": "49d13257-9724-43e7-b4d3-a7aaa2aad445",
+      "portfolioName": "Lightyear TBSZ 2026",
+      "displayCurrency": "USD",
+      "lines": [
+        "BAR: NVDA = 81,69 $ · 54,82% [100%]",
+        "BAR: IUIT.L = 33,92 $ · 22,76% [41.52017139404504%]",
+        "BAR: IWDA.L = 33,41 $ · 22,42% [40.89305127905916%]",
+        "FOOT: Összérték: 149,02 $ · 3 elem"
+      ]
+    },
+    {
+      "portfolioId": "49d13257-9724-43e7-b4d3-a7aaa2aad445",
+      "portfolioName": "Lightyear TBSZ 2026",
+      "displayCurrency": "EUR",
+      "lines": [
+        "BAR: NVDA = 70,66 € · 54,82% [100%]",
+        "BAR: IUIT.L = 29,34 € · 22,76% [41.52017139404505%]",
+        "BAR: IWDA.L = 28,89 € · 22,42% [40.893051279059165%]",
+        "FOOT: Összérték: 128,89 € · 3 elem"
+      ]
+    },
+    {
+      "portfolioId": "49d13257-9724-43e7-b4d3-a7aaa2aad445",
+      "portfolioName": "Lightyear TBSZ 2026",
+      "displayCurrency": "HUF",
+      "lines": [
+        "BAR: NVDA = 25 640,13 HUF · 54,82% [100%]",
+        "BAR: IUIT.L = 10 645,82 HUF · 22,76% [41.520171394045036%]",
+        "BAR: IWDA.L = 10 485,03 HUF · 22,42% [40.89305127905916%]",
+        "FOOT: Összérték: 46 770,98 HUF · 3 elem"
+      ]
+    }
+  ]
+}

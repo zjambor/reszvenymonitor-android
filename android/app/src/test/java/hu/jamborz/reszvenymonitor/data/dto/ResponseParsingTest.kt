@@ -61,4 +61,53 @@ class ResponseParsingTest {
         assertEquals("NVDA", result.symbol)
         assertFalse("Az up-to-date nem valódi hiba (12. invariáns)", result.isFailure)
     }
+
+    /**
+     * asset-details részvényre: a profil kitöltve, az ETF-mezők null-ok, és az
+     * Alpaca-blokk beágyazva érkezik a profilba (nem külön mezőként).
+     */
+    @Test
+    fun `asset-details reszvenyre - profil es Alpaca-blokk`() {
+        val response = json.decodeFromString<AssetDetailsResponseDto>(fixture("details_nvda.json"))
+        assertTrue(response.ok)
+        val details = checkNotNull(response.details)
+        assertEquals("NVDA", details.symbol)
+        assertFalse("A részvény nem ETF", details.isEtf)
+        assertEquals("Technology", details.profile?.sector)
+        assertEquals("NASDAQ", details.profile?.alpaca?.exchange)
+        assertEquals(true, details.profile?.alpaca?.tradable)
+        assertTrue("ETF-mezők nélkül", details.etf == null && details.holdings.isNullOrEmpty())
+    }
+
+    /**
+     * asset-details ETF-re. A KRITIKUS SZERZŐDÉS: a `netAssets` **string**
+     * (a Yahoo már formázva adja, pl. „75.68B") — számként dekódolva a válasz
+     * parszolása omlana el, ahogy a `search` boolean `isin` mezőjénél történt.
+     * A súlyok pedig SZÁZALÉKBAN jönnek (nem törtként).
+     */
+    @Test
+    fun `asset-details ETF-re - a netAssets STRING, a sulyok szazalekban`() {
+        val response = json.decodeFromString<AssetDetailsResponseDto>(fixture("details_vwce_de.json"))
+        val details = checkNotNull(response.details)
+        assertTrue("ETF-ként jelölve", details.isEtf)
+        assertEquals("75.68B", details.etf?.netAssets)
+        assertEquals(10, details.holdings?.size)
+        val top = checkNotNull(details.holdings).first()
+        assertEquals("NVDA", top.symbol)
+        assertTrue("A súly százalék (0–100): ${top.weight}", (top.weight ?: 0.0) in 1.0..100.0)
+        assertTrue("Szektorsúlyok is jönnek", (details.sectorWeights?.size ?: 0) >= 5)
+    }
+
+    /**
+     * A hiányzó AUM nem hiba, hanem HIÁNY: az `etf` blokk megvan, a `netAssets`
+     * mezője viszont null — a felület ilyenkor ki sem írja a sort.
+     */
+    @Test
+    fun `asset-details ETF-re megbizhato AUM nelkul - netAssets null`() {
+        val response = json.decodeFromString<AssetDetailsResponseDto>(fixture("details_sxr8_de.json"))
+        val details = checkNotNull(response.details)
+        assertTrue("Az alap-adatok blokk megvan", details.etf != null)
+        assertEquals(null, details.etf?.netAssets)
+        assertEquals(0.0007, checkNotNull(details.etf?.expenseRatio), 1e-12)
+    }
 }

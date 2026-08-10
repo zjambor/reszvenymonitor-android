@@ -80,7 +80,9 @@ fun MonitorScreen(
     onLogout: () -> Unit,
     onOpenSearch: () -> Unit,
     onOpenPortfolios: () -> Unit,
+    onOpenDetails: () -> Unit,
     onDeleteTicker: (TickerDto) -> Unit,
+    detailsSheet: @Composable () -> Unit = {},
 ) {
     // A kiválasztott instrumentum színe az EGÉSZ felület akcentje — ugyanaz,
     // amit a weben a JS a `--accent` CSS-változó átírásával ér el.
@@ -99,8 +101,11 @@ fun MonitorScreen(
             onLogout = onLogout,
             onOpenSearch = onOpenSearch,
             onOpenPortfolios = onOpenPortfolios,
+            onOpenDetails = onOpenDetails,
             onDeleteTicker = onDeleteTicker,
         )
+        // A lap a témán BELÜL jelenik meg, hogy az akcentszínt is örökölje.
+        detailsSheet()
     }
 }
 
@@ -119,6 +124,7 @@ private fun MonitorContent(
     onLogout: () -> Unit,
     onOpenSearch: () -> Unit,
     onOpenPortfolios: () -> Unit,
+    onOpenDetails: () -> Unit,
     onDeleteTicker: (TickerDto) -> Unit,
 ) {
     val palette = LocalMonitorColors.current
@@ -142,7 +148,7 @@ private fun MonitorContent(
                 ToolbarButton("Portfóliók", onClick = onOpenPortfolios)
             }
             state.error?.let { ErrorCard(it, onRetry) }
-            IdentityHeader(state, onDelete = { confirmDelete = it })
+            IdentityHeader(state, onOpenDetails = onOpenDetails, onDelete = { confirmDelete = it })
             Toolbar(state, onPreset, onResolution, onChartType, onToggleVolume, onCurrency, onFit, onRefresh)
 
             MonitorCard(contentPadding = androidx.compose.foundation.layout.PaddingValues(12.dp)) {
@@ -326,15 +332,22 @@ private fun ErrorCard(message: String, onRetry: () -> Unit) {
     }
 }
 
-/** Identitás-sáv: szimbólum/név, badge-ek, utolsó adatnap, IPO/elavult chip, Törlés. */
+/** Identitás-sáv: szimbólum/név, badge-ek, utolsó adatnap, IPO/elavult chip, Részletek, Törlés. */
 @Composable
-private fun IdentityHeader(state: MonitorViewModel.UiState, onDelete: (TickerDto) -> Unit) {
+private fun IdentityHeader(
+    state: MonitorViewModel.UiState,
+    onOpenDetails: () -> Unit,
+    onDelete: (TickerDto) -> Unit,
+) {
     val palette = LocalMonitorColors.current
     val instrument = state.selected ?: return
     val ticker = instrument.asStock
     MonitorCard(contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 16.dp, vertical = 14.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             AccentDot()
+            // MINDKETTŐ súlyozott: így a hosszú cégnév nem szoríthatja ki a
+            // szimbólumot (mérve: az „iShares Core S&P 500 UCITS ETF USD (Acc)"
+            // mellől az SXR8.DE puszta „…"-ra zsugorodott).
             Text(
                 text = instrument.title,
                 style = MaterialTheme.typography.headlineSmall,
@@ -352,7 +365,9 @@ private fun IdentityHeader(state: MonitorViewModel.UiState, onDelete: (TickerDto
                     color = palette.textDim,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.padding(start = 12.dp),
+                    modifier = Modifier
+                        .padding(start = 12.dp)
+                        .weight(1f, fill = false),
                 )
             }
         }
@@ -391,6 +406,9 @@ private fun IdentityHeader(state: MonitorViewModel.UiState, onDelete: (TickerDto
                 modifier = Modifier.weight(1f),
             )
             if (state.stale) WarnChip("Elavult lehet")
+            // Részletek: tickernél profil/ETF-összetétel a szervertől, portfóliónál
+            // helyben számolt összetétel — mindkét instrumentumtípusnál látszik.
+            ToolbarButton("Részletek", onClick = onOpenDetails)
             // .btn-ghost — a törlés visszafogott, de elérhető (megerősítés követi).
             // Portfóliót a saját szerkesztőjéből kell törölni, nem innen.
             if (ticker != null) {
