@@ -25,6 +25,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,6 +35,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -41,6 +43,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import hu.jamborz.reszvenymonitor.data.dto.PortfolioDto
+import hu.jamborz.reszvenymonitor.data.dto.TickerDto
 import hu.jamborz.reszvenymonitor.domain.Format
 import hu.jamborz.reszvenymonitor.ui.theme.BadgeKind
 import hu.jamborz.reszvenymonitor.ui.theme.LocalMonitorColors
@@ -90,6 +93,7 @@ fun PortfolioScreen(
             } else {
                 PortfolioEditor(
                     portfolio = editing,
+                    tickers = state.tickers,
                     busy = state.busy,
                     onRename = { onRename(editing.id, it) },
                     onDeletePortfolio = { onDeletePortfolio(editing.id) },
@@ -205,6 +209,7 @@ private fun PortfolioList(
 @Composable
 private fun PortfolioEditor(
     portfolio: PortfolioDto,
+    tickers: List<TickerDto>,
     busy: Boolean,
     onRename: (String) -> Unit,
     onDeletePortfolio: () -> Unit,
@@ -213,8 +218,10 @@ private fun PortfolioEditor(
     onView: () -> Unit,
 ) {
     val palette = LocalMonitorColors.current
+    val focusManager = LocalFocusManager.current
     var name by remember(portfolio.id) { mutableStateOf(portfolio.name) }
     var ticker by remember(portfolio.id) { mutableStateOf("") }
+    var tickerFieldFocused by remember(portfolio.id) { mutableStateOf(false) }
     var quantity by remember(portfolio.id) { mutableStateOf("") }
     var price by remember(portfolio.id) { mutableStateOf("") }
     var date by remember(portfolio.id) { mutableStateOf("") }
@@ -301,7 +308,26 @@ private fun PortfolioEditor(
                     color = palette.textDim,
                     modifier = Modifier.padding(bottom = 8.dp),
                 )
-                LabeledField(ticker, { ticker = it }, "Ticker (pl. NVDA)")
+                LabeledField(
+                    value = ticker,
+                    onValueChange = { ticker = it },
+                    placeholder = "Ticker — koppints a listához",
+                    onFocusChanged = { tickerFieldFocused = it },
+                )
+                // Választólista: fókuszra nyílik, gépelésre szűkül — így nem kell
+                // fejből tudni a pontos szimbólumot.
+                if (tickerFieldFocused || ticker.isNotBlank()) {
+                    TickerPicker(
+                        tickers = tickers,
+                        query = ticker,
+                        memberSymbols = portfolio.items.map { it.ticker }.toSet(),
+                        onPick = { picked ->
+                            ticker = picked.symbol
+                            tickerFieldFocused = false
+                            focusManager.clearFocus()
+                        },
+                    )
+                }
                 Box(modifier = Modifier.padding(top = 8.dp))
                 LabeledField(quantity, { quantity = it }, "Darabszám", numeric = true)
                 Box(modifier = Modifier.padding(top = 8.dp))
@@ -343,6 +369,88 @@ private fun PortfolioEditor(
     }
 }
 
+/**
+ * A felvett tickerek választólistája a beviteli mező alatt. Üres mezőnél az
+ * első néhány elemet kínálja, gépelésre szimbólum ÉS név szerint szűkül.
+ * A már felvett tagok jelölve vannak — rájuk koppintva a meglévő tétel
+ * módosítható (a mentés (portfolio_id, ticker) kulcson upsertel).
+ */
+@Composable
+private fun TickerPicker(
+    tickers: List<TickerDto>,
+    query: String,
+    memberSymbols: Set<String>,
+    onPick: (TickerDto) -> Unit,
+) {
+    val palette = LocalMonitorColors.current
+    val needle = query.trim().lowercase()
+    val matches = remember(tickers, needle) {
+        if (needle.isEmpty()) tickers
+        else tickers.filter {
+            it.symbol.lowercase().contains(needle) || it.name.orEmpty().lowercase().contains(needle)
+        }
+    }
+    // Pontos találatnál felesleges a lista — a felhasználó már kiválasztotta.
+    if (matches.size == 1 && matches.first().symbol.equals(query.trim(), ignoreCase = true)) return
+
+    val shown = matches.take(MAX_PICKER_ROWS)
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 6.dp)
+            .clip(RoundedCornerShape(11.dp))
+            .background(Color(0x8C0A0D1A))
+            .border(1.dp, palette.border, RoundedCornerShape(11.dp)),
+    ) {
+        if (shown.isEmpty()) {
+            Text(
+                text = "Nincs ilyen felvett ticker.",
+                fontSize = 12.5.sp,
+                color = palette.textFaint,
+                modifier = Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
+            )
+            return@Column
+        }
+        shown.forEach { t ->
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onPick(t) }
+                    .padding(horizontal = 12.dp, vertical = 9.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                Text(
+                    text = t.symbol,
+                    fontSize = 13.5.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = palette.text,
+                )
+                Text(
+                    text = t.name.orEmpty(),
+                    fontSize = 12.sp,
+                    color = palette.textDim,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f),
+                )
+                if (t.isEtf) MonitorBadge("ETF", BadgeKind.Etf)
+                if (t.symbol in memberSymbols) MonitorBadge("már tag", BadgeKind.Known)
+            }
+        }
+        if (matches.size > shown.size) {
+            Text(
+                text = "…és még ${matches.size - shown.size} — gépelj a szűkítéshez",
+                fontSize = 12.sp,
+                color = palette.textFaint,
+                modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
+            )
+        }
+    }
+}
+
+private const val MAX_PICKER_ROWS = 6
+
 @Composable
 private fun LabeledField(
     value: String,
@@ -350,10 +458,12 @@ private fun LabeledField(
     placeholder: String,
     modifier: Modifier = Modifier,
     numeric: Boolean = false,
+    onFocusChanged: ((Boolean) -> Unit)? = null,
 ) {
     val palette = LocalMonitorColors.current
     val interaction = remember { MutableInteractionSource() }
     val focused by interaction.collectIsFocusedAsState()
+    LaunchedEffect(focused) { onFocusChanged?.invoke(focused) }
     val shape = RoundedCornerShape(11.dp)
     BasicTextField(
         value = value,

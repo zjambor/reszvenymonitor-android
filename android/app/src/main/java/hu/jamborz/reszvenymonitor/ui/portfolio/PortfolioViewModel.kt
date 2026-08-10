@@ -6,6 +6,7 @@ import hu.jamborz.reszvenymonitor.data.ApiException
 import hu.jamborz.reszvenymonitor.data.PortfolioRepository
 import hu.jamborz.reszvenymonitor.data.dto.PortfolioDto
 import hu.jamborz.reszvenymonitor.data.dto.PortfolioItemDto
+import hu.jamborz.reszvenymonitor.data.dto.TickerDto
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -21,6 +22,8 @@ class PortfolioViewModel(
 
     data class UiState(
         val portfolios: List<PortfolioDto> = emptyList(),
+        /** A felvett tickerek — a tag-hozzáadás választólistájához. */
+        val tickers: List<TickerDto> = emptyList(),
         /** Az épp szerkesztett portfólió azonosítója (null → lista-nézet). */
         val editingId: String? = null,
         val busy: Boolean = false,
@@ -34,8 +37,8 @@ class PortfolioViewModel(
     private val _uiState = MutableStateFlow(UiState())
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
 
-    fun setPortfolios(portfolios: List<PortfolioDto>) {
-        _uiState.value = _uiState.value.copy(portfolios = portfolios)
+    fun setCatalog(portfolios: List<PortfolioDto>, tickers: List<TickerDto>) {
+        _uiState.value = _uiState.value.copy(portfolios = portfolios, tickers = tickers)
     }
 
     fun openEditor(id: String?) {

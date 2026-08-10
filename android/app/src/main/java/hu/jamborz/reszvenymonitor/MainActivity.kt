@@ -106,7 +106,7 @@ private fun Monitor(container: AppContainer, userName: String, onLogout: () -> U
     // A kereső és a kezelő mindig a friss listákból dolgozik.
     LaunchedEffect(state.tickers, state.portfolios) {
         searchViewModel.setCatalog(state.tickers, state.portfolios)
-        portfolioViewModel.setPortfolios(state.portfolios)
+        portfolioViewModel.setCatalog(state.portfolios, state.tickers)
     }
 
     // Portfólió-írás után a fő nézet (és vele a kereső listája) frissül.
