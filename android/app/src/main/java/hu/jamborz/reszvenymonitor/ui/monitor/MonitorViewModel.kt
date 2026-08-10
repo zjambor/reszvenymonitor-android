@@ -7,7 +7,7 @@ import hu.jamborz.reszvenymonitor.data.ApiException
 import hu.jamborz.reszvenymonitor.data.FxRepository
 import hu.jamborz.reszvenymonitor.data.PortfolioRepository
 import hu.jamborz.reszvenymonitor.data.PriceRepository
-import hu.jamborz.reszvenymonitor.data.SettingsRepository
+import hu.jamborz.reszvenymonitor.data.SettingsStore
 import hu.jamborz.reszvenymonitor.data.TickerRepository
 import hu.jamborz.reszvenymonitor.data.dto.PortfolioDto
 import hu.jamborz.reszvenymonitor.data.dto.PortfolioItemDto
@@ -40,7 +40,7 @@ class MonitorViewModel(
     private val priceRepo: PriceRepository,
     private val fxRepo: FxRepository,
     private val portfolioRepo: PortfolioRepository,
-    private val settings: SettingsRepository,
+    private val settings: SettingsStore,
 ) : ViewModel() {
 
     /** Státuszüzenet a képernyő alján (a webes ui.setStatus). */

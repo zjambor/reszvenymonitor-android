@@ -3,6 +3,7 @@ package hu.jamborz.reszvenymonitor.ui.portfolio
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
@@ -32,6 +33,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
@@ -124,7 +126,8 @@ private fun Header(title: String, onBack: () -> Unit) {
             color = palette.textDim,
             modifier = Modifier
                 .clip(RoundedCornerShape(11.dp))
-                .clickable(onClick = onBack)
+                .minimumInteractiveComponentSize()
+                .clickable(role = Role.Button, onClick = onBack)
                 .padding(horizontal = 10.dp, vertical = 10.dp),
         )
         Text(
@@ -415,7 +418,8 @@ private fun TickerPicker(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clickable { onPick(t) }
+                    .minimumInteractiveComponentSize()
+                    .clickable(role = Role.Button) { onPick(t) }
                     .padding(horizontal = 12.dp, vertical = 9.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -524,7 +528,8 @@ private fun SmallButton(
                 },
                 shape,
             )
-            .clickable(onClick = onClick)
+            .minimumInteractiveComponentSize()
+            .clickable(role = Role.Button, onClick = onClick)
             .padding(horizontal = 12.dp, vertical = 9.dp),
     )
 }

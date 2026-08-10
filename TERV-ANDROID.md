@@ -1,7 +1,7 @@
 # Terv — IT Részvény Monitor natív Android alkalmazás
 
 > Készült: 2026-08-09, Claude Fable 5 modellel. Előzmények: [TERV.md](TERV.md), [TERV-ETF.md](TERV-ETF.md), [TERV-AUTH.md](TERV-AUTH.md), [TERV-PORTFOLIO.md](TERV-PORTFOLIO.md), [TERV-RESZLETEK.md](TERV-RESZLETEK.md), [TERV-EU-ETF.md](TERV-EU-ETF.md), [README.md](README.md).
-> Állapot: **9. fázis kész** (2026-08-10) — a fázisok a szokásos módon egyenként indulnak („Mehet a X. fázis").
+> Állapot: **mind a 10 fázis kész** (2026-08-10) — a fázisok a szokásos módon egyenként indulnak („Mehet a X. fázis").
 
 ## Kontextus és cél
 
@@ -447,6 +447,57 @@ APK-átvitellel; README-kiegészítés (android/ szekció: megnyitás Android St
 secrets.properties kitöltése, build-lépések).
 **Ellenőrzés:** release build a célkészüléken; egy teljes munkamenet (belépés →
 böngészés → portfólió → részletek → frissítés → kijelentkezés) hibamentesen.
+*(Kész — 2026-08-10.)*
+
+*__Élállapotok.__ A három helyzetet determinisztikus ViewModel-tesztek fedik le
+(`MonitorViewModelEdgeCaseTest`, 8 eset), mert valós szerverrel nem idézhetők elő
+megbízhatóan: az `fx_rates` kiesését nem lehet „megrendelni", a session lejártát
+kivárni sem reális. **FX-kiesés:** a devizakapcsoló tiltott, minden a natív
+jegyzési devizájában látszik, a betöltés NEM borul (11. invariáns), és a
+`setDisplayCurrency` hatástalan. **Session-vesztés:** az ApiGuard a 401-et
+`onAuthLoss`-szá fordítja (500-nál nem!), a nézet nem mutat félig-kész adatot.
+**Hálózat nélküli indulás:** hibakártya + üres nézet, majd az „Újra" betölt.
+Emulátoron is: repülő módban a Frissítés hálózati hibát ad, a már betöltött adat
+és a portfólió-összetétel viszont továbbra is használható.*
+
+*A kis varrat, ami ehhez kellett: a repository-k `open`-ek (a ViewModel által
+hívott metódusokra), a DataStore-os beállítástár mögé pedig `SettingsStore`
+interfész került — így a teszt a VALÓDI típusokkal dolgozik.*
+
+*__FX-kiesés jelzése.__ Mérve derült ki, hogy a hibakártya szövegét a
+tickerválasztás törli — a web is így viselkedik (`js/app.js` loadTicker →
+`ui.hideError`), ott viszont a tiltott kapcsoló tooltipje elmondja az okot.
+Érintőképernyőn nincs tooltip, ezért a kapcsoló mellé „Nincs árfolyam" chip
+került.*
+
+*__Kisegítő lehetőségek.__ Minden kattintható elem érintéscélja ≥48dp
+(`minimumInteractiveComponentSize`, a látvány változatlan), a szerepek
+kimondottak (`Role.Button`, a preset-pirulákon `Role.RadioButton`), a
+kijelentkezés és a törlés külön `onClickLabel`-t kapott, a grafikon pedig
+szöveges összefoglalót (a rajz nem olvasható fel), a dekoratív nagyító
+`clearAndSetSemantics`-szel kimarad.*
+
+*__Teljesítmény__ (emulátor, Medium_Phone; a mérés `dumpsys gfxinfo`):
+a MIND preset ~900 gyertyájával görgetés 39% janky / 48 ms medián, ugyanez
+grafikon nélküli listán 24% / 32 ms — tehát az emulátor saját alapzaja is
+jelentős. A legdrágább a grafikon vízszintes hurcolása: 101 ms medián. Az
+MPAndroidChart dokumentált „nagy adathalmazra szoftveres rajzréteg" tanácsát
+MEGMÉRTEM: rosszabb lett (117 ms), ezért nem került be — a kód ezt a mérést
+megjegyzésben rögzíti, hogy ne próbálja meg újra senki.*
+
+*__Kiadás.__ Aláírás-konfig a gitignore-olt `android/keystore.properties`-ből;
+a keystore a repón KÍVÜL (`~/AndroidKeystores/reszvenymonitor.jks`, RSA-4096,
+2053-ig). Hiányzó fájlnál a release build aláíratlan APK-t ad, hogy a projekt
+idegen gépen is forduljon. R8 + resource-shrink: 15 MB → **2,3 MB**; a
+proguard-szabályok a kotlinx.serialization generált szerializátorait, a
+supabase-kt modelljeit és az MPAndroidChart nézeteit tartják meg. verzió 1.0.0.*
+
+*__A teljes munkamenet az ALÁÍRT release APK-n__ (emulátor, friss telepítés):
+belépés → NVDA betöltés → Részletek (profil, „5,31 B USD" piaci kapitalizáció) →
+Portfóliók (mind a 6, elemszámokkal) → Frissítés („Frissítve: NVDA — 1 új sor
+(forrás: yahoo)", az árfolyam 223,96 $-ra frissült) → kijelentkezés. Hibamentes,
+a crash-pufferben nincs mai bejegyzés. **A célkészülékre telepítés a
+felhasználóé** (USB vagy APK-átvitel) — arra nincs hozzáférésem.*
 
 ## Kockázatok, nyitott kérdések
 

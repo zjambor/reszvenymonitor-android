@@ -27,7 +27,7 @@ import kotlinx.coroutines.flow.flow
  * `collectLatest`/`flatMapLatest`-je az előző gyűjtést (és vele a folyamatban
  * lévő Ktor-kérést) megszakítja — a webes kérés-token + AbortController párja.
  */
-class PriceRepository(
+open class PriceRepository(
     private val client: SupabaseClient,
     private val guard: ApiGuard,
 ) {
@@ -52,10 +52,10 @@ class PriceRepository(
     /** symbol → napi sorok NATÍV devizában (dátum szerint növekvő). A sessionre él. */
     private val dailyCache = ConcurrentHashMap<String, List<OhlcRow>>()
 
-    fun hasCached(symbol: String): Boolean = dailyCache.containsKey(symbol)
+    open fun hasCached(symbol: String): Boolean = dailyCache.containsKey(symbol)
 
     /** Törlés után: ne éledjen újra a régi adat. */
-    fun evictCache(symbol: String) {
+    open fun evictCache(symbol: String) {
         dailyCache.remove(symbol)
     }
 
@@ -89,7 +89,7 @@ class PriceRepository(
      * Napi adatok cache-ből vagy hálózatról (a webes getDaily megfelelője) —
      * a portfólió-tagbetöltés (8. fázis) is ezt használja. force=true cache-kerülés.
      */
-    suspend fun getDaily(symbol: String, force: Boolean = false): List<OhlcRow> {
+    open suspend fun getDaily(symbol: String, force: Boolean = false): List<OhlcRow> {
         if (!force) dailyCache[symbol]?.let { return it }
         val rows = fetchDailyRows(symbol)
         dailyCache[symbol] = rows
@@ -104,7 +104,7 @@ class PriceRepository(
      * A háttér-revalidálás hibája nem ronthatja el a már kirajzolt nézetet —
      * elnyelődik (a cancellation kivételével), mint a webes console.warn-ág.
      */
-    fun dailyFlow(symbol: String, force: Boolean = false): Flow<DailyUpdate> = flow {
+    open fun dailyFlow(symbol: String, force: Boolean = false): Flow<DailyUpdate> = flow {
         val cached = if (force) null else dailyCache[symbol]
         if (cached != null) {
             emit(DailyUpdate.FromCache(cached))

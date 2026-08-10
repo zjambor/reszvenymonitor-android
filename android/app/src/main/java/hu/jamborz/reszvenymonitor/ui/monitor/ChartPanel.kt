@@ -330,6 +330,11 @@ private class ChartController {
 
     /** Közös stílus — a webes layout/grid/tengely színekkel. */
     private fun baseSetup(chart: BarLineChartBase<*>) {
+        // MEGJEGYZÉS a rajzrétegről: az MPAndroidChart nagy adathalmazra a
+        // szoftveres réteget (LAYER_TYPE_SOFTWARE) ajánlja. Emulátoron MÉRVE ez
+        // NEM segített a MIND-preset ~900 gyertyáján (grafikon-hurcolás medián
+        // képkocka-ideje 101 ms → 117 ms, tehát rosszabb), ezért marad az
+        // alapértelmezett hardveres réteg.
         chart.description.isEnabled = false
         chart.legend.isEnabled = false
         chart.setBackgroundColor(android.graphics.Color.TRANSPARENT)

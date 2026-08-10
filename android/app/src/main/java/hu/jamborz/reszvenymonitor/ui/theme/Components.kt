@@ -14,6 +14,7 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,6 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -76,6 +78,9 @@ fun PillGroup(
         options.forEach { option ->
             val active = option == selected
             val pillModifier = Modifier
+                // Az érintéscél legalább 48dp, a pirula LÁTVÁNYA változatlan
+                // marad (a modifier a mérethatárt tágítja, nem a rajzolást).
+                .minimumInteractiveComponentSize()
                 .clip(PillShape)
                 .background(if (active) palette.accentSoft else Color.Transparent)
                 .then(
@@ -85,6 +90,8 @@ fun PillGroup(
                 .selectable(
                     selected = active,
                     enabled = enabled,
+                    // Egyet-választós csoport — a képernyőolvasó rádiógombként mondja.
+                    role = Role.RadioButton,
                     onClick = { onSelect(option) },
                 )
                 .padding(horizontal = 13.dp, vertical = 7.dp)

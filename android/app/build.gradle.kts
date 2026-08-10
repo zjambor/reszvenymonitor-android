@@ -21,6 +21,14 @@ fun secret(key: String): String =
     secrets.getProperty(key)?.takeIf { it.isNotBlank() }
         ?: error("Hiányzó kulcs az android/secrets.properties-ben: $key")
 
+// Kiadás-aláírás. A keystore a repón KÍVÜL él, a jelszavai a gitignore-olt
+// android/keystore.properties-ben (sablon: keystore.properties.example).
+// Ha a fájl hiányzik, a release build ALÁÍRATLAN APK-t készít — így a projekt
+// idegen gépen, keystore nélkül is lefordul.
+val keystoreProps: Properties? = rootProject.file("keystore.properties")
+    .takeIf { it.exists() }
+    ?.let { file -> Properties().apply { file.inputStream().use { load(it) } } }
+
 android {
     namespace = "hu.jamborz.reszvenymonitor"
     compileSdk = 35
@@ -30,7 +38,7 @@ android {
         minSdk = 26
         targetSdk = 35
         versionCode = 1
-        versionName = "0.1.0"
+        versionName = "1.0.0"
 
         buildConfigField("String", "SUPABASE_URL", "\"${secret("SUPABASE_URL")}\"")
         buildConfigField("String", "SUPABASE_ANON_KEY", "\"${secret("SUPABASE_ANON_KEY")}\"")
@@ -41,6 +49,17 @@ android {
         buildConfigField("String", "DEFAULT_DISPLAY_CURRENCY", "\"${secret("DEFAULT_DISPLAY_CURRENCY")}\"")
     }
 
+    signingConfigs {
+        keystoreProps?.let { props ->
+            create("release") {
+                storeFile = file(props.getProperty("storeFile"))
+                storePassword = props.getProperty("storePassword")
+                keyAlias = props.getProperty("keyAlias")
+                keyPassword = props.getProperty("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -49,6 +68,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.findByName("release")
         }
     }
 
@@ -108,4 +128,5 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.core)
     testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.ktor.client.mock)
 }

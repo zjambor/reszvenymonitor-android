@@ -21,6 +21,7 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -33,6 +34,10 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -151,7 +156,14 @@ private fun MonitorContent(
             IdentityHeader(state, onOpenDetails = onOpenDetails, onDelete = { confirmDelete = it })
             Toolbar(state, onPreset, onResolution, onChartType, onToggleVolume, onCurrency, onFit, onRefresh)
 
-            MonitorCard(contentPadding = androidx.compose.foundation.layout.PaddingValues(12.dp)) {
+            // A grafikon képi információ; a képernyőolvasónak a lényeget a
+            // stat-kártyák mondják el, ezért itt egy összefoglaló leírás áll.
+            MonitorCard(
+                contentPadding = androidx.compose.foundation.layout.PaddingValues(12.dp),
+                modifier = Modifier.semantics {
+                    contentDescription = chartDescription(state)
+                },
+            ) {
                 ChartPanel(
                     rows = state.bars,
                     chartType = state.chartType,
@@ -218,15 +230,17 @@ private fun SearchBar(onClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .minimumInteractiveComponentSize()
             .clip(shape)
             .background(Color(0xB80A0D1A))
             .border(1.dp, palette.border, shape)
-            .clickable(onClick = onClick)
+            .clickable(role = Role.Button, onClick = onClick)
             .padding(horizontal = 14.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(9.dp),
     ) {
-        Text(text = "🔍", fontSize = 13.sp)
+        // A nagyító dekoráció — a képernyőolvasónak a mellette lévő szöveg mond mindent.
+        Text(text = "🔍", fontSize = 13.sp, modifier = Modifier.clearAndSetSemantics {})
         Text(
             text = "Ticker, cégnév vagy ISIN keresése…",
             fontSize = 14.sp,
@@ -288,10 +302,12 @@ private fun BrandHeader(userName: String, onLogout: () -> Unit) {
                 fontWeight = FontWeight.SemiBold,
                 color = palette.textDim,
                 modifier = Modifier
+                    .minimumInteractiveComponentSize()
                     .clip(PillShape)
                     .background(palette.surfaceStrong)
                     .border(1.dp, palette.border, PillShape)
-                    .clickable(onClick = onLogout)
+                    // A chip felirata a felhasználónév; a MŰVELETET külön mondjuk ki.
+                    .clickable(onClickLabel = "Kijelentkezés", role = Role.Button, onClick = onLogout)
                     .padding(horizontal = 11.dp, vertical = 6.dp),
             )
         }
@@ -324,9 +340,10 @@ private fun ErrorCard(message: String, onRetry: () -> Unit) {
             fontWeight = FontWeight.SemiBold,
             color = Color(0xFFFFD3DA),
             modifier = Modifier
+                .minimumInteractiveComponentSize()
                 .clip(RoundedCornerShape(10.dp))
                 .border(1.dp, palette.down.copy(alpha = 0.45f), RoundedCornerShape(10.dp))
-                .clickable(onClick = onRetry)
+                .clickable(role = Role.Button, onClick = onRetry)
                 .padding(horizontal = 12.dp, vertical = 7.dp),
         )
     }
@@ -418,9 +435,13 @@ private fun IdentityHeader(
                     fontWeight = FontWeight.SemiBold,
                     color = Color(0xFFFFD3DA),
                     modifier = Modifier
+                        .minimumInteractiveComponentSize()
                         .clip(RoundedCornerShape(10.dp))
                         .border(1.dp, palette.down.copy(alpha = 0.45f), RoundedCornerShape(10.dp))
-                        .clickable { onDelete(ticker) }
+                        .clickable(
+                            onClickLabel = "${ticker.symbol} törlése",
+                            role = Role.Button,
+                        ) { onDelete(ticker) }
                         .padding(horizontal = 12.dp, vertical = 7.dp),
                 )
             }
@@ -473,6 +494,10 @@ private fun Toolbar(
                 onSelect = onCurrency,
                 enabled = state.currencyEnabled,
             )
+            // A tiltás OKA is látszódjon: a weben ezt tooltip mondja el, ami
+            // érintőképernyőn nem érhető el — a hibakártya szövegét pedig a
+            // tickerválasztás törli (webes viselkedés), ezért kell tartós jelzés.
+            if (!state.currencyEnabled) WarnChip("Nincs árfolyam")
         }
         Row(
             modifier = Modifier.horizontalScroll(rememberScrollState()),
@@ -515,10 +540,11 @@ private fun ToolbarButton(
         },
         maxLines = 1,
         modifier = Modifier
+            .minimumInteractiveComponentSize()
             .clip(shape)
             .background(if (active) palette.accentSoft else palette.surface)
             .border(1.dp, if (active) palette.accentRing else palette.border, shape)
-            .clickable(enabled = enabled, onClick = onClick)
+            .clickable(enabled = enabled, role = Role.Button, onClick = onClick)
             .padding(horizontal = 15.dp, vertical = 10.dp),
     )
 }
@@ -571,6 +597,17 @@ private fun StatGrid(state: MonitorViewModel.UiState) {
             }
         }
     }
+}
+
+/** A grafikon szöveges összefoglalója képernyőolvasónak (a rajz nem olvasható fel). */
+private fun chartDescription(state: MonitorViewModel.UiState): String {
+    val title = state.selected?.title ?: "Nincs kiválasztott instrumentum"
+    if (state.daily.isEmpty()) return "$title — nincs megjeleníthető árfolyamadat."
+    val period = PRESET_LABELS[state.preset] ?: ""
+    val last = Format.formatPriceIn(state.stats?.lastClose, state.effectiveCurrency)
+    val change = state.stats?.periodChangePct?.let { Format.formatPct(it) } ?: "—"
+    return "$title árfolyamgrafikonja, $period időszak, ${state.daily.size} kereskedési nap. " +
+        "Utolsó záró: $last, időszaki változás: $change."
 }
 
 private fun toneOf(value: Double?): StatTone = when {

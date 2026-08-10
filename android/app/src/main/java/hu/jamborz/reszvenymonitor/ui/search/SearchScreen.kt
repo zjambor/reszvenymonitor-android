@@ -3,6 +3,7 @@ package hu.jamborz.reszvenymonitor.ui.search
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
@@ -30,6 +31,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
@@ -216,7 +218,8 @@ private fun SearchField(
             color = palette.textDim,
             modifier = Modifier
                 .clip(RoundedCornerShape(11.dp))
-                .clickable(onClick = onBack)
+                .minimumInteractiveComponentSize()
+                .clickable(role = Role.Button, onClick = onBack)
                 .padding(horizontal = 10.dp, vertical = 10.dp),
         )
         BasicTextField(
@@ -274,7 +277,8 @@ private fun TickerRow(ticker: TickerDto, onClick: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .clip(MaterialTheme.shapes.small)
-            .clickable(onClick = onClick)
+            .minimumInteractiveComponentSize()
+            .clickable(role = Role.Button, onClick = onClick)
             .padding(horizontal = 10.dp, vertical = 11.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(9.dp),
@@ -312,7 +316,8 @@ private fun PortfolioRow(portfolio: PortfolioDto, onClick: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .clip(MaterialTheme.shapes.small)
-            .clickable(onClick = onClick)
+            .minimumInteractiveComponentSize()
+            .clickable(role = Role.Button, onClick = onClick)
             .padding(horizontal = 10.dp, vertical = 11.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(9.dp),
@@ -353,7 +358,8 @@ private fun SearchHitRow(hit: SearchHitDto, alreadyKnown: Boolean, onClick: () -
         modifier = Modifier
             .fillMaxWidth()
             .clip(MaterialTheme.shapes.small)
-            .clickable(onClick = onClick)
+            .minimumInteractiveComponentSize()
+            .clickable(role = Role.Button, onClick = onClick)
             .padding(horizontal = 10.dp, vertical = 10.dp),
         verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
@@ -397,7 +403,8 @@ private fun ActionRow(text: String, onClick: () -> Unit) {
             .clip(shape)
             .background(palette.accentSoft)
             .border(1.dp, palette.accentRing, shape)
-            .clickable(onClick = onClick)
+            .minimumInteractiveComponentSize()
+            .clickable(role = Role.Button, onClick = onClick)
             .padding(horizontal = 14.dp, vertical = 12.dp),
     )
 }

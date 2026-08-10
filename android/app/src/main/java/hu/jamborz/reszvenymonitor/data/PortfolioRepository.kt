@@ -14,13 +14,13 @@ import kotlinx.serialization.json.put
  * (owner-only RLS) — nem Edge Functionön át, mert az `authenticated` szerepkörnek
  * van írási grantja ezekre a táblákra. Ugyanaz az út, mint a weben.
  */
-class PortfolioRepository(
+open class PortfolioRepository(
     private val client: SupabaseClient,
     private val guard: ApiGuard,
 ) {
 
     /** Portfóliók az elemeikkel együtt (resource embedding az FK-n). */
-    suspend fun fetchPortfolios(): List<PortfolioDto> = guard.run {
+    open suspend fun fetchPortfolios(): List<PortfolioDto> = guard.run {
         client.postgrest.from("portfolios").select(
             columns = Columns.raw("*,portfolio_items(*)")
         ) {

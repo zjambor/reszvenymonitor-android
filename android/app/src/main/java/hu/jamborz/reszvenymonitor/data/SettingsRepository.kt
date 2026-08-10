@@ -14,12 +14,25 @@ import kotlinx.coroutines.flow.map
 private val Context.settingsDataStore: DataStore<Preferences> by preferencesDataStore(name = "monitor_settings")
 
 /**
+ * A beállítás-tár szerződése. Azért van külön interfész, mert a
+ * [SettingsRepository] DataStore-t (és így Android `Context`-et) igényel — a
+ * ViewModel élállapot-tesztjei viszont tiszta JVM-en futnak
+ * (`MonitorViewModelEdgeCaseTest`).
+ */
+interface SettingsStore {
+    val displayCurrency: Flow<String>
+    val lastTicker: Flow<String?>
+    suspend fun setDisplayCurrency(currency: String)
+    suspend fun setLastTicker(symbol: String)
+}
+
+/**
  * A webes localStorage megfelelője: megjelenítési deviza és az utoljára nézett
  * ticker. A deviza olvasásakor a webes loadDisplayCurrency szabálya érvényes:
  * mentett érték → BuildConfig alapérték → USD, és csak a DISPLAY_CURRENCIES
  * listában szereplő érték fogadható el.
  */
-class SettingsRepository(private val context: Context) {
+class SettingsRepository(private val context: Context) : SettingsStore {
 
     private object Keys {
         val DISPLAY_CURRENCY = stringPreferencesKey("display_currency")
@@ -32,19 +45,19 @@ class SettingsRepository(private val context: Context) {
         return if (default in FxConverter.DISPLAY_CURRENCIES) default else "USD"
     }
 
-    val displayCurrency: Flow<String> = context.settingsDataStore.data
+    override val displayCurrency: Flow<String> = context.settingsDataStore.data
         .map { sanitizeCurrency(it[Keys.DISPLAY_CURRENCY]) }
 
-    suspend fun setDisplayCurrency(currency: String) {
+    override suspend fun setDisplayCurrency(currency: String) {
         if (currency !in FxConverter.DISPLAY_CURRENCIES) return
         context.settingsDataStore.edit { it[Keys.DISPLAY_CURRENCY] = currency }
     }
 
     /** Az utoljára kiválasztott ticker (null → a BuildConfig alapértéke dönt). */
-    val lastTicker: Flow<String?> = context.settingsDataStore.data
+    override val lastTicker: Flow<String?> = context.settingsDataStore.data
         .map { it[Keys.LAST_TICKER] }
 
-    suspend fun setLastTicker(symbol: String) {
+    override suspend fun setLastTicker(symbol: String) {
         context.settingsDataStore.edit { it[Keys.LAST_TICKER] = symbol }
     }
 }

@@ -19,7 +19,7 @@ import io.github.jan.supabase.postgrest.query.Order
  * [refresh] a nem-auth hibákat false-szá nyeli (mint a webes loadTickers
  * `.catch(...  return [])` ága); a 401 viszont továbbmegy (login-képernyő).
  */
-class FxRepository(
+open class FxRepository(
     private val client: SupabaseClient,
     private val guard: ApiGuard,
 ) {
@@ -31,13 +31,13 @@ class FxRepository(
     var loadedRowCount: Int = 0
         private set
 
-    fun hasRates(): Boolean = converter.hasRates()
+    open fun hasRates(): Boolean = converter.hasRates()
 
     /**
      * Árfolyamok (újra)töltése. Siker: true (és a converter feltöltve);
      * nem-auth hiba: false — natív devizás fallback; 401: ApiException továbbdobva.
      */
-    suspend fun refresh(): Boolean {
+    open suspend fun refresh(): Boolean {
         val rows = try {
             fetchAllRates()
         } catch (e: ApiException) {

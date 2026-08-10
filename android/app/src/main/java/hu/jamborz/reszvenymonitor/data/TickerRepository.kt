@@ -24,7 +24,7 @@ import kotlinx.serialization.json.putJsonArray
  * bejelentkezett user JWT-jét viszi (a sync-prices owner-ellenőrzése miatt
  * kötelező) — ezt a supabase-kt automatikusan intézi.
  */
-class TickerRepository(
+open class TickerRepository(
     private val client: SupabaseClient,
     private val guard: ApiGuard,
 ) {
@@ -35,7 +35,7 @@ class TickerRepository(
      * A rendezés kliensoldalon fut — determinisztikus, és nem függ attól,
      * hogy a könyvtár hány order-paramétert enged.
      */
-    suspend fun fetchTickers(): List<TickerDto> = guard.run {
+    open suspend fun fetchTickers(): List<TickerDto> = guard.run {
         client.postgrest.from("tickers").select(columns = Columns.ALL) {
             filter { eq("is_active", true) }
             order("sort_order", Order.ASCENDING)
@@ -49,7 +49,7 @@ class TickerRepository(
      * NEM hiba (12. invariáns) — a [SyncResultDto.isUpToDate] jelzi; a
      * Yahoo-throttling retry a szerveren van, a klienst nem érinti.
      */
-    suspend fun syncPrices(symbols: List<String>): List<SyncResultDto> = guard.run {
+    open suspend fun syncPrices(symbols: List<String>): List<SyncResultDto> = guard.run {
         val body = buildJsonObject {
             putJsonArray("symbols") { symbols.forEach { add(it) } }
         }
@@ -89,7 +89,7 @@ class TickerRepository(
      * stock_prices/asset_profiles sorokat az FK ON DELETE CASCADE viszi).
      * Portfólió-tagság esetén `in-portfolio` kóddal utasít vissza.
      */
-    suspend fun deleteTicker(symbol: String): DeleteResponseDto = guard.run {
+    open suspend fun deleteTicker(symbol: String): DeleteResponseDto = guard.run {
         val body = buildJsonObject {
             put("action", "delete")
             put("symbol", symbol)

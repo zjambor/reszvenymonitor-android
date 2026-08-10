@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.asStateFlow
  * kijelentkezés, session-állapot. A jelszót kizárólag a Supabase Auth szerver
  * ellenőrzi; a session tárolását és frissítését a supabase-kt végzi.
  */
-class AuthRepository(private val client: SupabaseClient) {
+open class AuthRepository(private val client: SupabaseClient) {
 
     /** Bejelentkezési hibafajták — a szöveget a UI rendeli hozzá (egynyelvű app, de a réteg tiszta marad). */
     sealed class SignInError : Exception() {
@@ -76,7 +76,7 @@ class AuthRepository(private val client: SupabaseClient) {
      * gyökér-UI a login-képernyőre vált, „Lejárt a munkamenet" üzenettel.
      * A 4. fázis repository-i használják majd.
      */
-    suspend fun onAuthLoss() {
+    open suspend fun onAuthLoss() {
         _sessionLost.value = true
         client.auth.clearSession()
     }

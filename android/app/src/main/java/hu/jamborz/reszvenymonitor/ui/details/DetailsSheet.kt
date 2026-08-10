@@ -18,6 +18,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
+import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -25,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -143,7 +145,11 @@ private fun DetailsBlockView(block: DetailsBlock) {
                 style = MaterialTheme.typography.bodyMedium,
                 color = palette.accent,
                 textDecoration = TextDecoration.Underline,
-                modifier = Modifier.clickable { uriHandler.openUri(block.url) },
+                modifier = Modifier
+                    .minimumInteractiveComponentSize()
+                    .clickable(onClickLabel = "Honlap megnyitása", role = Role.Button) {
+                        uriHandler.openUri(block.url)
+                    },
             )
         }
 

@@ -5,6 +5,7 @@ import androidx.compose.animation.core.keyframes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
@@ -33,6 +34,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -173,7 +175,8 @@ fun LoginScreen(
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(11.dp))
                     .background(if (uiState.busy) palette.accent.copy(alpha = 0.55f) else palette.accent)
-                    .clickable(enabled = !uiState.busy, onClick = submit)
+                    .minimumInteractiveComponentSize()
+                    .clickable(enabled = !uiState.busy, role = Role.Button, onClick = submit)
                     .padding(vertical = 10.dp),
                 contentAlignment = Alignment.Center,
             ) {

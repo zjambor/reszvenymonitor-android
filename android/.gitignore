@@ -7,6 +7,12 @@ local.properties
 # Titkok — a sablon: secrets.properties.example
 secrets.properties
 
+# Kiadás-aláírás: a keystore a repón KÍVÜL él, a jelszavai pedig ebben a
+# gitignore-olt fájlban (sablon: keystore.properties.example).
+keystore.properties
+*.jks
+*.keystore
+
 # IDE
 .idea/
 *.iml
