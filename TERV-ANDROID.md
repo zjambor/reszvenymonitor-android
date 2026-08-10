@@ -1,7 +1,7 @@
 # Terv — IT Részvény Monitor natív Android alkalmazás
 
 > Készült: 2026-08-09, Claude Fable 5 modellel. Előzmények: [TERV.md](TERV.md), [TERV-ETF.md](TERV-ETF.md), [TERV-AUTH.md](TERV-AUTH.md), [TERV-PORTFOLIO.md](TERV-PORTFOLIO.md), [TERV-RESZLETEK.md](TERV-RESZLETEK.md), [TERV-EU-ETF.md](TERV-EU-ETF.md), [README.md](README.md).
-> Állapot: **7. fázis kész** (2026-08-09) — a fázisok a szokásos módon egyenként indulnak („Mehet a X. fázis").
+> Állapot: **8. fázis kész** (2026-08-10) — a fázisok a szokásos módon egyenként indulnak („Mehet a X. fázis").
 
 ## Kontextus és cél
 
@@ -386,6 +386,24 @@ a tagok tényleges devizáiból.
 **Ellenőrzés:** a webes és az androidos portfólió-összérték és P/L számjegyre egyezik
 mindhárom megjelenítési devizában; tag-hozzáadás Androidon → weben azonnal látszik
 (közös adatbázis).
+*(Kész — 2026-08-10: PortfolioRepository (CRUD közvetlenül PostgREST-en,
+owner-RLS), Instrument sealed osztály (ticker VAGY portfólió — a webes
+duck-typing helyett zárt hierarchia), portfólió-nézet a MonitorViewModelben
+(szintetikus összeg-idősor, P/L-kártya „N/M elem"-mel, Volumen tiltva,
+frissítés EGY sync-prices hívással), PortfolioScreen (lista + szerkesztő:
+név, tagok, darab, bekerülési ár, vételi dátum), a kereső „Portfóliók"
+csoportja lila badge-dzsel.*
+*Az ellenőrzés GÉPI: a `tools/xcheck-portfolio.mjs` a web-app EREDETI
+js/portfolio.js + fx.js moduljait futtatja Node-ban, a webes SORRENDDEL, a
+valós 6 portfólióra × 3 devizára = 18 eset; a `PortfolioCrossCheckTest`
+ugyanezt a láncot futtatja a domain-porttal és 1e-12 tűréssel veti össze
+(összérték, P/L, összetétel-súlyok, formázott szöveg), plusz külön teszt a
+súlyok devizafüggetlenségére minden valós portfólión. Emulátoron is igazolva
+a P5 European ETF $-on: összérték 1337,97 $ / P/L +9,97 $ (+0,75%), HUF-ra
+váltva 419 934,61 HUF / −647,00 HUF (−0,15%) — ugyanaz a portfólió dollárban
+nyereséges, forintban veszteséges, mert a bekerülési ár a VÁSÁRLÁS napi
+árfolyamán vált (7. invariáns). Tag-hozzáadás (MSFT 2,5 db) az adatbázisban
+azonnal megjelent, majd a törlés visszaállította az eredeti állapotot.)*
 
 ### 9. fázis — Részletek
 

@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import hu.jamborz.reszvenymonitor.data.ApiException
 import hu.jamborz.reszvenymonitor.data.PriceRepository
 import hu.jamborz.reszvenymonitor.data.TickerRepository
+import hu.jamborz.reszvenymonitor.data.dto.PortfolioDto
 import hu.jamborz.reszvenymonitor.data.dto.SearchHitDto
 import hu.jamborz.reszvenymonitor.data.dto.TickerDto
 import hu.jamborz.reszvenymonitor.domain.Suggest
@@ -31,8 +32,11 @@ class SearchViewModel(
     data class UiState(
         val query: String = "",
         val tickers: List<TickerDto> = emptyList(),
+        val portfolios: List<PortfolioDto> = emptyList(),
         /** Helyi találatok (szimbólum VAGY név szerint), csoportosítva jelennek meg. */
         val localHits: List<TickerDto> = emptyList(),
+        /** Név szerint szűrt portfóliók — a lista élén jelennek meg. */
+        val portfolioHits: List<PortfolioDto> = emptyList(),
         /** „Talán erre gondoltál" — csak ha nincs helyi találat. */
         val suggestions: List<TickerDto> = emptyList(),
         /** A felvételre kínált szimbólum (nagybetűsítve), ha a beírás szimbólumszerű. */
@@ -55,8 +59,8 @@ class SearchViewModel(
 
     private var searchJob: Job? = null
 
-    fun setTickers(tickers: List<TickerDto>) {
-        _uiState.value = _uiState.value.copy(tickers = tickers)
+    fun setCatalog(tickers: List<TickerDto>, portfolios: List<PortfolioDto>) {
+        _uiState.value = _uiState.value.copy(tickers = tickers, portfolios = portfolios)
         applyQuery(_uiState.value.query)
     }
 
@@ -76,7 +80,12 @@ class SearchViewModel(
         val state = _uiState.value
         val q = query.trim()
         if (q.isEmpty()) {
-            _uiState.value = state.copy(localHits = state.tickers, suggestions = emptyList(), addCandidate = null)
+            _uiState.value = state.copy(
+                localHits = state.tickers,
+                portfolioHits = state.portfolios,
+                suggestions = emptyList(),
+                addCandidate = null,
+            )
             return
         }
 
@@ -84,6 +93,7 @@ class SearchViewModel(
         val hits = state.tickers.filter {
             it.symbol.lowercase().contains(needle) || it.name.orEmpty().lowercase().contains(needle)
         }
+        val portfolioHits = state.portfolios.filter { it.name.lowercase().contains(needle) }
         // Elgépelés-javaslat CSAK találat híján (webes sorrend).
         val suggestions = if (hits.isEmpty()) {
             val near = Suggest.nearSymbols(q, state.tickers.map { it.symbol })
@@ -93,7 +103,12 @@ class SearchViewModel(
         }
         val addCandidate = if (hits.isEmpty() && Suggest.SYMBOL_LIKE.matches(q)) q.uppercase() else null
 
-        _uiState.value = state.copy(localHits = hits, suggestions = suggestions, addCandidate = addCandidate)
+        _uiState.value = state.copy(
+            localHits = hits,
+            portfolioHits = portfolioHits,
+            suggestions = suggestions,
+            addCandidate = addCandidate,
+        )
     }
 
     /** „«…» keresése a tőzsdéken" — sync-prices `search`. */

@@ -79,9 +79,10 @@ fun MonitorScreen(
     onRetry: () -> Unit,
     onLogout: () -> Unit,
     onOpenSearch: () -> Unit,
+    onOpenPortfolios: () -> Unit,
     onDeleteTicker: (TickerDto) -> Unit,
 ) {
-    // A kiválasztott ticker `color` mezője az EGÉSZ felület akcentje — ugyanaz,
+    // A kiválasztott instrumentum színe az EGÉSZ felület akcentje — ugyanaz,
     // amit a weben a JS a `--accent` CSS-változó átírásával ér el.
     MonitorTheme(accent = accentOf(state.selected, MonitorPalette())) {
         MonitorContent(
@@ -97,6 +98,7 @@ fun MonitorScreen(
             onRetry = onRetry,
             onLogout = onLogout,
             onOpenSearch = onOpenSearch,
+            onOpenPortfolios = onOpenPortfolios,
             onDeleteTicker = onDeleteTicker,
         )
     }
@@ -116,6 +118,7 @@ private fun MonitorContent(
     onRetry: () -> Unit,
     onLogout: () -> Unit,
     onOpenSearch: () -> Unit,
+    onOpenPortfolios: () -> Unit,
     onDeleteTicker: (TickerDto) -> Unit,
 ) {
     val palette = LocalMonitorColors.current
@@ -134,7 +137,10 @@ private fun MonitorContent(
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             BrandHeader(userName = userName, onLogout = onLogout)
-            SearchBar(onOpenSearch)
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Box(modifier = Modifier.weight(1f)) { SearchBar(onOpenSearch) }
+                ToolbarButton("Portfóliók", onClick = onOpenPortfolios)
+            }
             state.error?.let { ErrorCard(it, onRetry) }
             IdentityHeader(state, onDelete = { confirmDelete = it })
             Toolbar(state, onPreset, onResolution, onChartType, onToggleVolume, onCurrency, onFit, onRefresh)
@@ -147,7 +153,7 @@ private fun MonitorContent(
                     accentColor = palette.accent,
                     currency = state.effectiveCurrency,
                     loading = state.loading,
-                    watermark = state.selected?.symbol.orEmpty(),
+                    watermark = state.selected?.title.orEmpty(),
                     initialWindowStart = state.windowStartIndex,
                     fitNonce = state.fitNonce,
                 )
@@ -223,9 +229,17 @@ private fun SearchBar(onClick: () -> Unit) {
     }
 }
 
-/** A ticker `color` mezője az akcent — hibás/hiányzó értéknél az alap indigó. */
-private fun accentOf(ticker: TickerDto?, palette: MonitorPalette): Color {
-    val hex = ticker?.color?.removePrefix("#")?.takeIf { it.length == 6 } ?: return palette.accent
+/**
+ * Az instrumentum akcentszíne: tickernél a `color` mezője, portfóliónál az
+ * egységes lila — hibás/hiányzó értéknél az alap indigó.
+ */
+private fun accentOf(instrument: Instrument?, palette: MonitorPalette): Color {
+    val raw = when (instrument) {
+        is Instrument.Stock -> instrument.ticker.color
+        is Instrument.Portfolio -> Instrument.PORTFOLIO_COLOR
+        null -> null
+    }
+    val hex = raw?.removePrefix("#")?.takeIf { it.length == 6 } ?: return palette.accent
     return try {
         Color(hex.toLong(16) or 0xFF000000L)
     } catch (e: NumberFormatException) {
@@ -312,23 +326,28 @@ private fun ErrorCard(message: String, onRetry: () -> Unit) {
     }
 }
 
-/** Identitás-sáv: szimbólum, név, badge-ek, utolsó adatnap, IPO/elavult chip, Törlés. */
+/** Identitás-sáv: szimbólum/név, badge-ek, utolsó adatnap, IPO/elavult chip, Törlés. */
 @Composable
 private fun IdentityHeader(state: MonitorViewModel.UiState, onDelete: (TickerDto) -> Unit) {
     val palette = LocalMonitorColors.current
-    val ticker = state.selected ?: return
+    val instrument = state.selected ?: return
+    val ticker = instrument.asStock
     MonitorCard(contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 16.dp, vertical = 14.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             AccentDot()
             Text(
-                text = ticker.symbol,
+                text = instrument.title,
                 style = MaterialTheme.typography.headlineSmall,
                 color = palette.text,
-                modifier = Modifier.padding(start = 12.dp),
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier
+                    .padding(start = 12.dp)
+                    .weight(1f, fill = false),
             )
-            ticker.name?.let {
+            if (instrument.subtitle.isNotEmpty()) {
                 Text(
-                    text = it,
+                    text = instrument.subtitle,
                     style = MaterialTheme.typography.bodyMedium,
                     color = palette.textDim,
                     maxLines = 1,
@@ -338,15 +357,23 @@ private fun IdentityHeader(state: MonitorViewModel.UiState, onDelete: (TickerDto
             }
         }
         ChipRow(modifier = Modifier.padding(top = 10.dp)) {
-            ticker.exchange?.let { MonitorBadge(it) }
-            if (ticker.isEtf) MonitorBadge("ETF", BadgeKind.Etf)
-            // A jegyzési deviza akkor érdekes, ha eltér a megjelenítésitől.
-            if (ticker.nativeCurrency != state.effectiveCurrency) {
-                MonitorBadge(ticker.nativeCurrency, BadgeKind.Currency)
+            if (instrument.isPortfolio) {
+                MonitorBadge("Portfólió", BadgeKind.Portfolio)
+                // A tagok TÉNYLEGES devizái — vegyes portfóliónál ez a lényeges infó.
+                state.portfolioCurrencies
+                    .filter { it != state.effectiveCurrency }
+                    .forEach { MonitorBadge(it, BadgeKind.Currency) }
+            } else if (ticker != null) {
+                ticker.exchange?.let { MonitorBadge(it) }
+                if (ticker.isEtf) MonitorBadge("ETF", BadgeKind.Etf)
+                // A jegyzési deviza akkor érdekes, ha eltér a megjelenítésitől.
+                if (ticker.nativeCurrency != state.effectiveCurrency) {
+                    MonitorBadge(ticker.nativeCurrency, BadgeKind.Currency)
+                }
             }
         }
         // Friss tőzsdei bevezetés: az első kereskedési nap a START_DATE utánra esik.
-        val ipo = ticker.firstTradeDate
+        val ipo = ticker?.firstTradeDate
         if (ipo != null && ipo > BuildConfig.START_DATE) {
             ChipRow(modifier = Modifier.padding(top = 8.dp)) {
                 InfoChip("Bevezetés: ${Format.formatDateHu(ipo)}")
@@ -365,17 +392,20 @@ private fun IdentityHeader(state: MonitorViewModel.UiState, onDelete: (TickerDto
             )
             if (state.stale) WarnChip("Elavult lehet")
             // .btn-ghost — a törlés visszafogott, de elérhető (megerősítés követi).
-            Text(
-                text = "Törlés",
-                fontSize = 13.sp,
-                fontWeight = FontWeight.SemiBold,
-                color = Color(0xFFFFD3DA),
-                modifier = Modifier
-                    .clip(RoundedCornerShape(10.dp))
-                    .border(1.dp, palette.down.copy(alpha = 0.45f), RoundedCornerShape(10.dp))
-                    .clickable { onDelete(ticker) }
-                    .padding(horizontal = 12.dp, vertical = 7.dp),
-            )
+            // Portfóliót a saját szerkesztőjéből kell törölni, nem innen.
+            if (ticker != null) {
+                Text(
+                    text = "Törlés",
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color(0xFFFFD3DA),
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(10.dp))
+                        .border(1.dp, palette.down.copy(alpha = 0.45f), RoundedCornerShape(10.dp))
+                        .clickable { onDelete(ticker) }
+                        .padding(horizontal = 12.dp, vertical = 7.dp),
+                )
+            }
         }
     }
 }
@@ -430,7 +460,13 @@ private fun Toolbar(
             modifier = Modifier.horizontalScroll(rememberScrollState()),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            ToolbarButton("Volumen", active = state.showVolume, onClick = onToggleVolume)
+            // Portfóliónál a volumen értelmetlen (6. invariáns) — a gomb tiltott.
+            ToolbarButton(
+                text = "Volumen",
+                active = state.showVolume,
+                enabled = state.volumeEnabled,
+                onClick = onToggleVolume,
+            )
             ToolbarButton("Teljes nézet", onClick = onFit)
             ToolbarButton(
                 text = if (state.refreshing) "Frissítés…" else "Frissítés",
@@ -478,13 +514,31 @@ private fun StatGrid(state: MonitorViewModel.UiState) {
         "${Format.formatSignedIn(d, ccy)} (${Format.formatPct(s.dayChangePct)})"
     } ?: "—"
 
+    // Portfólió-nézetben az utolsó kártya P/L-t mutat, „(N/M elem)" jelzéssel,
+    // ha nem minden taghoz van bekerülési ár (7. invariáns).
+    val lastCell = if (state.isPortfolioView) {
+        val pnl = state.pnl
+        val label = if (pnl != null && pnl.costedCount < pnl.totalCount) {
+            "Nyereség/veszteség (${pnl.costedCount}/${pnl.totalCount} elem)"
+        } else {
+            "Nyereség/veszteség"
+        }
+        val value = pnl?.pnl?.let { p ->
+            "${Format.formatSignedIn(p, ccy)} (${Format.formatPct(pnl.pnlPct)})"
+        } ?: "—"
+        Triple(label, value, toneOf(pnl?.pnl))
+    } else {
+        Triple("Átlagvolumen", s?.let { Format.formatVolume(it.avgVolume) } ?: "—", StatTone.Neutral)
+    }
+
     val cells = listOf(
-        Triple("Utolsó záró", s?.let { Format.formatPriceIn(it.lastClose, ccy) } ?: "—", StatTone.Neutral),
+        Triple(if (state.isPortfolioView) "Összérték" else "Utolsó záró",
+            s?.let { Format.formatPriceIn(it.lastClose, ccy) } ?: "—", StatTone.Neutral),
         Triple("Napi változás", dayText, toneOf(s?.dayChange)),
         Triple("Időszaki változás", s?.periodChangePct?.let { Format.formatPct(it) } ?: "—", toneOf(s?.periodChangePct)),
         Triple("Időszak max", s?.let { Format.formatPriceIn(it.periodHigh, ccy) } ?: "—", StatTone.Neutral),
         Triple("Időszak min", s?.let { Format.formatPriceIn(it.periodLow, ccy) } ?: "—", StatTone.Neutral),
-        Triple("Átlagvolumen", s?.let { Format.formatVolume(it.avgVolume) } ?: "—", StatTone.Neutral),
+        lastCell,
     )
 
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {

@@ -1,0 +1,873 @@
+{
+  "note": "A web-app js/portfolio.js + fx.js moduljaival generált várt értékek — ne szerkeszd kézzel (tools/xcheck-portfolio.mjs).",
+  "generatedAt": "2026-08-10T06:23:18.195Z",
+  "cases": [
+    {
+      "portfolioId": "a421092c-712b-45b9-a155-f95fb74887ec",
+      "portfolioName": "P1",
+      "displayCurrency": "USD",
+      "itemCount": 1,
+      "seriesLength": 902,
+      "firstDate": "2023-01-03",
+      "lastDate": "2026-08-07",
+      "totalValue": 81.69288608316,
+      "periodChangePct": 1464.5127488648275,
+      "periodHigh": 86.28163633733999,
+      "periodLow": 5.119119321714,
+      "pnl": {
+        "pnl": 3.691427072520014,
+        "pnlPct": 4.732510288065862,
+        "costedCount": 1,
+        "totalCount": 1
+      },
+      "formatted": {
+        "totalValue": "81,69 $",
+        "pnl": "+3,69 $ (+4,73%)"
+      },
+      "composition": {
+        "totalValue": 81.69288608316,
+        "pricedCount": 1,
+        "rows": [
+          {
+            "ticker": "NVDA",
+            "value": 81.69288608316,
+            "weight": 100
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "a421092c-712b-45b9-a155-f95fb74887ec",
+      "portfolioName": "P1",
+      "displayCurrency": "EUR",
+      "itemCount": 1,
+      "seriesLength": 902,
+      "firstDate": "2023-01-03",
+      "lastDate": "2026-08-07",
+      "totalValue": 70.65617703594474,
+      "periodChangePct": 1344.85179255326,
+      "periodHigh": 73.98477304784268,
+      "periodLow": 4.815388964754501,
+      "pnl": {
+        "pnl": 2.304275449106683,
+        "pnlPct": 3.371194356866873,
+        "costedCount": 1,
+        "totalCount": 1
+      },
+      "formatted": {
+        "totalValue": "70,66 €",
+        "pnl": "+2,30 € (+3,37%)"
+      },
+      "composition": {
+        "totalValue": 70.65617703594474,
+        "pricedCount": 1,
+        "rows": [
+          {
+            "ticker": "NVDA",
+            "value": 70.65617703594474,
+            "weight": 100
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "a421092c-712b-45b9-a155-f95fb74887ec",
+      "portfolioName": "P1",
+      "displayCurrency": "HUF",
+      "itemCount": 1,
+      "seriesLength": 902,
+      "firstDate": "2023-01-03",
+      "lastDate": "2026-08-07",
+      "totalValue": 25640.127174542748,
+      "periodChangePct": 1206.1255936783198,
+      "periodHigh": 26411.670215758866,
+      "periodLow": 1924.0389889612109,
+      "pnl": {
+        "pnl": 811.5623397654781,
+        "pnlPct": 3.268663916605949,
+        "costedCount": 1,
+        "totalCount": 1
+      },
+      "formatted": {
+        "totalValue": "25 640,13 HUF",
+        "pnl": "+811,56 HUF (+3,27%)"
+      },
+      "composition": {
+        "totalValue": 25640.127174542748,
+        "pricedCount": 1,
+        "rows": [
+          {
+            "ticker": "NVDA",
+            "value": 25640.127174542748,
+            "weight": 100
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "833c0e60-5194-414a-87f9-1a335f4887a8",
+      "portfolioName": "P2 részvény",
+      "displayCurrency": "USD",
+      "itemCount": 9,
+      "seriesLength": 21,
+      "firstDate": "2026-07-10",
+      "lastDate": "2026-08-07",
+      "totalValue": 11781.11209041765,
+      "periodChangePct": 1.7403114067661676,
+      "periodHigh": 12121.137339277071,
+      "periodLow": 10010.083286403311,
+      "pnl": {
+        "pnl": 810.5681805782697,
+        "pnlPct": 7.388586994773144,
+        "costedCount": 9,
+        "totalCount": 9
+      },
+      "formatted": {
+        "totalValue": "11 781,11 $",
+        "pnl": "+810,57 $ (+7,39%)"
+      },
+      "composition": {
+        "totalValue": 11781.11209041765,
+        "pricedCount": 9,
+        "rows": [
+          {
+            "ticker": "MSFT",
+            "value": 1598.05287780321,
+            "weight": 13.564533344038136
+          },
+          {
+            "ticker": "ORCL",
+            "value": 1495.8004379349602,
+            "weight": 12.6965979650732
+          },
+          {
+            "ticker": "AMZN",
+            "value": 1372.9381959923203,
+            "weight": 11.65372322625655
+          },
+          {
+            "ticker": "NVDA",
+            "value": 1357.84778880212,
+            "weight": 11.525633389962792
+          },
+          {
+            "ticker": "TSM",
+            "value": 1296.4413922508002,
+            "weight": 11.004405885462043
+          },
+          {
+            "ticker": "GOOGL",
+            "value": 1240.1541737661,
+            "weight": 10.526630798927707
+          },
+          {
+            "ticker": "ASML",
+            "value": 1236.60813181602,
+            "weight": 10.496531416773756
+          },
+          {
+            "ticker": "MU",
+            "value": 1122.40006959847,
+            "weight": 9.527114766282477
+          },
+          {
+            "ticker": "SKHY",
+            "value": 1060.86902245365,
+            "weight": 9.00482920722335
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "833c0e60-5194-414a-87f9-1a335f4887a8",
+      "portfolioName": "P2 részvény",
+      "displayCurrency": "EUR",
+      "itemCount": 9,
+      "seriesLength": 21,
+      "firstDate": "2026-07-10",
+      "lastDate": "2026-08-07",
+      "totalValue": 10189.483827190303,
+      "periodChangePct": 0.6084781454917046,
+      "periodHigh": 10487.813748029293,
+      "periodLow": 8729.292885904018,
+      "pnl": {
+        "pnl": 577.7000713269445,
+        "pnlPct": 6.010331547196296,
+        "costedCount": 9,
+        "totalCount": 9
+      },
+      "formatted": {
+        "totalValue": "10 189,48 €",
+        "pnl": "+577,70 € (+6,01%)"
+      },
+      "composition": {
+        "totalValue": 10189.483827190303,
+        "pricedCount": 9,
+        "rows": [
+          {
+            "ticker": "MSFT",
+            "value": 1382.1559313246014,
+            "weight": 13.564533344038132
+          },
+          {
+            "ticker": "ORCL",
+            "value": 1293.7177962545065,
+            "weight": 12.696597965073197
+          },
+          {
+            "ticker": "AMZN",
+            "value": 1187.454243404931,
+            "weight": 11.653723226256549
+          },
+          {
+            "ticker": "NVDA",
+            "value": 1174.402550251504,
+            "weight": 11.52563338996279
+          },
+          {
+            "ticker": "TSM",
+            "value": 1121.2921579775325,
+            "weight": 11.004405885462042
+          },
+          {
+            "ticker": "GOOGL",
+            "value": 1072.6093428047718,
+            "weight": 10.526630798927705
+          },
+          {
+            "ticker": "ASML",
+            "value": 1069.542371128111,
+            "weight": 10.496531416773754
+          },
+          {
+            "ticker": "MU",
+            "value": 970.7638183082121,
+            "weight": 9.527114766282475
+          },
+          {
+            "ticker": "SKHY",
+            "value": 917.545615736132,
+            "weight": 9.00482920722335
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "833c0e60-5194-414a-87f9-1a335f4887a8",
+      "portfolioName": "P2 részvény",
+      "displayCurrency": "HUF",
+      "itemCount": 9,
+      "seriesLength": 21,
+      "firstDate": "2026-07-10",
+      "lastDate": "2026-08-07",
+      "totalValue": 3697619.5448445496,
+      "periodChangePct": 2.3589660739784737,
+      "periodHigh": 3789806.93223125,
+      "periodLow": 3166619.7170651383,
+      "pnl": {
+        "pnl": 218001.52341882885,
+        "pnlPct": 6.265099274589514,
+        "costedCount": 9,
+        "totalCount": 9
+      },
+      "formatted": {
+        "totalValue": "3 697 619,54 HUF",
+        "pnl": "+218 001,52 HUF (+6,27%)"
+      },
+      "composition": {
+        "totalValue": 3697619.5448445496,
+        "pricedCount": 9,
+        "rows": [
+          {
+            "ticker": "MSFT",
+            "value": 501564.83609610994,
+            "weight": 13.564533344038132
+          },
+          {
+            "ticker": "ORCL",
+            "value": 469471.88788688194,
+            "weight": 12.696597965073197
+          },
+          {
+            "ticker": "AMZN",
+            "value": 430910.3477161509,
+            "weight": 11.653723226256547
+          },
+          {
+            "ticker": "NVDA",
+            "value": 426174.0728943936,
+            "weight": 11.52563338996279
+          },
+          {
+            "ticker": "TSM",
+            "value": 406901.06281486835,
+            "weight": 11.00440588546204
+          },
+          {
+            "ticker": "GOOGL",
+            "value": 389234.75783477677,
+            "weight": 10.526630798927705
+          },
+          {
+            "ticker": "ASML",
+            "value": 388121.79719737486,
+            "weight": 10.496531416773754
+          },
+          {
+            "ticker": "MU",
+            "value": 352276.45765783195,
+            "weight": 9.527114766282475
+          },
+          {
+            "ticker": "SKHY",
+            "value": 332964.32474616106,
+            "weight": 9.004829207223349
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "079f3885-d93e-4244-a415-6c48c1f4f2c1",
+      "portfolioName": "P3 ETF euro",
+      "displayCurrency": "USD",
+      "itemCount": 2,
+      "seriesLength": 913,
+      "firstDate": "2023-01-02",
+      "lastDate": "2026-08-07",
+      "totalValue": 1450.8966382702356,
+      "periodChangePct": 221.28278559420104,
+      "periodHigh": 1594.6734193303682,
+      "periodLow": 444.1827890005568,
+      "pnl": {
+        "pnl": 87.12071022643067,
+        "pnlPct": 6.388198268860508,
+        "costedCount": 2,
+        "totalCount": 2
+      },
+      "formatted": {
+        "totalValue": "1450,90 $",
+        "pnl": "+87,12 $ (+6,39%)"
+      },
+      "composition": {
+        "totalValue": 1450.8966382702356,
+        "pricedCount": 2,
+        "rows": [
+          {
+            "ticker": "XAIX.DE",
+            "value": 844.7225129154157,
+            "weight": 58.22072300908334
+          },
+          {
+            "ticker": "WTI2.DE",
+            "value": 606.17412535482,
+            "weight": 41.77927699091667
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "079f3885-d93e-4244-a415-6c48c1f4f2c1",
+      "portfolioName": "P3 ETF euro",
+      "displayCurrency": "EUR",
+      "itemCount": 2,
+      "seriesLength": 913,
+      "firstDate": "2023-01-02",
+      "lastDate": "2026-08-07",
+      "totalValue": 1254.8805,
+      "periodChangePct": 197.59938928212907,
+      "periodHigh": 1373.6039,
+      "periodLow": 414.7468,
+      "pnl": {
+        "pnl": 60.4855,
+        "pnlPct": 5.0641119562623755,
+        "costedCount": 2,
+        "totalCount": 2
+      },
+      "formatted": {
+        "totalValue": "1254,88 €",
+        "pnl": "+60,49 € (+5,06%)"
+      },
+      "composition": {
+        "totalValue": 1254.8805,
+        "pricedCount": 2,
+        "rows": [
+          {
+            "ticker": "XAIX.DE",
+            "value": 730.6005,
+            "weight": 58.22072300908334
+          },
+          {
+            "ticker": "WTI2.DE",
+            "value": 524.28,
+            "weight": 41.779276990916664
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "079f3885-d93e-4244-a415-6c48c1f4f2c1",
+      "portfolioName": "P3 ETF euro",
+      "displayCurrency": "HUF",
+      "itemCount": 2,
+      "seriesLength": 913,
+      "firstDate": "2023-01-02",
+      "lastDate": "2026-08-07",
+      "totalValue": 455378.38245176105,
+      "periodChangePct": 171.74873384160648,
+      "periodHigh": 488078.4893397187,
+      "periodLow": 164822.91462753434,
+      "pnl": {
+        "pnl": 23279.624171843287,
+        "pnlPct": 5.3875702546598205,
+        "costedCount": 2,
+        "totalCount": 2
+      },
+      "formatted": {
+        "totalValue": "455 378,38 HUF",
+        "pnl": "+23 279,62 HUF (+5,39%)"
+      },
+      "composition": {
+        "totalValue": 455378.38245176105,
+        "pricedCount": 2,
+        "rows": [
+          {
+            "ticker": "XAIX.DE",
+            "value": 265124.58669048396,
+            "weight": 58.22072300908334
+          },
+          {
+            "ticker": "WTI2.DE",
+            "value": 190253.79576127708,
+            "weight": 41.779276990916664
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "0527f1c8-4f83-49cc-b915-f61e9bc8b080",
+      "portfolioName": "P4 ETF $",
+      "displayCurrency": "USD",
+      "itemCount": 4,
+      "seriesLength": 21,
+      "firstDate": "2026-07-09",
+      "lastDate": "2026-08-07",
+      "totalValue": 5210.6567593096015,
+      "periodChangePct": 2.017376208286708,
+      "periodHigh": 5221.45703671717,
+      "periodLow": 4946.569367056648,
+      "pnl": {
+        "pnl": 176.78969950810097,
+        "pnlPct": 3.5120057285555784,
+        "costedCount": 4,
+        "totalCount": 4
+      },
+      "formatted": {
+        "totalValue": "5210,66 $",
+        "pnl": "+176,79 $ (+3,51%)"
+      },
+      "composition": {
+        "totalValue": 5210.6567593096015,
+        "pricedCount": 4,
+        "rows": [
+          {
+            "ticker": "IQQ",
+            "value": 1320.8400000000001,
+            "weight": 25.348819947507117
+          },
+          {
+            "ticker": "URTH",
+            "value": 1312.549890241469,
+            "weight": 25.1897208139148
+          },
+          {
+            "ticker": "IVV",
+            "value": 1309.9373979681325,
+            "weight": 25.13958332848805
+          },
+          {
+            "ticker": "IYH",
+            "value": 1267.3294711,
+            "weight": 24.321875910090036
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "0527f1c8-4f83-49cc-b915-f61e9bc8b080",
+      "portfolioName": "P4 ETF $",
+      "displayCurrency": "EUR",
+      "itemCount": 4,
+      "seriesLength": 21,
+      "firstDate": "2026-07-09",
+      "lastDate": "2026-08-07",
+      "totalValue": 4506.697022364278,
+      "periodChangePct": 0.8824606765380056,
+      "periodHigh": 4517.865556805309,
+      "periodLow": 4305.248337904659,
+      "pnl": {
+        "pnl": 81.30049606861758,
+        "pnlPct": 1.837134719691916,
+        "costedCount": 4,
+        "totalCount": 4
+      },
+      "formatted": {
+        "totalValue": "4506,70 €",
+        "pnl": "+81,30 € (+1,84%)"
+      },
+      "composition": {
+        "totalValue": 4506.697022364278,
+        "pricedCount": 4,
+        "rows": [
+          {
+            "ticker": "IQQ",
+            "value": 1142.3945137787853,
+            "weight": 25.348819947507113
+          },
+          {
+            "ticker": "URTH",
+            "value": 1135.224397862573,
+            "weight": 25.189720813914796
+          },
+          {
+            "ticker": "IVV",
+            "value": 1132.9648532997576,
+            "weight": 25.13958332848805
+          },
+          {
+            "ticker": "IYH",
+            "value": 1096.1132574231622,
+            "weight": 24.321875910090032
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "0527f1c8-4f83-49cc-b915-f61e9bc8b080",
+      "portfolioName": "P4 ETF $",
+      "displayCurrency": "HUF",
+      "itemCount": 4,
+      "seriesLength": 21,
+      "firstDate": "2026-07-09",
+      "lastDate": "2026-08-07",
+      "totalValue": 1635416.5996239586,
+      "periodChangePct": 2.6377156298526137,
+      "periodHigh": 1647180.6304323394,
+      "periodLow": 1559125.1052140638,
+      "pnl": {
+        "pnl": 29390.338578677736,
+        "pnlPct": 1.8300036114944382,
+        "costedCount": 4,
+        "totalCount": 4
+      },
+      "formatted": {
+        "totalValue": "1 635 416,60 HUF",
+        "pnl": "+29 390,34 HUF (+1,83%)"
+      },
+      "composition": {
+        "totalValue": 1635416.5996239586,
+        "pricedCount": 4,
+        "rows": [
+          {
+            "ticker": "IQQ",
+            "value": 414558.8092303206,
+            "weight": 25.348819947507117
+          },
+          {
+            "ticker": "URTH",
+            "value": 411956.875589694,
+            "weight": 25.1897208139148
+          },
+          {
+            "ticker": "IVV",
+            "value": 411136.91883039096,
+            "weight": 25.139583328488058
+          },
+          {
+            "ticker": "IYH",
+            "value": 397763.99597355316,
+            "weight": 24.321875910090036
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "d425f3a7-43a3-4893-a64e-23651a9466fd",
+      "portfolioName": "P5 European ETF $",
+      "displayCurrency": "USD",
+      "itemCount": 4,
+      "seriesLength": 910,
+      "firstDate": "2023-01-03",
+      "lastDate": "2026-08-07",
+      "totalValue": 1337.968018235616,
+      "periodChangePct": 147.22130281359932,
+      "periodHigh": 1347.6365143576859,
+      "periodLow": 537.4938002999016,
+      "pnl": {
+        "pnl": 9.968018235616,
+        "pnlPct": 0.7506037828024097,
+        "costedCount": 4,
+        "totalCount": 4
+      },
+      "formatted": {
+        "totalValue": "1337,97 $",
+        "pnl": "+9,97 $ (+0,75%)"
+      },
+      "composition": {
+        "totalValue": 1337.968018235616,
+        "pricedCount": 4,
+        "rows": [
+          {
+            "ticker": "IUIT.L",
+            "value": 336.54883538853005,
+            "weight": 25.153727951759148
+          },
+          {
+            "ticker": "CNDX.L",
+            "value": 335.2991837217556,
+            "weight": 25.060328733710392
+          },
+          {
+            "ticker": "IWDA.L",
+            "value": 333.18779532874305,
+            "weight": 24.902523138641175
+          },
+          {
+            "ticker": "CSPX.L",
+            "value": 332.93220379658743,
+            "weight": 24.883420175889295
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "d425f3a7-43a3-4893-a64e-23651a9466fd",
+      "portfolioName": "P5 European ETF $",
+      "displayCurrency": "EUR",
+      "itemCount": 4,
+      "seriesLength": 910,
+      "firstDate": "2023-01-03",
+      "lastDate": "2026-08-07",
+      "totalValue": 1157.2085367219659,
+      "periodChangePct": 128.31270808547626,
+      "periodHigh": 1161.5511951710348,
+      "periodLow": 506.77648050603074,
+      "pnl": {
+        "pnl": 4.90290337405645,
+        "pnlPct": 0.4254863668254013,
+        "costedCount": 4,
+        "totalCount": 4
+      },
+      "formatted": {
+        "totalValue": "1157,21 €",
+        "pnl": "+4,90 € (+0,43%)"
+      },
+      "composition": {
+        "totalValue": 1157.2085367219659,
+        "pricedCount": 4,
+        "rows": [
+          {
+            "ticker": "IUIT.L",
+            "value": 291.08108716157614,
+            "weight": 25.153727951759148
+          },
+          {
+            "ticker": "CNDX.L",
+            "value": 290.0002634370844,
+            "weight": 25.060328733710396
+          },
+          {
+            "ticker": "IWDA.L",
+            "value": 288.17412361951847,
+            "weight": 24.902523138641172
+          },
+          {
+            "ticker": "CSPX.L",
+            "value": 287.9530625037869,
+            "weight": 24.88342017588929
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "d425f3a7-43a3-4893-a64e-23651a9466fd",
+      "portfolioName": "P5 European ETF $",
+      "displayCurrency": "HUF",
+      "itemCount": 4,
+      "seriesLength": 910,
+      "firstDate": "2023-01-03",
+      "lastDate": "2026-08-07",
+      "totalValue": 419934.60860362265,
+      "periodChangePct": 106.39146030713394,
+      "periodHigh": 422241.12531519914,
+      "periodLow": 200445.25739434033,
+      "pnl": {
+        "pnl": -646.9955813923152,
+        "pnlPct": -0.1538335426358068,
+        "costedCount": 4,
+        "totalCount": 4
+      },
+      "formatted": {
+        "totalValue": "419 934,61 HUF",
+        "pnl": "-647,00 HUF (-0,15%)"
+      },
+      "composition": {
+        "totalValue": 419934.60860362265,
+        "pricedCount": 4,
+        "rows": [
+          {
+            "ticker": "IUIT.L",
+            "value": 105629.20902343978,
+            "weight": 25.15372795175914
+          },
+          {
+            "ticker": "CNDX.L",
+            "value": 105236.99338268791,
+            "weight": 25.060328733710392
+          },
+          {
+            "ticker": "IWDA.L",
+            "value": 104574.31307467936,
+            "weight": 24.90252313864117
+          },
+          {
+            "ticker": "CSPX.L",
+            "value": 104494.09312281555,
+            "weight": 24.883420175889288
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "49d13257-9724-43e7-b4d3-a7aaa2aad445",
+      "portfolioName": "Lightyear TBSZ 2026",
+      "displayCurrency": "USD",
+      "itemCount": 3,
+      "seriesLength": 925,
+      "firstDate": "2023-01-03",
+      "lastDate": "2026-08-07",
+      "totalValue": 149.01862619896002,
+      "periodChangePct": 369.89995395903776,
+      "periodHigh": 152.46491147376,
+      "periodLow": 31.424138235673997,
+      "pnl": {
+        "pnl": 4.419058556280021,
+        "pnlPct": 3.056066230571281,
+        "costedCount": 3,
+        "totalCount": 3
+      },
+      "formatted": {
+        "totalValue": "149,02 $",
+        "pnl": "+4,42 $ (+3,06%)"
+      },
+      "composition": {
+        "totalValue": 149.01862619896002,
+        "pricedCount": 3,
+        "rows": [
+          {
+            "ticker": "NVDA",
+            "value": 81.69288608316,
+            "weight": 54.820587309729284
+          },
+          {
+            "ticker": "IUIT.L",
+            "value": 33.91902631847,
+            "weight": 22.761601810221705
+          },
+          {
+            "ticker": "IWDA.L",
+            "value": 33.40671379733,
+            "weight": 22.417810880048993
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "49d13257-9724-43e7-b4d3-a7aaa2aad445",
+      "portfolioName": "Lightyear TBSZ 2026",
+      "displayCurrency": "EUR",
+      "itemCount": 3,
+      "seriesLength": 925,
+      "firstDate": "2023-01-03",
+      "lastDate": "2026-08-07",
+      "totalValue": 128.88620954888057,
+      "periodChangePct": 333.9598966457955,
+      "periodHigh": 131.18537958918822,
+      "periodLow": 29.625214273550075,
+      "pnl": {
+        "pnl": 2.848583098920159,
+        "pnlPct": 2.2601053186693467,
+        "costedCount": 3,
+        "totalCount": 3
+      },
+      "formatted": {
+        "totalValue": "128,89 €",
+        "pnl": "+2,85 € (+2,26%)"
+      },
+      "composition": {
+        "totalValue": 128.88620954888057,
+        "pricedCount": 3,
+        "rows": [
+          {
+            "ticker": "NVDA",
+            "value": 70.65617703594474,
+            "weight": 54.8205873097293
+          },
+          {
+            "ticker": "IUIT.L",
+            "value": 29.336565805804153,
+            "weight": 22.761601810221716
+          },
+          {
+            "ticker": "IWDA.L",
+            "value": 28.8934667071317,
+            "weight": 22.417810880049
+          }
+        ]
+      }
+    },
+    {
+      "portfolioId": "49d13257-9724-43e7-b4d3-a7aaa2aad445",
+      "portfolioName": "Lightyear TBSZ 2026",
+      "displayCurrency": "HUF",
+      "itemCount": 3,
+      "seriesLength": 925,
+      "firstDate": "2023-01-03",
+      "lastDate": "2026-08-07",
+      "totalValue": 46770.98227656576,
+      "periodChangePct": 292.2936114004082,
+      "periodHigh": 47080.29288789857,
+      "periodLow": 11769.652758272383,
+      "pnl": {
+        "pnl": 1117.4096607207903,
+        "pnlPct": 2.4475842671137884,
+        "costedCount": 3,
+        "totalCount": 3
+      },
+      "formatted": {
+        "totalValue": "46 770,98 HUF",
+        "pnl": "+1117,41 HUF (+2,45%)"
+      },
+      "composition": {
+        "totalValue": 46770.98227656576,
+        "pricedCount": 3,
+        "rows": [
+          {
+            "ticker": "NVDA",
+            "value": 25640.127174542748,
+            "weight": 54.8205873097293
+          },
+          {
+            "ticker": "IUIT.L",
+            "value": 10645.824748521265,
+            "weight": 22.761601810221705
+          },
+          {
+            "ticker": "IWDA.L",
+            "value": 10485.030353501747,
+            "weight": 22.417810880048997
+          }
+        ]
+      }
+    }
+  ]
+}

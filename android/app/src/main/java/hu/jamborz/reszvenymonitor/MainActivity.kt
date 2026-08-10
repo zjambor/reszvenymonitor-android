@@ -20,8 +20,11 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import hu.jamborz.reszvenymonitor.ui.login.AuthViewModel
 import hu.jamborz.reszvenymonitor.ui.login.LoginScreen
+import hu.jamborz.reszvenymonitor.ui.monitor.Instrument
 import hu.jamborz.reszvenymonitor.ui.monitor.MonitorScreen
 import hu.jamborz.reszvenymonitor.ui.monitor.MonitorViewModel
+import hu.jamborz.reszvenymonitor.ui.portfolio.PortfolioScreen
+import hu.jamborz.reszvenymonitor.ui.portfolio.PortfolioViewModel
 import hu.jamborz.reszvenymonitor.ui.search.SearchScreen
 import hu.jamborz.reszvenymonitor.ui.search.SearchViewModel
 import hu.jamborz.reszvenymonitor.ui.theme.LocalMonitorColors
@@ -84,18 +87,32 @@ private fun Monitor(container: AppContainer, userName: String, onLogout: () -> U
             tickerRepo = container.tickerRepository,
             priceRepo = container.priceRepository,
             fxRepo = container.fxRepository,
+            portfolioRepo = container.portfolioRepository,
             settings = container.settingsRepository,
         )
     }
     val searchViewModel: SearchViewModel = viewModel(key = "search-$userName") {
         SearchViewModel(tickerRepo = container.tickerRepository)
     }
+    val portfolioViewModel: PortfolioViewModel = viewModel(key = "portfolio-$userName") {
+        PortfolioViewModel(repo = container.portfolioRepository)
+    }
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val searchState by searchViewModel.uiState.collectAsStateWithLifecycle()
+    val portfolioState by portfolioViewModel.uiState.collectAsStateWithLifecycle()
     var showSearch by rememberSaveable { mutableStateOf(false) }
+    var showPortfolios by rememberSaveable { mutableStateOf(false) }
 
-    // A kereső mindig a friss tickerlistából dolgozik (felvétel/törlés után is).
-    LaunchedEffect(state.tickers) { searchViewModel.setTickers(state.tickers) }
+    // A kereső és a kezelő mindig a friss listákból dolgozik.
+    LaunchedEffect(state.tickers, state.portfolios) {
+        searchViewModel.setCatalog(state.tickers, state.portfolios)
+        portfolioViewModel.setPortfolios(state.portfolios)
+    }
+
+    // Portfólió-írás után a fő nézet (és vele a kereső listája) frissül.
+    LaunchedEffect(portfolioState.changeNonce) {
+        if (portfolioState.changeNonce > 0) viewModel.reloadPortfolios()
+    }
 
     // Felvétel vagy „már felvéve" után: lista újratöltése, majd az érintett
     // ticker kiválasztása és visszalépés a fő nézetre (webes viselkedés).
@@ -111,7 +128,11 @@ private fun Monitor(container: AppContainer, userName: String, onLogout: () -> U
             state = searchState,
             onQueryChange = searchViewModel::onQueryChange,
             onPickTicker = { ticker ->
-                viewModel.select(ticker)
+                viewModel.select(Instrument.Stock(ticker))
+                showSearch = false
+            },
+            onPickPortfolio = { portfolio ->
+                viewModel.select(Instrument.Portfolio(portfolio))
                 showSearch = false
             },
             onPickHit = { hit -> searchViewModel.addTicker(hit.symbol) },
@@ -120,6 +141,28 @@ private fun Monitor(container: AppContainer, userName: String, onLogout: () -> U
             onBack = { showSearch = false },
         )
         BackHandler { showSearch = false }
+        return
+    }
+
+    if (showPortfolios) {
+        PortfolioScreen(
+            state = portfolioState,
+            onOpenEditor = portfolioViewModel::openEditor,
+            onCreate = portfolioViewModel::createPortfolio,
+            onRename = portfolioViewModel::renamePortfolio,
+            onDeletePortfolio = portfolioViewModel::deletePortfolio,
+            onUpsertItem = portfolioViewModel::upsertItem,
+            onDeleteItem = portfolioViewModel::deleteItem,
+            onOpenPortfolioView = { portfolio ->
+                viewModel.select(Instrument.Portfolio(portfolio))
+                showPortfolios = false
+            },
+            onBack = { showPortfolios = false },
+        )
+        BackHandler {
+            if (portfolioState.editingId != null) portfolioViewModel.openEditor(null)
+            else showPortfolios = false
+        }
         return
     }
 
@@ -138,6 +181,10 @@ private fun Monitor(container: AppContainer, userName: String, onLogout: () -> U
         onOpenSearch = {
             searchViewModel.onQueryChange("")
             showSearch = true
+        },
+        onOpenPortfolios = {
+            portfolioViewModel.openEditor(null)
+            showPortfolios = true
         },
         onDeleteTicker = viewModel::deleteTicker,
     )

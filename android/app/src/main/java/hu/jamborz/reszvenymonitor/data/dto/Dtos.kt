@@ -60,6 +60,31 @@ data class SyncResponseDto(
 )
 
 /**
+ * stocks.portfolio_items sor. A `quantity` és a `purchase_price` a PostgREST-en
+ * numeric — a szerializáció Double-ként kezeli (a webes Number() párja).
+ */
+@Serializable
+data class PortfolioItemDto(
+    @SerialName("portfolio_id") val portfolioId: String? = null,
+    val ticker: String,
+    val quantity: Double,
+    @SerialName("purchase_price") val purchasePrice: Double? = null,
+    /** A bekerülési ár átváltásához KELL: a vásárlás NAPI árfolyama számít (7. invariáns). */
+    @SerialName("purchase_date") val purchaseDate: String? = null,
+)
+
+/** stocks.portfolios sor a beágyazott tételeivel (PostgREST resource embedding). */
+@Serializable
+data class PortfolioDto(
+    val id: String,
+    val name: String,
+    /** A portfólió létrehozásakor rögzült deviza — FX-kiesésnél tartalék. */
+    val currency: String? = null,
+    @SerialName("created_at") val createdAt: String? = null,
+    @SerialName("portfolio_items") val items: List<PortfolioItemDto> = emptyList(),
+)
+
+/**
  * Tőzsdei kereső-találat (sync-prices `search`). A `currency` a legfontosabb
  * megkülönböztető: ugyanaz az alap tőzsdénként MÁS devizában fut
  * (IWDA.AS EUR vs SWDA.L GBp) — rossz jegyzés csendben rossz adatsort hozna.

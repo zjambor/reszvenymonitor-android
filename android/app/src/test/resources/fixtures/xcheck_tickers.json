@@ -1,0 +1,282 @@
+﻿[
+    {
+        "symbol":  "AIAG.L",
+        "currency":  "GBp",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "XAIX.DE",
+        "currency":  "EUR",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "NVDA",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "IBM",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "AAPL",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "MSFT",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "GOOGL",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "META",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "AMZN",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "ORCL",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "CRM",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "ADBE",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "INTC",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "AMD",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "CSCO",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "AVGO",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "QCOM",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "TXN",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "NOW",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "INTU",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "ACN",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "AMAT",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "MU",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "PLTR",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "TSM",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "ASML",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "SAP",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "SNOW",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "CRWD",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "SKHY",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "AIQ",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "BOTZ",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "ROBT",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "CHAT",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "WTAI",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "THNQ",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "ARKQ",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "XAIX",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "ARTY",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "AIAI.L",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "WTI2.DE",
+        "currency":  "EUR",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "NBIS",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    },
+    {
+        "symbol":  "IVV",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "URTH",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "IQQ",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "IYH",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "IEF",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "EUHY",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "VWCE.DE",
+        "currency":  "EUR",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "SXR8.DE",
+        "currency":  "EUR",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "CSPX.L",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "IWDA.L",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "CNDX.L",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "IUIT.L",
+        "currency":  "USD",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "SXR8.BD",
+        "currency":  "HUF",
+        "asset_type":  "etf"
+    },
+    {
+        "symbol":  "SNDK",
+        "currency":  "USD",
+        "asset_type":  "stock"
+    }
+]

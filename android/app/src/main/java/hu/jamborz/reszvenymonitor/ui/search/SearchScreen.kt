@@ -41,6 +41,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import hu.jamborz.reszvenymonitor.data.dto.PortfolioDto
 import hu.jamborz.reszvenymonitor.data.dto.SearchHitDto
 import hu.jamborz.reszvenymonitor.data.dto.TickerDto
 import hu.jamborz.reszvenymonitor.ui.theme.BadgeKind
@@ -57,6 +58,7 @@ fun SearchScreen(
     state: SearchViewModel.UiState,
     onQueryChange: (String) -> Unit,
     onPickTicker: (TickerDto) -> Unit,
+    onPickPortfolio: (PortfolioDto) -> Unit,
     onPickHit: (SearchHitDto) -> Unit,
     onAdd: (String) -> Unit,
     onSearchExchanges: () -> Unit,
@@ -130,6 +132,12 @@ fun SearchScreen(
                     val stocks = state.localHits.filterNot { it.isEtf }
                     val etfs = state.localHits.filter { it.isEtf }
 
+                    if (state.portfolioHits.isNotEmpty()) {
+                        item { GroupHeader("Portfóliók") }
+                        items(state.portfolioHits, key = { "p-${it.id}" }) { p ->
+                            PortfolioRow(p) { onPickPortfolio(p) }
+                        }
+                    }
                     if (stocks.isNotEmpty()) {
                         item { GroupHeader("Részvények") }
                         items(stocks, key = { "s-${it.symbol}" }) { t ->
@@ -293,6 +301,44 @@ private fun TickerRow(ticker: TickerDto, onClick: () -> Unit) {
         )
         ticker.exchange?.let { MonitorBadge(it) }
         if (ticker.isEtf) MonitorBadge("ETF", BadgeKind.Etf)
+    }
+}
+
+/** Portfólió sora a keresőben — lila PORTFÓLIÓ-badge-dzsel, mint a weben. */
+@Composable
+private fun PortfolioRow(portfolio: PortfolioDto, onClick: () -> Unit) {
+    val palette = LocalMonitorColors.current
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(MaterialTheme.shapes.small)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 10.dp, vertical = 11.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(9.dp),
+    ) {
+        Box(
+            modifier = Modifier
+                .size(9.dp)
+                .clip(CircleShape)
+                .background(palette.portfolio),
+        )
+        Text(
+            text = portfolio.name,
+            fontSize = 14.5.sp,
+            fontWeight = FontWeight.SemiBold,
+            color = palette.text,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.weight(1f, fill = false),
+        )
+        Text(
+            text = if (portfolio.items.isEmpty()) "üres" else "${portfolio.items.size} elem",
+            fontSize = 13.sp,
+            color = palette.textDim,
+            modifier = Modifier.weight(1f),
+        )
+        MonitorBadge("Portfólió", BadgeKind.Portfolio)
     }
 }
 

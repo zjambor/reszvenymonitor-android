@@ -1,0 +1,211 @@
+﻿[
+    {
+        "id":  "a421092c-712b-45b9-a155-f95fb74887ec",
+        "name":  "P1",
+        "currency":  "USD",
+        "created_at":  "2026-07-18T20:51:59.174266+00:00",
+        "portfolio_items":  [
+                                {
+                                    "ticker":  "NVDA",
+                                    "quantity":  0.364765521,
+                                    "portfolio_id":  "a421092c-712b-45b9-a155-f95fb74887ec",
+                                    "purchase_date":  "2026-07-22",
+                                    "purchase_price":  213.84
+                                }
+                            ]
+    },
+    {
+        "id":  "833c0e60-5194-414a-87f9-1a335f4887a8",
+        "name":  "P2 részvény",
+        "currency":  "USD",
+        "created_at":  "2026-07-20T12:34:02.488539+00:00",
+        "portfolio_items":  [
+                                {
+                                    "ticker":  "NVDA",
+                                    "quantity":  6.062903147,
+                                    "portfolio_id":  "833c0e60-5194-414a-87f9-1a335f4887a8",
+                                    "purchase_date":  "2026-07-20",
+                                    "purchase_price":  202.81
+                                },
+                                {
+                                    "ticker":  "GOOGL",
+                                    "quantity":  3.500294027,
+                                    "portfolio_id":  "833c0e60-5194-414a-87f9-1a335f4887a8",
+                                    "purchase_date":  "2026-07-20",
+                                    "purchase_price":  346.77
+                                },
+                                {
+                                    "ticker":  "ORCL",
+                                    "quantity":  10.174128948,
+                                    "portfolio_id":  "833c0e60-5194-414a-87f9-1a335f4887a8",
+                                    "purchase_date":  "2026-07-20",
+                                    "purchase_price":  126.41
+                                },
+                                {
+                                    "ticker":  "TSM",
+                                    "quantity":  3.08647127,
+                                    "portfolio_id":  "833c0e60-5194-414a-87f9-1a335f4887a8",
+                                    "purchase_date":  "2026-07-20",
+                                    "purchase_price":  398.37
+                                },
+                                {
+                                    "ticker":  "MU",
+                                    "quantity":  1.278986371,
+                                    "portfolio_id":  "833c0e60-5194-414a-87f9-1a335f4887a8",
+                                    "purchase_date":  "2026-07-20",
+                                    "purchase_price":  848.95
+                                },
+                                {
+                                    "ticker":  "MSFT",
+                                    "quantity":  3.196169679,
+                                    "portfolio_id":  "833c0e60-5194-414a-87f9-1a335f4887a8",
+                                    "purchase_date":  "2026-07-20",
+                                    "purchase_price":  393.82
+                                },
+                                {
+                                    "ticker":  "AMZN",
+                                    "quantity":  5.001960784,
+                                    "portfolio_id":  "833c0e60-5194-414a-87f9-1a335f4887a8",
+                                    "purchase_date":  "2026-07-20",
+                                    "purchase_price":  247.23
+                                },
+                                {
+                                    "ticker":  "ASML",
+                                    "quantity":  0.710290198,
+                                    "portfolio_id":  "833c0e60-5194-414a-87f9-1a335f4887a8",
+                                    "purchase_date":  "2026-07-20",
+                                    "purchase_price":  1747.58
+                                },
+                                {
+                                    "ticker":  "SKHY",
+                                    "quantity":  7.692473515,
+                                    "portfolio_id":  "833c0e60-5194-414a-87f9-1a335f4887a8",
+                                    "purchase_date":  "2026-07-24",
+                                    "purchase_price":  154.57
+                                }
+                            ]
+    },
+    {
+        "id":  "079f3885-d93e-4244-a415-6c48c1f4f2c1",
+        "name":  "P3 ETF euro",
+        "currency":  "EUR",
+        "created_at":  "2026-07-20T12:46:23.710587+00:00",
+        "portfolio_items":  [
+                                {
+                                    "ticker":  "XAIX.DE",
+                                    "quantity":  3.57,
+                                    "portfolio_id":  "079f3885-d93e-4244-a415-6c48c1f4f2c1",
+                                    "purchase_date":  "2026-07-20",
+                                    "purchase_price":  193.38
+                                },
+                                {
+                                    "ticker":  "WTI2.DE",
+                                    "quantity":  5.14,
+                                    "portfolio_id":  "079f3885-d93e-4244-a415-6c48c1f4f2c1",
+                                    "purchase_date":  "2026-07-20",
+                                    "purchase_price":  98.06
+                                }
+                            ]
+    },
+    {
+        "id":  "0527f1c8-4f83-49cc-b915-f61e9bc8b080",
+        "name":  "P4 ETF $",
+        "currency":  "USD",
+        "created_at":  "2026-07-25T19:38:31.359095+00:00",
+        "portfolio_items":  [
+                                {
+                                    "ticker":  "IVV",
+                                    "quantity":  1.68647715160755,
+                                    "portfolio_id":  "0527f1c8-4f83-49cc-b915-f61e9bc8b080",
+                                    "purchase_date":  "2026-07-24",
+                                    "purchase_price":  741.19
+                                },
+                                {
+                                    "ticker":  "URTH",
+                                    "quantity":  6.23628018359609,
+                                    "portfolio_id":  "0527f1c8-4f83-49cc-b915-f61e9bc8b080",
+                                    "purchase_date":  "2026-07-24",
+                                    "purchase_price":  200.44
+                                },
+                                {
+                                    "ticker":  "IQQ",
+                                    "quantity":  54,
+                                    "portfolio_id":  "0527f1c8-4f83-49cc-b915-f61e9bc8b080",
+                                    "purchase_date":  "2026-07-24",
+                                    "purchase_price":  23.27
+                                },
+                                {
+                                    "ticker":  "IYH",
+                                    "quantity":  18.10470673,
+                                    "portfolio_id":  "0527f1c8-4f83-49cc-b915-f61e9bc8b080",
+                                    "purchase_date":  "2026-07-27",
+                                    "purchase_price":  70.55
+                                }
+                            ]
+    },
+    {
+        "id":  "d425f3a7-43a3-4893-a64e-23651a9466fd",
+        "name":  "P5 European ETF $",
+        "currency":  "USD",
+        "created_at":  "2026-08-06T15:45:04.582273+00:00",
+        "portfolio_items":  [
+                                {
+                                    "ticker":  "IWDA.L",
+                                    "quantity":  2.2411232617793977,
+                                    "portfolio_id":  "d425f3a7-43a3-4893-a64e-23651a9466fd",
+                                    "purchase_date":  "2026-08-06",
+                                    "purchase_price":  148.14
+                                },
+                                {
+                                    "ticker":  "CSPX.L",
+                                    "quantity":  0.39837769084931246,
+                                    "portfolio_id":  "d425f3a7-43a3-4893-a64e-23651a9466fd",
+                                    "purchase_date":  "2026-08-06",
+                                    "purchase_price":  833.38
+                                },
+                                {
+                                    "ticker":  "CNDX.L",
+                                    "quantity":  0.19637998343783272,
+                                    "portfolio_id":  "d425f3a7-43a3-4893-a64e-23651a9466fd",
+                                    "purchase_date":  "2026-08-06",
+                                    "purchase_price":  1690.6
+                                },
+                                {
+                                    "ticker":  "IUIT.L",
+                                    "quantity":  6.498336269328636,
+                                    "portfolio_id":  "d425f3a7-43a3-4893-a64e-23651a9466fd",
+                                    "purchase_date":  "2026-08-06",
+                                    "purchase_price":  51.09
+                                }
+                            ]
+    },
+    {
+        "id":  "49d13257-9724-43e7-b4d3-a7aaa2aad445",
+        "name":  "Lightyear TBSZ 2026",
+        "currency":  "USD",
+        "created_at":  "2026-08-09T12:03:36.50681+00:00",
+        "portfolio_items":  [
+                                {
+                                    "ticker":  "IUIT.L",
+                                    "quantity":  0.654933893,
+                                    "portfolio_id":  "49d13257-9724-43e7-b4d3-a7aaa2aad445",
+                                    "purchase_date":  "2026-08-05",
+                                    "purchase_price":  51.3
+                                },
+                                {
+                                    "ticker":  "IWDA.L",
+                                    "quantity":  0.224703799,
+                                    "portfolio_id":  "49d13257-9724-43e7-b4d3-a7aaa2aad445",
+                                    "purchase_date":  "2026-08-04",
+                                    "purchase_price":  146.86
+                                },
+                                {
+                                    "ticker":  "NVDA",
+                                    "quantity":  0.364765521,
+                                    "portfolio_id":  "49d13257-9724-43e7-b4d3-a7aaa2aad445",
+                                    "purchase_date":  "2026-07-22",
+                                    "purchase_price":  213.84
+                                }
+                            ]
+    }
+]
