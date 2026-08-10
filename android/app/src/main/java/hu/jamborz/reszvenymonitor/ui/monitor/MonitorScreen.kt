@@ -8,6 +8,7 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -39,6 +40,8 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -362,31 +365,28 @@ private fun IdentityHeader(
     MonitorCard(contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 16.dp, vertical = 14.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             AccentDot()
-            // MINDKETTŐ súlyozott: így a hosszú cégnév nem szoríthatja ki a
-            // szimbólumot (mérve: az „iShares Core S&P 500 UCITS ETF USD (Acc)"
-            // mellől az SXR8.DE puszta „…"-ra zsugorodott).
+            // EGY szövegblokk, két stílussal: a szimbólum és a cégnév így a TELJES
+            // szélességen osztozik, és szűk helyen a másodlagos rész (a név) vágódik,
+            // nem az azonosító. Két külön, súlyozott Text-tel mindkettő a saját
+            // felét kapná — mérve: a telefon nagyobb betűméretén a „NVIDIA
+            // Corporation" fele levágódott, pedig a sor másik fele üres maradt.
             Text(
-                text = instrument.title,
+                text = buildAnnotatedString {
+                    append(instrument.title)
+                    if (instrument.subtitle.isNotEmpty()) {
+                        append("  ")
+                        withStyle(
+                            MaterialTheme.typography.bodyMedium.toSpanStyle()
+                                .copy(color = palette.textDim)
+                        ) { append(instrument.subtitle) }
+                    }
+                },
                 style = MaterialTheme.typography.headlineSmall,
                 color = palette.text,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
-                modifier = Modifier
-                    .padding(start = 12.dp)
-                    .weight(1f, fill = false),
+                modifier = Modifier.padding(start = 12.dp),
             )
-            if (instrument.subtitle.isNotEmpty()) {
-                Text(
-                    text = instrument.subtitle,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = palette.textDim,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier
-                        .padding(start = 12.dp)
-                        .weight(1f, fill = false),
-                )
-            }
         }
         ChipRow(modifier = Modifier.padding(top = 10.dp)) {
             if (instrument.isPortfolio) {
@@ -411,16 +411,20 @@ private fun IdentityHeader(
                 InfoChip("Bevezetés: ${Format.formatDateHu(ipo)}")
             }
         }
-        Row(
+        // TÖRDELŐ sor: ami nem fér ki, az a következő sorba csúszik. Fix Row-val a
+        // súlyozott dátumszöveg pár képpontra szorult, és szavanként tördelődött
+        // (mérve valós készüléken, nagyobb rendszer-betűmérettel — az emulátor
+        // alapbeállításán még kifért).
+        FlowRow(
             modifier = Modifier.padding(top = 10.dp),
-            verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+            itemVerticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
                 text = "Utolsó adatnap: ${state.lastDate?.let { Format.formatDateHu(it) } ?: "—"}",
                 style = MaterialTheme.typography.bodySmall,
                 color = palette.textFaint,
-                modifier = Modifier.weight(1f),
             )
             if (state.stale) WarnChip("Elavult lehet")
             // Részletek: tickernél profil/ETF-összetétel a szervertől, portfóliónál

@@ -9,6 +9,7 @@ import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -159,14 +160,20 @@ private fun PortfolioList(
     ) {
         items(portfolios, key = { it.id }) { p ->
             MonitorCard {
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                // TÖRDELŐ sor: nagy rendszer-betűméretnél a gombok a név ALÁ
+                // csúsznak, ahelyett hogy a nevet levágnák („P5 Europ…").
+                FlowRow(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(6.dp),
+                    itemVerticalAlignment = Alignment.CenterVertically,
+                ) {
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
                             text = p.name,
                             fontSize = 15.sp,
                             fontWeight = FontWeight.SemiBold,
                             color = palette.text,
-                            maxLines = 1,
+                            maxLines = 2,
                             overflow = TextOverflow.Ellipsis,
                         )
                         Text(
@@ -176,7 +183,6 @@ private fun PortfolioList(
                         )
                     }
                     SmallButton("Megnyitás") { onView(p) }
-                    Box(modifier = Modifier.width(8.dp))
                     SmallButton("Szerkesztés") { onOpen(p) }
                 }
             }
